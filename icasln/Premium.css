@@ -1,0 +1,459 @@
+﻿.headerr {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    color: white;
+    background-color: #080636;
+}
+.main-header{
+    padding-left:200px;
+}
+
+
+
+body {
+    background-color: rgba(0, 0, 34, 1);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px;
+}
+
+.oop {
+    text-align: center;
+    font-size: 50px;
+    padding-top: 100px;
+   
+    color: white; /* Set title color to white */
+    text-shadow: 1px 1px 20px #CDEEFF;
+}
+
+.feature img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+}
+
+.feature-text {
+    max-width: 600px;
+    margin: 0 20px;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    padding:40px;
+}
+
+.feature h2 {
+    font-size: 2em; /* Increased font size */
+    margin-bottom: 1em; /* Increased spacing */
+    color: white; /* Set heading color to white */
+}
+
+.feature p {
+    font-size: 1.2em; /* Increased font size */
+    color: white; /* Set paragraph color to white */
+}
+
+@keyframes swirlInLeft {
+    0% {
+        transform: translateX(-1000px) rotate(-360deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes swirlInRight {
+    0% {
+        transform: translateX(1000px) rotate(360deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.animate {
+    animation-play-state: running;
+}
+
+.feature {
+    opacity: 0; /* Start elements as invisible */
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #CDEEFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    margin-bottom: 2em;
+}
+
+.get-started-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+    .get-started-btn:hover {
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+    }
+
+    .get-started-btn:focus {
+        border: 2px solid #2c2c54;
+    }
+.premiumm {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #CDEEFF;
+    background-image: url('office.jpg');
+    background-size: 100% 100%;
+   
+}
+
+.subscribe-button {
+    background-color: #CDEEFF;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Aligns text and arrow icon */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers items horizontally */
+}
+
+    .subscribe-button:hover {
+       /* Slightly darker shade for hover effect */
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+    }
+    .subscribe-button::after {
+        content: '→';
+        margin-left: 10px; /* Space between the text and the arrow */
+        transition: margin-left 0.3s ease; /* Smooth transition for the hover effect */
+    }
+
+    .subscribe-button:hover::after {
+        margin-left: 15px; /* Increases space on hover for a subtle effect */
+    }
+    .subscribe-button:hover .icon {
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+        /* Highlight color for title on hover */
+    }
+
+.header {
+    /* Adjust the background color to match your design */
+    background-color: rgba(205,238,255,0.65);
+    text-align: center;
+    padding: 60px 0;
+}
+
+    .header h1 {
+        font-size: 2.5em;
+        color: #333;
+    }
+
+    .header h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin: 10px 0;
+    }
+
+    .header .price {
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns cards to the top */
+    background-color: rgba(205, 238, 255, 0.65);
+    gap: 30px; /* Increased gap for visual separation */
+    padding: 40px;
+    padding-bottom: 150px;
+    flex-wrap: wrap; /* Allows the cards to wrap on smaller screens */
+}
+
+.card {
+    background: rgba(0, 0, 34, 1);
+    border: 1px solid #e0e0e0; /* Lighter border for subtlety */
+    border-radius: 10px; /* Modern rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px;
+    padding-top: 50px; /* Space for the icon */
+    text-align: center;
+    width: 300px; /* Fixed width */
+    height: auto; /* Height adjusts to content */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for hover effects */
+    cursor: pointer; /* Indicates the card is interactive */
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+
+.icon {
+    width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.2s; /* Smooth transition for the icon */
+}
+
+    .icon:hover {
+        transform: scale(1.1);
+        box-shadow: 1px 1px 20px 5px #CDEEFF; /* Slightly enlarges the icon on hover */
+    }
+
+.title {
+    color: white;
+    font-size: 20px; /* Slightly larger for emphasis */
+    font-weight: 600; /* Bolder font for title */
+    margin-bottom: 15px;
+    transition: color 0.2s;
+    /* Color transition for hover effect */
+}
+
+.card:hover .title {
+    text-shadow: 1px 1px 20px #CDEEFF;
+    /* Highlight color for title on hover */
+}
+.card:hover .icon {
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    /* Highlight color for title on hover */
+}
+.card:hover .description {
+    text-shadow: 1px 1px 20px #CDEEFF;
+    /* Highlight color for title on hover */
+}
+.card:hover {
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 34, 1);
+    /* Highlight color for title on hover */
+}
+.price {
+    font-size: 18px; /* Larger font size for emphasis */
+    font-weight: bold; /* Bolder font for visibility */
+    color: white; /* Color to make the price stand out */
+    margin-bottom: 10px; /* Space between price and description */
+}
+
+.card:hover .price {
+    text-shadow: 1px 1px 20px #CDEEFF;
+    /* Highlight color for title on hover */
+}
+
+
+.description {
+    color: white;
+    font-size: 16px; /* Larger font size for readability */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 20px; /* Space below the text */
+}
+@keyframes swirlInFromLeft {
+    from {
+        transform: translateX(-100%) rotate(-360deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes swirlInFromRight {
+    from {
+        transform: translateX(100%) rotate(360deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+.card {
+    /* existing styles */
+    opacity: 0; /* Start with the cards hidden */
+    transform: translateX(-100%); /* Positioned for left swirl animation */
+}
+
+    .card:nth-child(odd) {
+        transform: translateX(100%); /* Positioned for right swirl animation for odd cards */
+    }
+    .card.swirl-in-left {
+        animation: swirlInFromLeft 1s forwards;
+    }
+
+    .card.swirl-in-right {
+        animation: swirlInFromRight 1s forwards;
+    }
+
+.footer {
+    height: 40vh;
+    padding-left: 200px;
+    padding-right: 200px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(0, 0, 34, 1);
+    flex-wrap: wrap;
+    font-size: 15px;
+    width: 100%;
+}
+
+.footer-contact,
+.footer-links,
+.footer-subscribe {
+    margin: 10px;
+}
+
+.footer-logo {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.mini-logo {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.footer-links h4,
+.footer-subscribe h4 {
+    margin-bottom: 5px;
+}
+
+.footer-links {
+    text-align: left;
+}
+
+    .footer-links h4 {
+        margin-bottom: 10px; /* Adjust as needed */
+        color: white; /* Adjust as needed */
+    }
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 30px; /* Adjust as needed */
+    column-gap: 120px;
+}
+
+.footer-links a {
+    color: white; /* Adjust as needed */
+    text-decoration: none;
+    line-height: 1.5; /* Adjust as needed */
+}
+
+    .footer-links a:hover {
+        text-shadow: 1px 1px 20px #CDEEFF;
+    }
+
+    .footer-links a:hover,
+    .social-icon:hover {
+        color: #CDEEFF;
+    }
+
+.subscribe-form {
+    display: flex;
+    align-items: flex-end
+}
+
+    .subscribe-form input[type="email"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-right: 5px;
+        border-radius: 4px;
+    }
+
+    .subscribe-form button {
+        padding: 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: white;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact,
+    .footer-links,
+    .footer-subscribe {
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+        .footer-bottom p {
+            margin-bottom: 5px;
+        }
+}

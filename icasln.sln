@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34114.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icasln", "icasln\icasln.csproj", "{FA60F1F6-1611-4D8C-884E-44FC7E10A57C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B55D13E3-6292-4C5E-B993-9849F55074BD}"
+	ProjectSection(SolutionItems) = preProject
+		ThankYou.css = ThankYou.css
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatGPTAPI", "ChatGPTAPI\ChatGPTAPI.csproj", "{F208DA68-F0FB-46DF-BE84-BCF6F1DD4C98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA60F1F6-1611-4D8C-884E-44FC7E10A57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA60F1F6-1611-4D8C-884E-44FC7E10A57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA60F1F6-1611-4D8C-884E-44FC7E10A57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA60F1F6-1611-4D8C-884E-44FC7E10A57C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F208DA68-F0FB-46DF-BE84-BCF6F1DD4C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F208DA68-F0FB-46DF-BE84-BCF6F1DD4C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F208DA68-F0FB-46DF-BE84-BCF6F1DD4C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F208DA68-F0FB-46DF-BE84-BCF6F1DD4C98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64FBD9FA-9FAF-4C96-A32C-87FAAFF3DC61}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,144 @@
+﻿body {
+	background-color: rgba(0, 0, 34, 1);
+}
+
+.footer {
+	height: 40vh;
+	padding-left: 200px;
+	padding-right: 200px;
+	display: flex;
+	color: white;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: rgba(0, 0, 34, 1);
+	flex-wrap: wrap;
+	font-size: 15px;
+	width: 100%;
+}
+
+.footer-contact,
+.footer-links,
+.footer-subscribe {
+	margin: 10px;
+}
+
+.footer-logo {
+	width: 50px;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.mini-logo {
+	width: 30px;
+	height: 30px;
+	margin-left: 10px;
+	padding-top: 20px;
+	align-items: center;
+}
+
+.footer-links h4,
+.footer-subscribe h4 {
+	margin-bottom: 5px;
+}
+
+.footer-links {
+	text-align: left;
+}
+
+	.footer-links h4 {
+		margin-bottom: 10px; /* Adjust as needed */
+		color: white; /* Adjust as needed */
+	}
+
+.links-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+	gap: 30px; /* Adjust as needed */
+	column-gap: 120px;
+}
+
+.footer-links a {
+	color: white; /* Adjust as needed */
+	text-decoration: none;
+	line-height: 1.5; /* Adjust as needed */
+}
+
+	.footer-links a:hover {
+		text-shadow: 1px 1px 20px #CDEEFF;
+	}
+
+	.footer-links a:hover,
+	.social-icon:hover {
+		color: #CDEEFF;
+	}
+
+.subscribe-form {
+	display: flex;
+	align-items: flex-end
+}
+
+	.subscribe-form input[type="email"] {
+		padding: 10px;
+		border: 1px solid #ddd;
+		margin-right: 5px;
+		border-radius: 4px;
+	}
+
+	.subscribe-form button {
+		padding: 10px;
+		border: none;
+		background-color: #007bff;
+		color: white;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+.footer-social {
+	display: flex;
+	align-items: center;
+}
+
+.social-icon {
+	font-size: 24px;
+	color: white;
+	margin-right: 10px;
+	transition: color 0.3s ease;
+	align-items: flex-start;
+	padding: 20px;
+}
+
+.footer-bottom {
+	width: 100%;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+}
+
+}
+
+@media (max-width: 768px) {
+	.footer {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.footer-contact,
+	.footer-links,
+	.footer-subscribe {
+		margin-bottom: 20px;
+	}
+
+	.footer-bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+
+		.footer-bottom p {
+			margin-bottom: 5px;
+		}
+}

@@ -1,0 +1,31 @@
+﻿.messages {
+    height: 800px;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.response{
+    float: left;
+    background-color:gray;
+    width: 80%;
+    padding: 20px;
+    margin: 10px 20px;
+    border-radius:20px;
+    color: white;
+    font-size: 13px;
+}
+
+.question {
+    float:right;
+    background-color: dodgerblue;
+    width: 80%;
+    padding: 20px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+}
+
+h1{
+    text-align:center;
+}
