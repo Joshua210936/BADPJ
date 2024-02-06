@@ -85,7 +85,7 @@
         <img src="chathistory.png" alt="Saved chats history feature image">
         <div class="feature-text">
             <h2>Saved Chats History</h2>
-            <p>>Unlimited Message Requests</p>
+            <p>Unlimited Message Requests</p>
             <p>"Our chat history feature stores past conversations, enabling AI to better understand your preferences and deliver personalized, engaging response which enhances your overall user experience."</p>
         </div>
     </div>
