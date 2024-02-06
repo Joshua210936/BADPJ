@@ -5,23 +5,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
-using System.Drawing;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using icasln;
+using Lab06;
 
 namespace icasln
 {
     public partial class ProductInsert : System.Web.UI.Page
     {
-        private object confirm;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                // Initialization code (if needed)
             }
         }
 
@@ -38,12 +34,16 @@ namespace icasln
 
             if (result > 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "alert('Insert successful');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "alert('Your Query has been submitted!!!');", true);
 
                 try
                 {
-                    SendConfirmationEmail(prod, tb_Email.Text);
+                    // Send the main confirmation email to justinooi084@gmail.com
+                    SendConfirmationEmail(prod, "justinooi084@gmail.com", "justinooi084@gmail.com");
                     confirmationMessage += "\nAn email has been sent to your registered address.";
+
+                    // Send a separate confirmation email to the email entered in tb_Email.Text
+                    SendSeparateConfirmationEmail(prod, tb_Email.Text);
                 }
                 catch (Exception ex)
                 {
@@ -58,7 +58,7 @@ namespace icasln
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "error", $"alert('{confirmationMessage}');", true);
             }
 
-            // Display confirmation message to user
+            // Display confirmation message to the user
             Label confirmLabel = FindControl("confirmLabel") as Label; // Replace with actual control ID
             if (confirmLabel != null)
             {
@@ -75,10 +75,9 @@ namespace icasln
             }
         }
 
-        private void SendConfirmationEmail(Product product, string senderEmail)
+        private void SendConfirmationEmail(Product product, string senderEmail, string recipientEmail)
         {
-            string to = ConfigurationManager.AppSettings["SmtpRecipientEmail"];
-            string password = ConfigurationManager.AppSettings["SmtpPassword"];
+            const string password = "ywyj jpis yxbf jaif"; // Use app passwords for better security
 
             string mailMessage = $"From: CompaniBot\n";
             mailMessage += $"FirstName: {product.FirstName}\n";
@@ -86,25 +85,50 @@ namespace icasln
             mailMessage += $"Email: {product.Email}\n";
             mailMessage += $"Message: {product.Message}\n";
 
-
-            var smtp = new SmtpClient();
+            var smtp = new SmtpClient
             {
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Credentials = new NetworkCredential(senderEmail, password);
-                
-            }
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(senderEmail, password)
+            };
 
-            smtp.Send(senderEmail, to, "Confirmation Email", mailMessage);
+            smtp.Send(senderEmail, recipientEmail, "Confirmation Email", mailMessage);
+        }
 
+        private void SendSeparateConfirmationEmail(Product product, string recipientEmail)
+        {
+            const string from = "justinooi084@gmail.com";
+            const string password = "ywyj jpis yxbf jaif"; // Use app passwords for better security
+
+            string mailMessage = $"Subject: Your Recent Submission Confirmation\n\n";
+            mailMessage += $"Dear {product.FirstName},\n\n";
+            mailMessage += $"Thank you for your recent submission to CompaniBot. We have received your information successfully. Here are the details:\n\n";
+            mailMessage += $"- First Name: {product.FirstName}\n";
+            mailMessage += $"- Last Name: {product.LastName}\n";
+            mailMessage += $"- Email: {product.Email}\n";
+            mailMessage += $"- Message: {product.Message}\n\n";
+            mailMessage += "If you have any further questions or concerns, please feel free to contact us.\n\n";
+            mailMessage += "Best regards,\nCompaniBot";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, password)
+            };
+
+            smtp.Send(from, recipientEmail, "Separate Confirmation Email", mailMessage);
         }
 
         protected void btn_CheckAll_Click(object sender, EventArgs e)
         {
-            // Re-direct page to “ProductView.aspx”
+            // Redirect page to “ProductView.aspx”
             Response.Redirect("ProductView.aspx");
         }
     }
 }
+
