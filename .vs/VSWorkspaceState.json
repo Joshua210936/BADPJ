@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\icasln"
+    "\\icasln",
+    "\\icasln\\App_Data"
   ],
   "SelectedNode": "\\icasln\\ProductInsert.aspx.cs",
   "PreviewInSolutionExplorer": false
