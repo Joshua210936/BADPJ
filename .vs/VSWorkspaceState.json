@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\icasln",
+    "\\icasln\\App_Data"
   ],
   "SelectedNode": "\\icasln.sln",
   "PreviewInSolutionExplorer": false
