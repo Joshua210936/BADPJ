@@ -2,7 +2,7 @@
 
 <asp:Content ID ="Content1" ContentPlaceHolderID="head" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -14,12 +14,6 @@
             font-weight: bold; /* Bolder font for visibility */
             color: #ffcc00; /* Color to make the price stand out */
             margin-bottom: 10px; /* Space between price and description */
-        }
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            width: 131px;
         }
         .icon {
     width: 80px;
@@ -65,7 +59,8 @@
     <form id="form1" runat="server">
         <div class =" headerr">
             <header class="main-header">
-                <h1>Message without limits.</h1>
+                <h1>Message without limits.
+                </h1>
                 <p>Send millions of messages ad-free, on demand, limitless.</p>
                 
                 <button class="get-started-btn" type="button">Get started &rarr;</button>
@@ -103,24 +98,23 @@
                 <h2>Introducing CompaniBots: Your personal Bot, to accompany you</h2>
                 <p class="price">For only 4.99$ a month:</p>
             </div>
+
             <div class="cards-container">
-                <asp:Repeater ID="SubscriptionsRepeater" runat="server">
+                <asp:Repeater ID="SubscriptionsRepeater" runat="server" OnItemCommand="SubscriptionsRepeater_ItemCommand">
                     <ItemTemplate>
                         <div class="card">
                             <img src='<%# Eval("Sub_Image") %>' alt="Subscription Image" class="icon">
                             <h2 class="title"><%# Eval("Sub_Type") %></h2>
-                            <p class="price">Price: <%# Eval("Sub_Price") %>/month</p>
+                            <p class="price">Price: <%# Eval("Sub_Price") %> per month</p>
                             <p class="description"><%# Eval("Sub_Desc") %></p>
-                            <button class="subscribe-button" onclick="updateSubscription('<%# Eval("Sub_Type") %>')">Subscribe</button>
+                            <asp:Button ID="CheckoutButton" runat="server" Text="Checkout" CommandName="Checkout" CommandArgument='<%# Eval("Sub_ID") %>' CssClass="subscribe-button" />
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
-               
+            </div>            
         </div>
      </form>
-      
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const features = document.querySelectorAll('.feature');
@@ -155,27 +149,8 @@
 
             observer.observe(premiumSection);
         });
-        const stripe = Stripe('pk_test_51MOFVpGoHS26WsPPBSMWT9GTLSAZY1owQtVpzFPrykggHLTPfePhGdzATRKLYNVf3JjyoTpC6O6jaRsBzzwgc9w6002IilofK0'); // Replace with your Stripe public key
-
-        document.querySelectorAll('subscribe-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const planId = button.getAttribute('data-plan');
-
-                // Call your backend endpoint
-                PageMethods.CreateCheckoutSession(planId, function (sessionId) {
-                    stripe.redirectToCheckout({ sessionId: sessionId })
-                        .then(function (result) {
-                            if (result.error) {
-                                alert(result.error.message);
-                            }
-                        });
-                });
-            });
-        });
-
-
     </script>
-    </html>
+ 
 </asp:Content>
 
 

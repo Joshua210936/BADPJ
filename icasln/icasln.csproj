@@ -120,10 +120,12 @@
     <Content Include="Controllers\Images\Checkboxx.png" />
     <Content Include="Controllers\Images\companibot.jpeg" />
     <Content Include="Controllers\Images\customisable.png" />
+    <Content Include="CustomerSub.aspx" />
     <Content Include="customisable.png" />
     <Content Include="footer.css" />
     <Content Include="Global.asax" />
     <Content Include="office.jpg" />
+    <Content Include="PaymentSuccess.aspx" />
     <Content Include="Premium.aspx" />
     <Content Include="Premium.css" />
     <Content Include="ProductDetails.aspx" />
@@ -168,8 +170,22 @@
     <Compile Include="Chat_Info.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerSub.aspx.cs">
+      <DependentUpon>CustomerSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerSub.aspx.designer.cs">
+      <DependentUpon>CustomerSub.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentSuccess.aspx.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentSuccess.aspx.designer.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Premium.aspx.cs">
       <DependentUpon>Premium.aspx</DependentUpon>
@@ -208,6 +224,7 @@
     <Compile Include="SignUpaspx.aspx.designer.cs">
       <DependentUpon>SignUpaspx.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Subbed.cs" />
     <Compile Include="SubscriptionDetails.aspx.cs">
       <DependentUpon>SubscriptionDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +273,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="usermaster.Master" />
+    <Content Include="SubInsert.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
