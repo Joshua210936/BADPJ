@@ -6,11 +6,11 @@
 
 .response{
     float: left;
-    background-color:gray;
+    background-color: gray;
     width: 80%;
     padding: 20px;
-    margin: 10px 20px;
-    border-radius:20px;
+    margin: 5px 20px;
+    border-radius: 20px 20px 20px 0;
     color: white;
     font-size: 13px;
 }

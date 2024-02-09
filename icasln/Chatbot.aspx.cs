@@ -36,7 +36,7 @@ namespace icasln
             con.Open();
             try
             {
-                string sql = "SELECT Message_Content FROM Message_Information ORDER BY Message_ID";
+                string sql = "SELECT Message_Content, Message_Role FROM Message_Information ORDER BY Message_ID";
                 cmd = new SqlCommand(sql, con);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
@@ -71,7 +71,7 @@ namespace icasln
             conversationHistory.Add(new Dictionary<string, string> { { "role", "assistant" }, { "content", response } }); //chatbot message in list
 
             
-                
+            
             Page.ClientScript.RegisterStartupScript(this.GetType(), "addQuestionMessageBoxDiv", "addQuestionMessageBoxDiv();", true); //pulls js function to create boxes divs
             Page.ClientScript.RegisterStartupScript(this.GetType(), "updateUserMessageDiv", $"updateUserMessageDiv('{userInput}');", true); //pulls js function to input user message
             Chat_Info info = new Chat_Info(null, userInput, "user");
