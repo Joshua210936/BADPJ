@@ -13,5 +13,13 @@ namespace icasln
         {
 
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear the session
+            Session.Clear();
+
+            // Redirect the user to the login page
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }
