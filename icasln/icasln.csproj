@@ -104,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountDetails.aspx" />
     <Content Include="AccountManagement.aspx" />
     <Content Include="App_Data\CompanibotDB.mdf" />
     <Content Include="App_Data\CompanibotDB_log.ldf">
@@ -123,6 +124,7 @@
     <Content Include="customisable.png" />
     <Content Include="footer.css" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
     <Content Include="office.jpg" />
     <Content Include="Premium.aspx" />
     <Content Include="Premium.css" />
@@ -143,6 +145,13 @@
     <Content Include="year.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountDetails.aspx.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountDetails.aspx.designer.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AccountManagement.aspx.cs">
       <DependentUpon>AccountManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +179,13 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Premium.aspx.cs">
       <DependentUpon>Premium.aspx</DependentUpon>

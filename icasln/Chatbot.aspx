@@ -16,7 +16,9 @@
 
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <div class ="response"><%#Eval("Message_Content") %></div>
+                            <div class='<%# Eval("Message_Role").ToString() == "user" ? "question" : "response" %>'>
+                                <%# Eval("Message_Content") %>
+                            </div>
                         </ItemTemplate>
                         <FooterTemplate>
 
