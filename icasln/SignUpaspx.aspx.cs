@@ -13,8 +13,9 @@ namespace icasln
         {
             if (!IsPostBack)
             {
-                // Generate a new unique user ID and assign it to the hidden field
-                hf_UserId.Value = Guid.NewGuid().ToString();
+                // Generate a new unique user ID and assign it to the user object
+                User newUser = new User();
+                hf_UserId.Value = newUser.GenerateNewUserId().ToString();
             }
         }
         protected void btn_Insert_Click(object sender, EventArgs e)
