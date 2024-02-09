@@ -46,10 +46,13 @@
           Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="SignUpaspx.aspx">Create Account</a>
+           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Login.aspx">Login</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="AccountManagement.aspx">Account Management</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="AccountDetails.aspx">Account Details</a>
         </div>
       </li>
     </ul>
