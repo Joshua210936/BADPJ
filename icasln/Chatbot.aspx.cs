@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
@@ -59,7 +59,11 @@ namespace icasln
             }
         }
 
+        protected void CustomiseButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChatbotCustomisation.aspx");
 
+        }
         protected async void SubmitButton_Click(object sender, EventArgs e)
         {
             
@@ -88,13 +92,11 @@ namespace icasln
                 result = info2.MessageInsert();
             }
                 
+            UserInputTextBox.Text = "";
+            
         }
 
-        protected void CustomiseButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ChatbotCustomisation.aspx");
-
-        }
+        
 
         public static string ToJSONString(List<Dictionary<string, string>> conversationHistory) //message list
         {

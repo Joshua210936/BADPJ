@@ -2,6 +2,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="chatbot.css">
     <script src="Chatbot.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#form1").submit(function () {
+                var userInput = $("#<%= UserInputTextBox.ClientID %>").val();
+                if (userInput.trim() == '') {
+                    alert("Please enter a value in the textbox.");
+                    return false;
+                } else if (!/^[a-zA-Z0-9\s!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~]+$/.test(userInput)) {
+                    alert("No emojis allowed!.");
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server" class="background">
@@ -34,11 +50,10 @@
                 </div>
                 <div class="input-container">
                     <div class="textMessage input-group mb-3 d-flex justify-content-center">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserInputTextBox"></asp:RequiredFieldValidator>
-                        <asp:TextBox ID="UserInputTextBox" runat="server" class="form-control" placeholder="Say Hello!"/>
+                        <asp:TextBox ID="UserInputTextBox" runat="server" class="form-control" placeholder="Say Hello!" ValidationGroup="SendMessage"/>
                         <asp:Button type="button" ID="SubmitButton" runat="server" Text="Send" OnClick="SubmitButton_Click" class="btn btn-outline-secondary button-background"/>
                     </div>
-                    <asp:Button type="button" ID="Button1" runat="server" Text="Customise" OnClick="CustomiseButton_Click"  />
+                    <asp:Button type="button" ID="Button1" runat="server" Text="Customise" OnClick="CustomiseButton_Click" ValidationGroup="Customize" />
                 </div>
             <br />
         <br />
