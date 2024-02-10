@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data.SqlClient;
+
 
 namespace icasln
 {
@@ -18,41 +21,75 @@ namespace icasln
                 hf_UserId.Value = newUser.GenerateNewUserId().ToString();
             }
         }
+
         protected void btn_Insert_Click(object sender, EventArgs e)
         {
-            int result = 0;
-
-            // Replace tb_ with meaningful names based on your form
-            User newUser = new User(
-                hf_UserId.Value,
-                tb_FirstName.Text,
-                tb_LastName.Text,
-                tb_Email.Text,
-                tb_PhoneNumber.Text,
-                rbl_Gender.Text,
-                tb_Password.Text
-            );
-
-            // Call the appropriate method in your User class
-            result = newUser.InsertUser();
-
-            if (result > 0)
+            if (Page.IsValid)
             {
-                // Additional logic for successful insert
-                
+                int result = 0;
 
-                Response.Write("<script>alert('Account Creation Successful');</script>");
-                System.Threading.Thread.Sleep(3000);
-                Response.Redirect("~/Premium.aspx");
+                // Check if the email already exists in the database
+                if (!IsEmailExists(tb_Email.Text))
+                {
+                    // Replace tb_ with meaningful names based on your form
+                    User newUser = new User(
+                        hf_UserId.Value,
+                        tb_FirstName.Text,
+                        tb_LastName.Text,
+                        tb_Email.Text,
+                        tb_PhoneNumber.Text,
+                        rbl_Gender.SelectedValue,
+                        tb_Password.Text
+                    );
 
+                    // Call the appropriate method in your User class
+                    result = newUser.InsertUser();
 
-            }
-            else
-            {
-                // Additional logic for unsuccessful insert
-                Response.Write("<script>alert('Unable to create account');</script>");
+                    if (result > 0)
+                    {
+                        // Additional logic for successful insert
+                        Response.Redirect("~/Premium.aspx");
+                    }
+                    else
+                    {
+                        // Additional logic for unsuccessful insert
+                        lbl_EmailError.Text = "Unable to create account";
+                    }
+                }
+                else
+                {
+                    // Email already exists, show error message
+                    lbl_EmailError.Text = "Email already exists";
+                }
             }
         }
 
-    }   
+        // Method to check if the email already exists in the database
+        private bool IsEmailExists(string email)
+        {
+            // Connection string from configuration
+            string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
+
+            // Query to check if email exists in the database
+            string query = "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email";
+
+            using (SqlConnection connection = new SqlConnection(connStr))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Parameterized query to prevent SQL injection
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    // Opening the database connection
+                    connection.Open();
+
+                    // Executing the query
+                    int count = (int)command.ExecuteScalar();
+
+                    // Return true if count is greater than 0 (email exists), false otherwise
+                    return count > 0;
+                }
+            }
+        }
+    }
 }

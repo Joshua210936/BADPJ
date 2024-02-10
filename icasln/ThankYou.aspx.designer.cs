@@ -13,5 +13,23 @@ namespace icasln
 
     public partial class ThankYou
     {
+
+        /// <summary>
+        /// startChatting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button startChatting;
+
+        /// <summary>
+        /// backHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button backHome;
     }
 }

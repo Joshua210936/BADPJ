@@ -304,6 +304,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <body>
+    <form runat="server">
     <div class="lol">
         <div class="containers">
             <div class="cardss">
@@ -313,13 +314,13 @@
                 <h1 class="success-message">Payment Successful!</h1>
                 <div class="divider"></div>
                 <div class="button-group">
-                    <button class="button" id="startChatting">Start Chatting</button>
-                    <button class="button" id="backHome">Back To Home</button>
+                <asp:Button ID="startChatting" runat="server" Text="Start Chatting" CssClass="button" OnClick="startChatting_Click" />
+                <asp:Button ID="backHome" runat="server" Text="Back To Home" CssClass="button" OnClick="backHome_Click" />
                 </div>
             </div>
         </div>
     </div>
-    
+</form>    
 
     <script src="Thankyou.js"></script>
 </body>
