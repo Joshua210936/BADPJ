@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\icasln",
-    "\\icasln\\App_Data"
+    "\\icasln"
   ],
-  "SelectedNode": "\\icasln.sln",
+  "SelectedNode": "\\icasln\\Web.config",
   "PreviewInSolutionExplorer": false
 }
