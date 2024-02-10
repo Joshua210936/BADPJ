@@ -35,18 +35,30 @@ namespace icasln
         {
             if (e.CommandName == "Checkout")
             {
-                var subId = e.CommandArgument.ToString();
-                // Assuming you have a method to fetch the subscription details by ID
-                var subscription = new Subscription(); // Assuming this is your model or service class
-                var selectedSub = subscription.getSubscription(subId); // Fetch subscription details
-
-                if (selectedSub != null)
+                // Check if the UserId session variable exists and is not null or empty
+                var userId = Session["UserId"]?.ToString();
+                if (string.IsNullOrEmpty(userId))
                 {
-                    var priceInCents = Convert.ToInt32(selectedSub.Sub_Price * 100);
-                    CreateCheckoutSession(priceInCents, selectedSub.Sub_Type);
+                    // User ID is not valid, so prompt the user to sign up or log in
+                    // This script will show an alert and then redirect the user to the login/sign-up page
+                    string script = "alert('Please log in or sign up to continue.'); window.location = 'SignUpaspx.aspx';";
+                    ClientScript.RegisterStartupScript(this.GetType(), "loginAlert", script, true);
+                }
+                else
+                {
+                    // Proceed with fetching subscription details and creating the checkout session
+                    var subId = e.CommandArgument.ToString();
+                    var selectedSub = aSub.getSubscription(subId); // Fetch subscription details
+
+                    if (selectedSub != null)
+                    {
+                        var priceInCents = Convert.ToInt32(Convert.ToDecimal(selectedSub.Sub_Price) * 100);
+                        CreateCheckoutSession(priceInCents, selectedSub.Sub_Type);
+                    }
                 }
             }
         }
+
 
         private void CreateCheckoutSession(int priceInCents, string productName)
         {

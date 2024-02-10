@@ -21,7 +21,7 @@ namespace icasln
         protected void bind()
         {
             List<Subbed> subList = new List<Subbed>();
-            subList = aSubbed.getSubbedAll();
+            subList = aSubbed.GetSubbedAll();
             gvSubbed.DataSource = subList;
             gvSubbed.DataBind();
         }

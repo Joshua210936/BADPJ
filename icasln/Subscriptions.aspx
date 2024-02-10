@@ -10,6 +10,11 @@
        <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet" />
+   <style type="text/css">
+        *{
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        }
+    </style>
 <head runat="server">
     <title></title>
     <style>
@@ -64,12 +69,13 @@
 
         .gridview-button {
             background-color: #CDEEFF;
+            display:block;
             color: black;
             border: none;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            display: inline-flex;
+            display: inline-block;
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
@@ -88,7 +94,7 @@
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
+            display: block;
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
@@ -110,7 +116,7 @@
         .title{
             text-align: center;
            font-size: 3rem;
-            border-bottom: 3px solid black;
+           border-bottom: 3px solid #CDEEFF ;
             margin: 0px 15% 40px;
             padding-bottom: 25px;
             padding-top: 80px;
@@ -135,6 +141,7 @@
                     <asp:BoundField DataField="Sub_Desc" HeaderText="Subscription Description" />
                     <asp:BoundField DataField="Sub_Status" HeaderText="Status" ReadOnly="True" />
                     <asp:CommandField  ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="gridview-button" >
+
                         <ControlStyle CssClass="gridview-button"></ControlStyle>
                     </asp:CommandField>
                 </Columns>

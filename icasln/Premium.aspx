@@ -6,9 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <title>Navbar with Header</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet" />
+    <title>Premium page</title>
     <link rel="stylesheet" href="Premium.css">
     <style type="text/css">
+        *{
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        }
         .price {
             font-size: 18px; /* Larger font size for emphasis */
             font-weight: bold; /* Bolder font for visibility */
@@ -16,12 +20,12 @@
             margin-bottom: 10px; /* Space between price and description */
         }
         .icon {
-    width: 80px;
-    height: auto;
-    margin: 0 auto 20px; /* Center the image and add margin at the bottom */
-    display: block; /* Change display to block to enable horizontal centering */
-    transition: transform 0.2s; /* Smooth transition for the icon */
-}
+            width: 80px;
+            height: auto;
+            margin: 0 auto 20px; /* Center the image and add margin at the bottom */
+            display: block; /* Change display to block to enable horizontal centering */
+            transition: transform 0.2s; /* Smooth transition for the icon */
+        }
 
 .card {
     background: rgba(0, 0, 34, 1);

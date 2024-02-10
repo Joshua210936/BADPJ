@@ -11,45 +11,45 @@ namespace icasln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             if (!IsPostBack)
             {
-                // Assuming you have stored the user's ID and Name in session variables
+                // Extract user details
                 var userId = Session["UserId"]?.ToString();
-                var userName = Session["UserName"]?.ToString();
-                var subId = Request.QueryString["subId"]; // Get Sub_ID from the query string
+                var firstName = Session["FirstName"]?.ToString();
+                var lastName = Session["LastName"]?.ToString();
+                var userName = $"{firstName} {lastName}";
 
-                if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(subId))
+                if (!string.IsNullOrEmpty(userId))
                 {
-                    var subscription = new Subscription();
-                    var selectedSub = subscription.getSubscription(subId);
+                    var subbed = new Subbed();
+                    // Assuming you determine the subscription duration and start date in another way
+                    string subDuration = "6 Month"; // Example duration
+                    string userSubDate = DateTime.Now.ToString("yyyy-MM-dd");
 
-                    if (selectedSub != null)
+                    // Insert the subscription record without SubId
+                    int result = subbed.SubbedInsert(userId, userName, subDuration, userSubDate);
+
+                    if (result > 0)
                     {
-                        var subbed = new Subbed
-                        {
-                            UserID = userId,
-                            UserName = userName,
-                            SubbedID = subId,
-                            Sub_Duration = selectedSub.Sub_Type, // Assuming Sub_Type is used as duration here
-                            UserSubDate = DateTime.Now.ToString("yyyy-MM-dd") // Current date as the subscription date
-                        };
-
-                        // Assuming you have a method in Subbed.cs to insert a new subscription record
-                        subbed.SubbedInsert(); // Implement this method to insert the subscription record
+                        // Successful insertion
+                        Response.Redirect("ThankYou.aspx");
                     }
-
-                    // Redirect to a confirmation page or display a success message
-                    Response.Redirect("Premium.aspx");
+                    else
+                    {
+                        // Handle insertion failure
+                        Response.Write("Error in subscription process.");
+                    }
                 }
                 else
                 {
-                    // Handle error or invalid access
-                    Response.Redirect("ThankYou.aspx");
+                    // Invalid user ID
+
+                    Response.Redirect("SignUpaspx.aspx");
                 }
             }
         }
