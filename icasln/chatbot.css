@@ -1,31 +1,107 @@
-﻿.messages {
-    height: 800px;
-    border: 1px solid black;
-    width: 100%;
-}
-
-.response{
+﻿
+.response {
     float: left;
     background-color: gray;
-    width: 80%;
+
+    display: inline;
     padding: 20px;
-    margin: 5px 20px;
+    margin: 5px 500px 5px 20px;
     border-radius: 20px 20px 20px 0;
     color: white;
     font-size: 13px;
 }
 
 .question {
-    float:right;
+    float: right;
     background-color: dodgerblue;
-    width: 80%;
+
+    display: inline;
     padding: 20px;
-    margin: 10px 20px;
-    border-radius: 20px;
+    margin: 10px 20px 10px 500px;
+    border-radius: 20px 0 20px 20px;
     color: white;
     font-size: 13px;
 }
 
 h1{
     text-align:center;
+}
+
+/* Control the left side */
+.left {
+    float: left;
+    width: 25%;
+    border-top: solid 1px;
+    border-right: solid;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    height: 600px;
+}
+
+/* Control the right side */
+.right {
+    float: left;
+    width: 75%;
+    height: 600px;
+    border-top: solid 1px;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+    overflow-x: hidden;
+}
+
+.chat-container {
+    height: 600px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color:white;
+}
+
+.background {
+    background-color: #CDEEFF;
+}
+
+.input-container {
+    width: 80%;
+    height:100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding:20px;
+    background-color: #000022;
+}
+
+.button-background {
+    background-color: #CDEEFF;
+    color: #000022;
+}
+
+.textMessage {
+    text-align:center;
+}
+
+.title-container {
+    width: 80%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #000022;
+    color: white;
+}
+
+.title-chatbot {
+    float:right;
+}
+
+.selectChatbotButton {
+    background-color: lightgrey;
+    border: none;
+    text-align: center;
+    padding:20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width:100%;
+    border-bottom: solid 1px;
 }

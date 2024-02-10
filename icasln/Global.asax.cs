@@ -13,5 +13,11 @@ namespace icasln
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
+
+        void Session_Start(object sender, EventArgs e)
+        {
+            // Clear the session data when a new session starts
+            Session.Clear();
+        }
     }
 }

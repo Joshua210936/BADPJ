@@ -42,13 +42,13 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox tb_FirstName;
 
         /// <summary>
-        /// Rfv_01 control.
+        /// Rfv_FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_01;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_FirstName;
 
         /// <summary>
         /// tb_LastName control.
@@ -60,13 +60,13 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox tb_LastName;
 
         /// <summary>
-        /// rfv_02 control.
+        /// Rfv_LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_02;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_LastName;
 
         /// <summary>
         /// tb_Email control.
@@ -78,13 +78,31 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox tb_Email;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lbl_EmailError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lbl_EmailError;
+
+        /// <summary>
+        /// Rfv_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_Email;
+
+        /// <summary>
+        /// Rev_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Rev_Email;
 
         /// <summary>
         /// rbl_Gender control.
@@ -114,13 +132,22 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox tb_PhoneNumber;
 
         /// <summary>
-        /// Rf_04 control.
+        /// Rfv_PhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rf_04;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_PhoneNumber;
+
+        /// <summary>
+        /// Rev_PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Rev_PhoneNumber;
 
         /// <summary>
         /// tb_Password control.
@@ -132,13 +159,22 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox tb_Password;
 
         /// <summary>
-        /// Rfv_07 control.
+        /// Rfv_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_07;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfv_Password;
+
+        /// <summary>
+        /// Rev_Password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Rev_Password;
 
         /// <summary>
         /// btn_Insert control.
