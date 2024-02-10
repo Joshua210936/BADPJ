@@ -60,6 +60,49 @@ namespace icasln
             conn.Close();
             return result;
         }
+
+        public int ChatbotInfoUpdate(string ChatbotName, string ChatbotPrompt)
+        {
+            int nofRow = 0;
+            string queryStr = "UPDATE ChatbotInfo SET" +
+                " ChatbotName = @ChatbotName," +
+                " ChatbotPrompt = @ChatbotPrompt," +
+                " WHERE ChatbotName = @ChatbotName";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand(queryStr, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ChatbotName", ChatbotName);
+                        cmd.Parameters.AddWithValue("@ChatbotPrompt", ChatbotPrompt);
+
+                        conn.Open();
+                        nofRow = cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write($"An SqlException has occurred - {ex}!");
+                nofRow = -1;
+            }
+            catch (Exception ex)
+            {
+                Console.Write($"An Exception has occurred - {ex}!");
+                nofRow = -2;
+            }
+
+            return nofRow;
+        }
+
+
+        internal int ChatbotInfoUpdate(string tid, string tname, decimal v)
+        {
+            throw new NotImplementedException();
+        }
+
         //Below as the Class methods for some DB operations. 
         public Chatbot_Info getChatbotInfo(string ChatbotID)
         {
