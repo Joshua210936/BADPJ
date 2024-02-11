@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
@@ -29,10 +29,6 @@ namespace icasln
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userCustomisation"] != null)
-            {
-                userCustomisation = Session["userCustomisation"].ToString();
-            }
 
             if (Session["UserId"] != null)
             {
@@ -41,6 +37,27 @@ namespace icasln
             else
             {
                 UserID = null;
+            }
+
+            con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sql = "SELECT ChatbotPrompt FROM ChatbotInfo WHERE UserID = @UserID";
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                string userCustomisationFromDB = cmd.ExecuteScalar()?.ToString();
+                if (!string.IsNullOrEmpty(userCustomisationFromDB))
+                {
+                    userCustomisation = userCustomisationFromDB;
+                }
+
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
             }
 
             con = new SqlConnection(connectionString);
