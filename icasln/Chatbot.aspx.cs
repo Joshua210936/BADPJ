@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
