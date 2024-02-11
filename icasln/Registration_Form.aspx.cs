@@ -9,10 +9,13 @@ namespace icasln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientScript.RegisterForEventValidation(ddlAutocomplete.UniqueID);
             // Your existing code here
         }
 
         [WebMethod]
+
+
         public static string[] GetAutocompleteSuggestions(string prefix)
         {
             // Implement your logic to fetch suggestions from the database
@@ -31,11 +34,19 @@ namespace icasln
                         while (reader.Read())
                         {
                             suggestions.Add(reader["QuestionText"].ToString());
+
                         }
                         return suggestions.ToArray();
                     }
                 }
             }
+        }
+
+        protected void btn_Search_Click(object sender, EventArgs e)
+        {
+            // Redirect page to “SearchResults.aspx” with search criteria
+            string searchCriteria = searchInput.Value.Trim(); // Use .Value for HtmlInputText
+            Response.Redirect($"SearchResults.aspx?search={Server.UrlEncode(searchCriteria)}");
         }
     }
 }
