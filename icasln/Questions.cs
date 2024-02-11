@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace icalsn
+namespace icasln
 {
     public class Questions
     {
@@ -68,6 +68,8 @@ namespace icalsn
             get { return _QuestionText; }
             set { _QuestionText = value; }
         }
+
+
 
 
 
@@ -180,6 +182,8 @@ namespace icalsn
                 string queryStr = "INSERT INTO ContactUs(FirstName,LastName, Email, Message)"
                   + " values (@FirstName,@LastName, @Email, @Message)";
 
+                string questionsQuery = "INSERT INTO Questions(QuestionText) VALUES (@QuestionText)";
+
 
                 using (SqlConnection conn = new SqlConnection(_connStr))
                 {
@@ -195,9 +199,14 @@ namespace icalsn
                         conn.Open();
                         result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
 
+                        using (SqlCommand cmdQuestions = new SqlCommand(questionsQuery, conn))
+                        {
+                            cmdQuestions.Parameters.AddWithValue("@QuestionText", this.QuestionText);
+
+                            result += cmdQuestions.ExecuteNonQuery();
 
 
-
+                        }
                     }
                 }
             }
