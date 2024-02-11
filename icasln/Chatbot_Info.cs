@@ -63,11 +63,11 @@ namespace icasln
 
         public int ChatbotInfoUpdate(string ChatbotName, string ChatbotPrompt)
         {
-            int nofRow = 0;
+            int result = 0;
             string queryStr = "UPDATE ChatbotInfo SET" +
                 " ChatbotName = @ChatbotName," +
                 " ChatbotPrompt = @ChatbotPrompt," +
-                " WHERE ChatbotName = @ChatbotName";
+                " WHERE UserID = @UserID";
 
             try
             {
@@ -77,24 +77,25 @@ namespace icasln
                     {
                         cmd.Parameters.AddWithValue("@ChatbotName", ChatbotName);
                         cmd.Parameters.AddWithValue("@ChatbotPrompt", ChatbotPrompt);
+                        cmd.Parameters.AddWithValue("@UserID", ChatbotPrompt);
 
                         conn.Open();
-                        nofRow = cmd.ExecuteNonQuery();
+                        result = cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (SqlException ex)
             {
                 Console.Write($"An SqlException has occurred - {ex}!");
-                nofRow = -1;
+                result = -1;
             }
             catch (Exception ex)
             {
                 Console.Write($"An Exception has occurred - {ex}!");
-                nofRow = -2;
+                result = -2;
             }
 
-            return nofRow;
+            return result;
         }
 
 
