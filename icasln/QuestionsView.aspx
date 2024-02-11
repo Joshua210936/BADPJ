@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.QuestionsView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.ProductView" %>
 
-<asp:Content ID ="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="server">
     <style type="text/css">
     .gridViewStyle {
         width: 100%;
@@ -50,9 +50,8 @@
         background-color: #e0e0e0; /* Slightly darker gray on hover */
     }
 </style>
-    </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <form id="form1" runat="server">
      
        <asp:GridView ID="gvProduct" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvProduct_SelectedIndexChanged" DataKeyNames="FirstName" OnRowCancelingEdit="gvProduct_RowCancelingEdit" OnRowDeleting="gvProduct_RowDeleting" OnRowEditing="gvProduct_RowEditing" OnRowUpdating="gvProduct_RowUpdating" CssClass="gridViewStyle" style="background-color: white;">

@@ -140,6 +140,7 @@
     <Content Include="subscriptionInsertt.aspx" />
     <Content Include="Subscriptions.aspx" />
     <Content Include="ThankYou.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />
     <Content Include="threemnth.png" />
     <Content Include="unlimtedtext.png" />
@@ -270,6 +271,13 @@
     </Compile>
     <Compile Include="ThankYou.aspx.designer.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThankYou_Form.aspx.cs">
       <DependentUpon>ThankYou_Form.aspx</DependentUpon>

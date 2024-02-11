@@ -24,6 +24,15 @@ namespace icasln
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// searchInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText searchInput;
+
+        /// <summary>
         /// ddlAutocomplete control.
         /// </summary>
         /// <remarks>
@@ -31,5 +40,14 @@ namespace icasln
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAutocomplete;
+
+        /// <summary>
+        /// btn_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Search;
     }
 }

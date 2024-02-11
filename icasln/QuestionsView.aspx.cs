@@ -1,4 +1,5 @@
 ﻿using icalsn;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace icasln
 {
-    public partial class QuestionsView : System.Web.UI.Page
+    public partial class ProductView : System.Web.UI.Page
     {
         Questions aProd = new Questions();
         protected void Page_Load(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace icasln
 
         protected void btn_AddProduct_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ProductInsert.aspx");
+            Response.Redirect("QuestionsInsert.aspx");
         }
 
         protected void gvProduct_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -58,7 +59,7 @@ namespace icasln
                 Response.Write("<script>alert('Product Removal NOT successfully');</script>");
             }
 
-            Response.Redirect("ProductView.aspx");
+            Response.Redirect("QuestionsView.aspx");
 
         }
 
