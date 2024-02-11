@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace Lab06
+namespace icasln
 {
     public class Questions
     {
@@ -15,7 +15,7 @@ namespace Lab06
         //Private string _connStr = Properties.Settings.Default.DBConnStr;
 
         //System.Configuration.ConnectionStringSettings _connStr;
-        string _connStr = ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
+        string _connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
         private string _FirstName = null;
         private string _LastName = string.Empty;
         private string _Email = ""; // this is another way to specify empty string

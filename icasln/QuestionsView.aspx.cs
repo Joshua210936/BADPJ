@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace icasln
 {
-    public partial class ProductView : System.Web.UI.Page
+    public partial class QuestionsView : System.Web.UI.Page
     {
         Questions aProd = new Questions();
         protected void Page_Load(object sender, EventArgs e)
