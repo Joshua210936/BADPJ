@@ -48,8 +48,15 @@ namespace icasln
         }
         protected void UpdateInformationButton_Click(object sender, EventArgs e)
         {
+            int result = 0;
             string updatedPrompt = UpdatePromptTextbox.Text;
             string updatedName = UpdateNameTextbox.Text;
+
+            Chatbot_Info info2 = new Chatbot_Info(null, updatedName, updatedPrompt, UserID);
+            // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
+            result = info2.ChatbotInfoUpdate(updatedName, updatedPrompt, UserID);
+
+
         }
     }
 }

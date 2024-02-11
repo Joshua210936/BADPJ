@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
@@ -25,19 +25,48 @@ namespace icasln
         string connectionString = WebConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
         SqlConnection con;
         private string userCustomisation = string.Empty;
+        private string UserID = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userCustomisation"] != null)
+
+            if (Session["UserId"] != null)
             {
-                userCustomisation = Session["userCustomisation"].ToString();
+                UserID = Session["UserId"].ToString();
             }
+            else
+            {
+                UserID = null;
+            }
+
             con = new SqlConnection(connectionString);
             con.Open();
             try
             {
-                string sql = "SELECT Message_Content, Message_Role FROM Message_Information ORDER BY Message_ID";
+                string sql = "SELECT ChatbotPrompt FROM ChatbotInfo WHERE UserID = @UserID";
                 cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                string userCustomisationFromDB = cmd.ExecuteScalar()?.ToString();
+                if (!string.IsNullOrEmpty(userCustomisationFromDB))
+                {
+                    userCustomisation = userCustomisationFromDB;
+                }
+
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+
+            con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sql = "SELECT Message_Content, Message_Role FROM Message_Information WHERE UserID = @UserID ORDER BY Message_ID";
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds);
@@ -78,7 +107,7 @@ namespace icasln
             
             Page.ClientScript.RegisterStartupScript(this.GetType(), "addQuestionMessageBoxDiv", "addQuestionMessageBoxDiv();", true); //pulls js function to create boxes divs
             Page.ClientScript.RegisterStartupScript(this.GetType(), "updateUserMessageDiv", $"updateUserMessageDiv('{userInput}');", true); //pulls js function to input user message
-            Chat_Info info = new Chat_Info(null, userInput, "user");
+            Chat_Info info = new Chat_Info(null, userInput, "user", UserID);
             {
                 result = info.MessageInsert();
             }
@@ -87,7 +116,7 @@ namespace icasln
             Page.ClientScript.RegisterStartupScript(this.GetType(), "addResponseMessageBoxDiv", "addResponseMessageBoxDiv();", true);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "updateChatbotMessageDiv", $"updateChatbotMessageDiv('{response}');", true);//pulls js function to input chatbot message
             Page.ClientScript.RegisterStartupScript(this.GetType(), "sendMessage", $"sendMessage('{userInput}');", true);
-            Chat_Info info2 = new Chat_Info(null, response, "chatbot");
+            Chat_Info info2 = new Chat_Info(null, response, "chatbot", UserID);
             {
                 result = info2.MessageInsert();
             }

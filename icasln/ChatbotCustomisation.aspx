@@ -17,7 +17,7 @@
                     <br />
                     <label for="ChatbotNameTextbox">Create Chatbot Name</label>
                     <asp:TextBox ID="ChatbotNameTextbox" runat="server"/>
-                    <asp:Button type="button" ID="Button2" runat="server" Text="Customise" OnClick="CustomiseInformationButton_Click"  />
+                    <asp:Button type="button" ID="Button2" runat="server" Text="Create" OnClick="CustomiseInformationButton_Click"  />
                 </div>
             <h1 style="text-align:center;">Update Chatbot</h1>
                 <div>
