@@ -11,7 +11,7 @@ namespace icasln
 {
 
 
-    public partial class ProductView
+    public partial class QuestionsView
     {
 
         /// <summary>

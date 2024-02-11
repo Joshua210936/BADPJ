@@ -10,7 +10,7 @@ using Lab06;
 
 namespace icasln
 {
-    public partial class ProductInsert : System.Web.UI.Page
+    public partial class QuestionsInsert : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,7 +66,7 @@ namespace icasln
                 question.Message = tb_Message.Text;
                 question.QuestionText = tb_Message.Text; // Set QuestionText to the content of tb_Message
 
-                result = question.ProductInsert();
+                result = question.QuestionInsert();
             }
 
             string confirmationMessage = string.Empty;

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace icasln
 {
-    public partial class ProductView : System.Web.UI.Page
+    public partial class QuestionsView : System.Web.UI.Page
     {
         Questions aProd = new Questions();
         protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace icasln
 
 
             List<Questions> prodList = new List<Questions>();
-            prodList = aProd.getProductAll();
+            prodList = aProd.getQuestionAll();
             gvProduct.DataSource = prodList;
             gvProduct.DataBind();
 
@@ -48,7 +48,7 @@ namespace icasln
             int result = 0;
             Questions prod = new Questions();
             string categoryID = gvProduct.DataKeys[e.RowIndex].Value.ToString();
-            result = prod.ProductDelete(categoryID);
+            result = prod.QuestionDelete(categoryID);
 
             if (result > 0)
             {
@@ -80,7 +80,7 @@ namespace icasln
             string Email = ((TextBox)row.Cells[2].Controls[0]).Text;
             string Message = ((TextBox)row.Cells[3].Controls[0]).Text;
 
-            result = prod.ProductUpdate(FirstName, LastName, Email, Message);
+            result = prod.QuestionUpdate(FirstName, LastName, Email, Message);
             if (result > 0)
             {
                 Response.Write("<script>alert('Product updated successfully');</script>");

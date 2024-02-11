@@ -74,7 +74,7 @@ namespace icalsn
 
 
         //Below as the Class methods for some DB operations. 
-        public Questions getProduct(string prodID)
+        public Questions getQuestion(string prodID)
         {
             Questions prodDetail = null;
             try
@@ -126,7 +126,7 @@ namespace icalsn
         /// 
         /// </summary>
         /// <returns>List of Products. null if Exception</returns>
-        public List<Questions> getProductAll()
+        public List<Questions> getQuestionAll()
         {
             List<Questions> prodList = new List<Questions>();
 
@@ -168,7 +168,7 @@ namespace icalsn
             return prodList;
         }
 
-        public int ProductInsert()
+        public int QuestionInsert()
         {
 
             // string msg = null;
@@ -219,7 +219,7 @@ namespace icalsn
             return result;
         }//end Insert
 
-        public int ProductDelete(string ID)
+        public int QuestionDelete(string ID)
         {
             int nofRow = 0;
             try
@@ -249,7 +249,7 @@ namespace icalsn
             return nofRow;
         }//end Delete
 
-        public int ProductUpdate(string FirstName, string LastName, string Email, string Message)
+        public int QuestionUpdate(string FirstName, string LastName, string Email, string Message)
         {
             int nofRow = 0;
             string queryStr = "UPDATE ContactUs SET" +
@@ -291,7 +291,7 @@ namespace icalsn
         }
 
 
-        internal int ProductUpdate(string tid, string tname, decimal v)
+        internal int QuestionUpdate(string tid, string tname, decimal v)
         {
             throw new NotImplementedException();
         }
