@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.ProductView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.QuestionsView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="server">
     <style type="text/css">

@@ -11,7 +11,7 @@ namespace icasln
 {
 
 
-    public partial class ProductInsert
+    public partial class QuestionsInsert
     {
 
         /// <summary>

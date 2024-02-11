@@ -30,7 +30,7 @@ namespace icasln
         public static string[] GetAutocompleteSuggestions(string prefix)
         {
             // Implement your logic to fetch suggestions from the database
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["HealthDBContext"].ToString());
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ToString());
             string query = "SELECT QuestionText FROM Questions WHERE QuestionText LIKE @prefix + '%'";
 
             using (SqlConnection connection = new SqlConnection(con.ConnectionString))

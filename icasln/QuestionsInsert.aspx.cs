@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using icasln;
 using Lab06;
-using System.Data.SqlClient;
-using icalsn;
 
 namespace icasln
 {
-    public partial class ProductInsert : System.Web.UI.Page
+    public partial class QuestionsInsert : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,10 +29,10 @@ namespace icasln
         private void PopulateUserDetails(string userId)
         {
             // Use your database logic to get user details by UserId
-            // Assuming UserAccount table has columns like FirstName and LastName
+            // Assuming UserAccount table has columns like FirstName, LastName, and Email
 
             string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
-            string query = "SELECT FirstName, LastName FROM UserAccount WHERE UserId = @UserId";
+            string query = "SELECT FirstName, LastName, Email FROM UserAccount WHERE UserId = @UserId";
 
             using (SqlConnection connection = new SqlConnection(connStr))
             {
@@ -50,13 +47,12 @@ namespace icasln
                         // Autofill the form fields with user details
                         tb_FirstName.Text = reader["FirstName"].ToString();
                         tb_LastName.Text = reader["LastName"].ToString();
+                        tb_Email.Text = reader["Email"].ToString();
                         // Add other fields if needed
                     }
                 }
             }
         }
-
-
 
         protected void btn_Submit_Click(object sender, EventArgs e)
         {
@@ -70,11 +66,10 @@ namespace icasln
                 question.Message = tb_Message.Text;
                 question.QuestionText = tb_Message.Text; // Set QuestionText to the content of tb_Message
 
-                result = question.ProductInsert();
+                result = question.QuestionInsert();
             }
 
             string confirmationMessage = string.Empty;
-
 
             if (result > 0)
             {
