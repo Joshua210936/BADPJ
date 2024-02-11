@@ -1,7 +1,4 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="SignUpaspx.aspx.cs" Inherits="icasln.SignUpaspx" %>
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1
@@ -27,7 +24,7 @@
                         <asp:TextBox ID="tb_FirstName" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="Rfv_01" runat="server" ControlToValidate="tb_FirstName" ErrorMessage="Enter a First Name" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="Rfv_FirstName" runat="server" ControlToValidate="tb_FirstName" ErrorMessage="Enter a First Name" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +33,7 @@
                         <asp:TextBox ID="tb_LastName" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="rfv_02" runat="server" ControlToValidate="tb_LastName" ErrorMessage="Enter a Last Name" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="Rfv_LastName" runat="server" ControlToValidate="tb_LastName" ErrorMessage="Enter a Last Name" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                 </tr>
                 <tr>
@@ -45,7 +42,9 @@
                         <asp:TextBox ID="tb_Email" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tb_Email" ErrorMessage="Enter a Email Address" ForeColor="Red"></asp:RequiredFieldValidator></td>
+                        <asp:Label ID="lbl_EmailError" runat="server" Text="" ForeColor="Red"></asp:Label>
+                        <asp:RequiredFieldValidator ID="Rfv_Email" runat="server" ControlToValidate="tb_Email" ErrorMessage="Enter an Email Address" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Rev_Email" runat="server" ControlToValidate="tb_Email" ErrorMessage="Enter a valid Email Address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </tr>
                 <tr>
                     <td>Gender</td>
@@ -65,7 +64,8 @@
                         <asp:TextBox ID="tb_PhoneNumber" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="Rf_04" runat="server" ControlToValidate="tb_PhoneNumber" ErrorMessage="Please Enter a Phone Number" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="Rfv_PhoneNumber" runat="server" ControlToValidate="tb_PhoneNumber" ErrorMessage="Enter a Phone Number" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Rev_PhoneNumber" runat="server" ControlToValidate="tb_PhoneNumber" ErrorMessage="Enter a valid 8-digit Phone Number" ForeColor="Red" ValidationExpression="\d{8}"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -74,8 +74,9 @@
                         <asp:TextBox ID="tb_Password" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="Rfv_07" runat="server" ControlToValidate="tb_Password" ErrorMessage="Enter a Password" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
+                        <asp:RequiredFieldValidator ID="Rfv_Password" runat="server" ControlToValidate="tb_Password" ErrorMessage="Enter a Password" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Rev_Password" runat="server" ControlToValidate="tb_Password" ErrorMessage="Password must be at least 8 characters long" ForeColor="Red" ValidationExpression="^.{8,}$"></asp:RegularExpressionValidator>
+                       </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

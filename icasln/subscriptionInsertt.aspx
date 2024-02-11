@@ -18,7 +18,7 @@
             text-align: center;
             color:white;
             font-size: 3rem;
-            border-bottom: 3px solid white;
+            border-bottom: 3px solid #CDEEFF ;
             margin: 0px 15% 40px;
             padding-bottom: 25px;
             padding-top: 80px;

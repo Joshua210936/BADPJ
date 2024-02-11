@@ -180,16 +180,14 @@ namespace icasln
             }
         }//end deactivate subscription
 
-        public int SubscriptionUpdate( string sID ,string sName, decimal sUnitPrice, string sImage, string sDesc)
+        public int SubscriptionUpdate(string sID, string sName, decimal sUnitPrice, string imagePath, string sDesc)
         {
             string queryStr = "UPDATE Subscriptions SET " +
-                               // corrected table name from Subscription to Subscriptions
-                               "Sub_Type = @subscriptiontype, " +
-                               "Sub_Price = @subscriptionPrice, " + // added missing comma
-                               "Sub_Image = @subscriptionImage, " +
-                               "Sub_Desc = @subscriptionDesc " + // added missing comma
-                               " WHERE Sub_ID = @subscriptionID"; // removed extra space
-                               // corrected syntax
+                              "Sub_Type = @subscriptiontype, " +
+                              "Sub_Price = @subscriptionPrice, " +
+                              "Sub_Image = @subscriptionImage, " +
+                              "Sub_Desc = @subscriptionDesc " +
+                              "WHERE Sub_ID = @subscriptionID";
 
             using (SqlConnection conn = new SqlConnection(_connStr))
             {
@@ -198,7 +196,7 @@ namespace icasln
                 cmd.Parameters.AddWithValue("@subscriptionID", sID);
                 cmd.Parameters.AddWithValue("@subscriptiontype", sName);
                 cmd.Parameters.AddWithValue("@subscriptionPrice", sUnitPrice);
-                cmd.Parameters.AddWithValue("@subscriptionImage", sImage);
+                cmd.Parameters.AddWithValue("@subscriptionImage", imagePath); // Use the imagePath parameter
                 cmd.Parameters.AddWithValue("@subscriptionDesc", sDesc);
 
                 conn.Open();
@@ -208,6 +206,7 @@ namespace icasln
                 return nofRow;
             }
         }
+
 
 
 

@@ -8,174 +8,97 @@ namespace icasln
 {
     public class Subbed
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["CompaniBotDBContext"].ConnectionString;
+        private string _connStr = ConfigurationManager.ConnectionStrings["CompaniBotDBContext"].ConnectionString;
 
-        // Adapted properties for the UserSubscription table
-        private int _userSubID;
-        private string _userID = string.Empty;
-        private string _userName = string.Empty;
-        private string _subbedID = string.Empty;
-        private string _subDuration = string.Empty;
-        private string _userSubDate = string.Empty; // This will be set based on the query date
+        // Properties excluding SubbedID
+        public int UserSub_ID { get; set; }
+        public string UserID { get; set; }
+        public string UserName { get; set; }
+        public string Sub_Duration { get; set; }
+        public string UserSubDate { get; set; }
 
         // Default constructor
-        public Subbed()
-        {
-        }
+        public Subbed() { }
 
-        // Constructor that takes in all data required to build a Subbed object
-        public Subbed(int userSubID, string userID, string userName, string subbedID, string subDuration, string userSubDate)
-        {
-            _userSubID = userSubID;
-            _userID = userID;
-            _userName = userName;
-            _subbedID = subbedID;
-            _subDuration = subDuration;
-            _userSubDate = userSubDate;
-        }
-
-        // Properties
-        public int UserSub_ID
-        {
-            get { return _userSubID; }
-            set { _userSubID = value; }
-        }
-
-        public string UserID
-        {
-            get { return _userID; }
-            set { _userID = value; }
-        }
-
-        public string UserName
-        {
-            get { return _userName; }
-            set { _userName = value; }
-        }
-
-        public string SubbedID
-        {
-            get { return _subbedID; }
-            set { _subbedID = value; }
-        }
-
-        public string Sub_Duration
-        {
-            get { return _subDuration; }
-            set { _subDuration = value; }
-        }
-
-        public string UserSubDate
-        {
-            get { return _userSubDate; }
-            set { _userSubDate = value; }
-        }
-
-        // Method to retrieve a specific subscription by UserSub_ID
-        public Subbed getSubbed(string userSubID)
+        // Method to retrieve a specific subscription by UserSub_ID, adjusted to exclude SubbedID
+        public Subbed GetSubbed(int userSubID)
         {
             Subbed subDetail = null;
 
-            string userID, userName, subbedID, subDuration, userSubDate;
-
-            string queryStr = "SELECT * FROM UserSubscription WHERE UserSub_ID = @UserSubID";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@UserSubID", userSubID);
-
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            string queryStr = "SELECT UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscription WHERE UserSub_ID = @UserSubID";
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            using (SqlCommand cmd = new SqlCommand(queryStr, conn))
             {
-                userID = dr["UserID"].ToString();
-                userName = dr["UserName"].ToString();
-                subbedID = dr["SubbedID"].ToString();
-                subDuration = dr["Sub_Duration"].ToString();
-                userSubDate = dr["UserSubDate"].ToString();
-
-                subDetail = new Subbed(int.Parse(userSubID), userID, userName, subbedID, subDuration, userSubDate);
+                cmd.Parameters.AddWithValue("@UserSubID", userSubID);
+                conn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        subDetail = new Subbed
+                        {
+                            UserSub_ID = userSubID,
+                            UserID = dr["UserID"].ToString(),
+                            UserName = dr["UserName"].ToString(),
+                            Sub_Duration = dr["Sub_Duration"].ToString(),
+                            UserSubDate = dr["UserSubDate"].ToString()
+                        };
+                    }
+                }
             }
-            else
-            {
-                subDetail = null;
-            }
-
-            conn.Close();
-            dr.Close();
-            dr.Dispose();
 
             return subDetail;
         }
 
-        // Method to retrieve all subscriptions
-        public List<Subbed> getSubbedAll()
+        // Method to retrieve all subscriptions, adjusted to exclude SubbedID
+        public List<Subbed> GetSubbedAll()
         {
             List<Subbed> subList = new List<Subbed>();
 
-            int userSubID;
-            string userID, userName, subbedID, subDuration, userSubDate;
-
-            string queryStr = "SELECT * FROM UserSubscription ORDER BY UserSubDate DESC";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
+            string queryStr = "SELECT UserSub_ID, UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscription ORDER BY UserSubDate DESC";
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            using (SqlCommand cmd = new SqlCommand(queryStr, conn))
             {
-                userSubID = int.Parse(dr["UserSub_ID"].ToString());
-                userID = dr["UserID"].ToString();
-                userName = dr["UserName"].ToString();
-                subbedID = dr["SubbedID"].ToString();
-                subDuration = dr["Sub_Duration"].ToString();
-                userSubDate = dr["UserSubDate"].ToString();
-
-                Subbed sub = new Subbed(userSubID, userID, userName, subbedID, subDuration, userSubDate);
-                subList.Add(sub);
+                conn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Subbed sub = new Subbed
+                        {
+                            UserSub_ID = Convert.ToInt32(dr["UserSub_ID"]),
+                            UserID = dr["UserID"].ToString(),
+                            UserName = dr["UserName"].ToString(),
+                            Sub_Duration = dr["Sub_Duration"].ToString(),
+                            UserSubDate = dr["UserSubDate"].ToString()
+                        };
+                        subList.Add(sub);
+                    }
+                }
             }
-
-            conn.Close();
-            dr.Close();
-            dr.Dispose();
 
             return subList;
         }
 
-        public int SubbedInsert()
+        // Method for inserting a new subscription, adjusted to exclude SubbedID
+        public int SubbedInsert(string userID, string userName, string subDuration, string userSubDate)
         {
             int result = 0;
-            string queryStr = "INSERT INTO UserSubscription(UserID, UserName, SubbedID, Sub_Duration, UserSubDate)" +
-                              "VALUES (@UserID, @UserName, @SubbedID, @Sub_Duration, @UserSubDate)";
-
-            SqlConnection conn = new SqlConnection(_connStr);
-            SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@UserID", this.UserID);
-            cmd.Parameters.AddWithValue("@UserName", this.UserName);
-            cmd.Parameters.AddWithValue("@SubbedID", this.SubbedID);
-            cmd.Parameters.AddWithValue("@Sub_Duration", this.Sub_Duration);
-            cmd.Parameters.AddWithValue("@UserSubDate", this.UserSubDate);
-
-            try
+            string queryStr = "INSERT INTO UserSubscription (UserID, UserName, Sub_Duration, UserSubDate)" +
+                              "VALUES (@UserID, @UserName, @Sub_Duration, @UserSubDate)";
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            using (SqlCommand cmd = new SqlCommand(queryStr, conn))
             {
+                cmd.Parameters.AddWithValue("@UserID", userID);
+                cmd.Parameters.AddWithValue("@UserName", userName);
+                cmd.Parameters.AddWithValue("@Sub_Duration", subDuration);
+                cmd.Parameters.AddWithValue("@UserSubDate", userSubDate);
+
                 conn.Open();
-                result = cmd.ExecuteNonQuery(); // Returns the number of rows affected. Should be > 0 for success
-            }
-            catch (Exception ex)
-            {
-                // Ideally, handle the exception (e.g., logging)
-                throw; // Re-throwing the exception here for simplicity
-            }
-            finally
-            {
-                conn.Close();
+                result = cmd.ExecuteNonQuery();
             }
 
-            return result; // Returns the result of the operation
+            return result;
         }
-
     }
 }

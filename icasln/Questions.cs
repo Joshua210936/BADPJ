@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace icasln
+namespace icalsn
 {
     public class Questions
     {

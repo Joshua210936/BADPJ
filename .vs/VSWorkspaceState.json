@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\icasln",
-    "\\icasln\\App_Data"
+    "\\icasln"
   ],
-  "SelectedNode": "\\icasln\\QuestionsView.aspx.cs",
+  "SelectedNode": "\\icasln\\Web.config",
   "PreviewInSolutionExplorer": false
 }
