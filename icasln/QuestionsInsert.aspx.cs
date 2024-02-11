@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Net;
 using System.Net.Mail;
+using Lab06;
+using System.Data.SqlClient;
 using icalsn;
 
 namespace icasln
@@ -17,9 +19,44 @@ namespace icasln
         {
             if (!IsPostBack)
             {
-                // Initialization code (if needed)
+                // Check if the user is logged in
+                if (Session["UserId"] != null)
+                {
+                    // If logged in, retrieve user details and autofill the form fields
+                    string userId = Session["UserId"].ToString();
+                    PopulateUserDetails(userId);
+                }
             }
         }
+
+        private void PopulateUserDetails(string userId)
+        {
+            // Use your database logic to get user details by UserId
+            // Assuming UserAccount table has columns like FirstName and LastName
+
+            string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
+            string query = "SELECT FirstName, LastName FROM UserAccount WHERE UserId = @UserId";
+
+            using (SqlConnection connection = new SqlConnection(connStr))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Autofill the form fields with user details
+                        tb_FirstName.Text = reader["FirstName"].ToString();
+                        tb_LastName.Text = reader["LastName"].ToString();
+                        // Add other fields if needed
+                    }
+                }
+            }
+        }
+
+
 
         protected void btn_Submit_Click(object sender, EventArgs e)
         {
@@ -138,6 +175,4 @@ namespace icasln
         }
     }
 }
-
-
 
