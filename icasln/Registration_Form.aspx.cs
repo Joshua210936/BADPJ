@@ -1,21 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Services;
+using System.Web.UI;
 
 namespace icasln
 {
     public partial class Registration_Form : System.Web.UI.Page
     {
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                ScriptManager scriptManager = ScriptManager.GetCurrent(this);
+                if (scriptManager != null)
+                {
+                    scriptManager.RegisterPostBackControl(ddlAutocomplete);
+                }
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClientScript.RegisterForEventValidation(ddlAutocomplete.UniqueID);
             // Your existing code here
         }
 
         [WebMethod]
-
-
         public static string[] GetAutocompleteSuggestions(string prefix)
         {
             // Implement your logic to fetch suggestions from the database
@@ -30,11 +41,10 @@ namespace icasln
                     cmd.Parameters.AddWithValue("@prefix", prefix);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        System.Collections.Generic.List<string> suggestions = new System.Collections.Generic.List<string>();
+                        List<string> suggestions = new List<string>();
                         while (reader.Read())
                         {
                             suggestions.Add(reader["QuestionText"].ToString());
-
                         }
                         return suggestions.ToArray();
                     }
@@ -50,3 +60,4 @@ namespace icasln
         }
     }
 }
+

@@ -30,7 +30,7 @@ namespace icasln
         private void BindQuestions()
         {
             // Assuming you have a connection string in the web.config file
-            string connectionString = ConfigurationManager.ConnectionStrings["HealthDBContext"].ToString();
+            string connectionString = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ToString();
 
             // SQL query to select all questions from the database
             string query = "SELECT QuestionText, AnswerText FROM Questions";
@@ -56,7 +56,7 @@ namespace icasln
         private void BindFilteredQuestions(string searchCriteria)
         {
             // Assuming you have a connection string in the web.config file
-            string connectionString = ConfigurationManager.ConnectionStrings["HealthDBContext"].ToString();
+            string connectionString = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ToString();
 
             // SQL query to select questions that match the search criteria
             string query = "SELECT QuestionText,AnswerText FROM Questions WHERE QuestionText LIKE @searchCriteria";
