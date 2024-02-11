@@ -19,6 +19,7 @@ namespace icasln
         private string _Message_ID = null;
         private string _Message_Content = "";
         private string _Message_Role = ""; // this is another way to specify empty string
+        private string _UserID = "";
 
         // Default constructor
         public Chat_Info()
@@ -26,11 +27,12 @@ namespace icasln
         }
 
         // Constructor that take in all data required to build a Product object
-        public Chat_Info(string Message_ID, string Message_Content, string Message_Role)
+        public Chat_Info(string Message_ID, string Message_Content, string Message_Role, string UserID)
         {
             _Message_ID = Message_ID;
             _Message_Content = Message_Content;
             _Message_Role = Message_Role;
+            _UserID = UserID;
         }
 
        
@@ -42,14 +44,15 @@ namespace icasln
         public string Message_ID { get => _Message_ID; set => _Message_ID = value; }
         public string Message_Content { get => _Message_Content; set => _Message_Content = value; }
         public string Message_Role { get => _Message_Role; set => _Message_Role = value; }
+        public string UserID { get => _UserID; set => _UserID = value; }
 
 
         public int MessageInsert()
         {
             int result = 0;
 
-            string queryStr = "INSERT INTO Message_Information(Message_Content, Message_Role)"
-                + " values (@Message_Content, @Message_Role)";
+            string queryStr = "INSERT INTO Message_Information(Message_Content, Message_Role, UserID)"
+                + " values (@Message_Content, @Message_Role, @UserID)";
 
             SqlConnection conn = new SqlConnection(_connStr);
 
@@ -57,6 +60,7 @@ namespace icasln
                     
             cmd.Parameters.AddWithValue("@Message_Content", this.Message_Content);
             cmd.Parameters.AddWithValue("@Message_Role", this.Message_Role);
+            cmd.Parameters.AddWithValue("@UserID", this.UserID);
 
             conn.Open();
             result += cmd.ExecuteNonQuery();
@@ -69,8 +73,9 @@ namespace icasln
 
             Chat_Info ChatInfoDetail = null;
 
-            string Message_Content, Message_Role;
-      
+            string Message_Content, Message_Role, UserID;
+
+
             string queryStr = "SELECT * FROM Message_Information WHERE Message_ID = @MsgID";
 
             SqlConnection conn = new SqlConnection(_connStr);
@@ -84,9 +89,9 @@ namespace icasln
             {
                 Message_Content = dr["Message_Content"].ToString();
                 Message_Role = dr["Message_Role"].ToString();
-                
+                UserID = dr["UserID"].ToString();
 
-                ChatInfoDetail = new Chat_Info(Message_ID, Message_Content, Message_Role);
+                ChatInfoDetail = new Chat_Info(Message_ID, Message_Content, Message_Role, UserID);
             }
             else
             {
@@ -104,7 +109,7 @@ namespace icasln
         {
             List<Chat_Info> ChatInfoList = new List<Chat_Info>();
 
-            string Message_ID, Message_Content, Message_Role;
+            string Message_ID, Message_Content, Message_Role, UserID;
 
             string queryStr = "SELECT * FROM Message_Information ORDER BY Message_Content";
 
@@ -119,8 +124,9 @@ namespace icasln
                 Message_ID = dr["Message_ID"].ToString();
                 Message_Content = dr["Message_Content"].ToString();
                 Message_Role = dr["Message_Role"].ToString();
+                UserID = dr["UserID"].ToString();
 
-                Chat_Info a = new Chat_Info(Message_ID, Message_Content, Message_Role);
+                Chat_Info a = new Chat_Info(Message_ID, Message_Content, Message_Role, UserID);
                 ChatInfoList.Add(a);
             }
 

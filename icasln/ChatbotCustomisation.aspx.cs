@@ -52,10 +52,11 @@ namespace icasln
             string updatedPrompt = UpdatePromptTextbox.Text;
             string updatedName = UpdateNameTextbox.Text;
 
-            Chatbot_Info info = new Chatbot_Info();
-            {
-                result = info.ChatbotInfoUpdate(updatedName, updatedPrompt);
-            }
+            Chatbot_Info info2 = new Chatbot_Info(null, updatedName, updatedPrompt, UserID);
+            // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
+            result = info2.ChatbotInfoUpdate(updatedName, updatedPrompt, UserID);
+
+
         }
     }
 }
