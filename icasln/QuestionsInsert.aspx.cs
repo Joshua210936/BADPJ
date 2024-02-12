@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using icasln;
-using Lab06;
+
 
 namespace icasln
 {
