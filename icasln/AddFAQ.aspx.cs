@@ -33,10 +33,13 @@ namespace icasln
                 }
             }
 
+            tb_Question.Text = "";
+            tb_Answer.Text = "";
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "alert('Your Questions and Answers has been submitted!!!');", true);
 
             // Optionally, redirect to another page after adding the FAQ
-            
+
         }
     }
 }
