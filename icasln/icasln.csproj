@@ -149,7 +149,9 @@
     <Content Include="sixmnth.png" />
     <Content Include="SubscriptionDetails.aspx" />
     <Content Include="subscriptionInsertt.aspx" />
+    <Content Include="SubscriptionInsertt.css" />
     <Content Include="Subscriptions.aspx" />
+    <Content Include="Subscriptions.css" />
     <Content Include="ThankYou.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />

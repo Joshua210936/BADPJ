@@ -18,6 +18,9 @@ namespace icasln
         string connectionString = WebConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
         SqlConnection con;
         private string UserID = string.Empty;
+        string premiumUserID = string.Empty;
+        protected bool isPremiumUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserId"] != null)
@@ -28,7 +31,27 @@ namespace icasln
             {
                 UserID = null;
             }
+            con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sqlPremium = "SELECT UserID FROM UserSubscriptionn WHERE UserID = @UserID";
+                cmd = new SqlCommand(sqlPremium, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                premiumUserID = cmd.ExecuteScalar()?.ToString();
+                cmd.Dispose();
+                con.Close();
+
+                
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            isPremiumUser = !string.IsNullOrEmpty(premiumUserID);
+
         }
+
         protected void BackButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Chatbot.aspx");

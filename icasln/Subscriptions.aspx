@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Subscriptions.aspx.cs" Inherits="icasln.Subscriptions" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Subscriptions.aspx.cs" Inherits="icasln.Subscriptions" MasterPageFile="~/adminmaster.Master" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <html xmlns="http://www.w3.org/1999/xhtml">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv='X-UA-Compatible' content="IE=edge">
@@ -10,144 +10,13 @@
        <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet" />
-   <style type="text/css">
-        *{
-        font-family: 'Kdam Thmor Pro', sans-serif;
-        }
-    </style>
-<head runat="server">
-    <title></title>
-    <style>
-        *{
-            font-family: 'Kdam Thmor Pro', sans-serif;
-        }
-        body {
-            background-color: #080636; /* Adjust body background to match MainLedger */
-            color: floralwhite; /* Adjust text color to match MainLedger */
-        }
-        .tabs {
-            text-align: center;
-            margin: 10px 0;
-            margin-bottom: 30px;
-        }
+    <link rel="stylesheet" href="Subscriptions.css">
 
-        .tablinks {
-            background-color: #fffaf0;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 10px 20px;
-            transition: 0.3s;
-            font-size: 16px;
-            margin: 0 4px; /* Adjust as needed */
-        }
+ </asp:Content>
 
-        .tablinks:hover {
-            background-color: #ddd;
-            box-shadow: 1px 1px 20px 5px #CDEEFF;/* Lighter effect on hover */
-        }
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                
 
-        .scrollable-table {
-            width: 90%;
-            margin: 20px auto;
-            max-height: 500px; /* Adjust this value based on your preference */
-            overflow-y: auto;
-            border-radius: 5px;
-            background-color: #fffaf0;
-            padding: 20px;
-            box-shadow: 1px 1px 20px 5px #CDEEFF;
-        }
-
-        table {
-            width: 100%; /* Full width of the container */
-            border-collapse: collapse; /* Collapse borders */
-            font-size: 18px; /* Increase font size */
-        }
-
-
-        table th, table td {
-            padding: 15px; /* Adjust padding */
-            border: 1px solid grey; /* Lighter border color */
-            text-align: center; /* Center align text */
-            background-color: #080636; /* Background color */
-            color: white; /* Text color */
-        }
-
-        table th {
-            background-color: #CDEEFF; /* Header background color */
-            color: #3c3f44; /* Header text color */
-        }
-
-        table tr:nth-child(even) {
-            background-color: #3c3f44; /* Even row background color */
-            color: white; /* Adjust text color for even rows */
-        }
-
-        table tr:hover {
-            background-color: #f1f1f1; /* Hover effect color */
-            color: #3c3f44; /* Hover text color */
-        }
-
-        .gridview-button {
-            background-color: #CDEEFF;
-            display:block;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .gridview-button:hover {
-            box-shadow: 1px 1px 20px 5px #CDEEFF;
-       
-        }
-
-        .gridvieww-button{
-            background-color: #CDEEFF;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top:20px;
-            margin-left:50px;
-        }
-        .gridvieww-button:hover {
-            box-shadow: 1px 1px 20px 5px #CDEEFF;
-       
-        }
-
-        .header {
-            color: #3c3f44;
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-        } 
-        .title{
-            text-align: center;
-           font-size: 3rem;
-           border-bottom: 3px solid #CDEEFF ;
-            margin: 0px 15% 40px;
-            padding-bottom: 25px;
-            padding-top: 80px;
-            margin-bottom: 70px;
-
-        } 
-       
-    </style>
-</head>
-<body>
     <form id="form1" runat="server">
 
           <h1 class="title" >View subscriptions</h1>
@@ -186,5 +55,5 @@
         }
     </script>
 
-</body>
-</html>
+
+</asp:Content>
