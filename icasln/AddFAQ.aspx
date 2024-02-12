@@ -57,6 +57,7 @@
     <div class="container">
         <h1>Your Queries Our Answers</h1>
         <form id="form1" runat="server">
+            <asp:ScriptManager runat="server"></asp:ScriptManager>
             <div class="form-group">
                 <label for="tb_Question">Question:</label>
                 <asp:TextBox ID="tb_Question" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4"></asp:TextBox>

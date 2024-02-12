@@ -57,6 +57,9 @@
       <li class="nav-item px-3">
         <a class="nav-link" href="Registration_Form.aspx">Support</a>
       </li>
+        <li class="nav-item px-3">
+  <a class="nav-link" href="QuestionsInsert.aspx">Contact Us</a>
+</li>
       <li class="nav-item px-3">
         <a class="nav-link" href="#">Merchandise</a>
       </li>
