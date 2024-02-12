@@ -152,6 +152,7 @@
     <Content Include="SubscriptionInsertt.css" />
     <Content Include="Subscriptions.aspx" />
     <Content Include="Subscriptions.css" />
+    <Content Include="AddFAQ.aspx" />
     <Content Include="ThankYou.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />
@@ -356,6 +357,13 @@
       <DependentUpon>Subscriptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Subscriptions.cs" />
+    <Compile Include="AddFAQ.aspx.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddFAQ.aspx.designer.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThankYou.aspx.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
