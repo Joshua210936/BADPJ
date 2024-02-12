@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace icasln
 {
@@ -27,6 +29,7 @@ namespace icasln
                 }
             }
         }
+
         private void BindQuestions()
         {
             // Assuming you have a connection string in the web.config file
@@ -51,15 +54,13 @@ namespace icasln
             }
         }
 
-
-
         private void BindFilteredQuestions(string searchCriteria)
         {
             // Assuming you have a connection string in the web.config file
             string connectionString = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ToString();
 
             // SQL query to select questions that match the search criteria
-            string query = "SELECT QuestionText,AnswerText FROM Questions WHERE QuestionText LIKE @searchCriteria";
+            string query = "SELECT QuestionText, AnswerText FROM Questions WHERE QuestionText LIKE @searchCriteria";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -78,6 +79,39 @@ namespace icasln
                 }
             }
         }
+
+        protected void QuestionsRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                // Retrieve the question text from the data item
+                string questionText = DataBinder.Eval(e.Item.DataItem, "QuestionText") as string;
+
+                if (!string.IsNullOrEmpty(questionText))
+                {
+                    // Retrieve the search criteria from the query string
+                    string searchCriteria = Request.QueryString["search"];
+
+                    if (!string.IsNullOrEmpty(searchCriteria))
+                    {
+                        // Highlight the search term in the question text
+                        Label lblQuestion = e.Item.FindControl("lblQuestion") as Label;
+                        if (lblQuestion != null)
+                        {
+                            lblQuestion.Text = HighlightSearchTerm(questionText, searchCriteria);
+                        }
+                    }
+                }
+            }
+        }
+
+        private string HighlightSearchTerm(string text, string searchTerm)
+        {
+            // Case-insensitive highlighting of the search term using HTML
+            return Regex.Replace(text, $"({Regex.Escape(searchTerm)})", "<span class='highlight'>$1</span>", RegexOptions.IgnoreCase);
+        }
+
     }
 }
+
 
