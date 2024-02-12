@@ -107,7 +107,9 @@
             height: 82vh;
        
         }
-
+        .red{
+                color:red;
+            }
         @media (max-width: 768px) {
             .form-container {
                 flex-direction: column;
@@ -120,6 +122,7 @@
             .image-section {
                 order: -1; /* Image above the form on small screens */
             }
+
         }
     </style>
 </head>
@@ -146,7 +149,7 @@
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </div>
                 <div class="input-group">
-                    <asp:Label ID="lbl_Result" runat="server" Text="(Result will show here)"></asp:Label>
+                    <asp:Label ID="lbl_Result" runat="server" Text="(Result will show here)" CssClass="red"></asp:Label>
                 </div>
                 <asp:Button ID="btn_Insert" runat="server" CssClass="interactive-button" Text="Add Subscription" OnClick="btn_Insert_Click" />
                 <asp:Button ID="btn_SubView" runat="server" CssClass="interactive-button" Text="View all Subscriptions" OnClick="btn_SubView_Click" />

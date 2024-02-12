@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="Chatbot.aspx.cs" Inherits="icasln.Chatbot" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="chatbot.css">
+    <script type="text/javascript">
+        var username = '<%= Username %>'; // Inject Username variable into JavaScript
+    </script>
     <script src="Chatbot.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -23,12 +26,12 @@
     <form id="form1" runat="server" class="background">
     <h1 style="text-align:center;">Chat</h1>
         <div class="title-container">
-            <img src="customisable.png" width="50" height = "50" /> User<span class="title-chatbot">Chatbot1 <img src="companibot.jpeg" width="50" height = "50" /></span>
+            <img src="customisable.png" width="50" height = "50" /> <span id="name" runat="server"></span><span class="title-chatbot">Chatbot <img src="companibot.jpeg" width="50" height = "50" /></span>
             </div>
             <div class="chat-container">
                 <div class="split left">
                     <div>
-                        <asp:Button type="button" ID="SelectChatbot" runat="server" Text="Chatbot1" class="selectChatbotButton"/>
+                        <asp:Button type="button" runat="server" Text="Chatbot" class="selectChatbotButton"/>
                     </div>
                 </div>
                 <div class="split right">
@@ -38,7 +41,7 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <div class='<%# Eval("Message_Role").ToString() == "user" ? "question" : "response" %>'>
-                                    <%# Eval("Message_Content") %>
+                                    <%# GetFormattedMessage(Eval("Message_Role").ToString(), Eval("Message_Content").ToString()) %>
                                 </div>
                             </ItemTemplate>
                             <FooterTemplate>

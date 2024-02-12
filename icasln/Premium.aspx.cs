@@ -64,6 +64,9 @@ namespace icasln
         {
             StripeConfiguration.ApiKey = ConfigurationManager.AppSettings["StripeSecretKey"];
 
+            // Encode the product name to ensure the URL is valid
+            string encodedProductName = HttpUtility.UrlEncode(productName);
+
             var options = new SessionCreateOptions
             {
                 PaymentMethodTypes = new List<string> { "card" },
@@ -84,7 +87,7 @@ namespace icasln
             },
         },
                 Mode = "payment",
-                SuccessUrl = "https://localhost:44365/PaymentSuccess.aspx?subId={CHECKOUT_SESSION_ID}",
+                SuccessUrl = $"https://localhost:44365/PaymentSuccess.aspx?session_id={{CHECKOUT_SESSION_ID}}&subType={encodedProductName}",
                 CancelUrl = "https://localhost:44365/Premium.aspx",
             };
 
@@ -94,5 +97,6 @@ namespace icasln
             HttpContext.Current.Response.Redirect(redirectUrl, endResponse: false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
+
     }
 }

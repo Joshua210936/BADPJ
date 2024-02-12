@@ -26,7 +26,7 @@ function updateUserMessageDiv(userInput) {
     const { div } = messages[messages.length - 1];
 
     const newMessageDiv = document.createElement("div");
-    newMessageDiv.textContent = "You: " + userInput;
+    newMessageDiv.textContent = username + ": " + userInput;
 
     div.appendChild(newMessageDiv);
 }

@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using icalsn;
+using icasln;
 using Lab06;
 
 namespace icasln
