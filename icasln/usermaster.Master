@@ -35,6 +35,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav ml-auto">
       <li class="nav-item px-3">
+        <a class="nav-link" href="ProductView.aspx">Merchandise</a>
+      </li>
+      <li class="nav-item px-3">
         <a class="nav-link" href="Premium.aspx">Premium</a>
       </li>
       <li class="nav-item px-3">

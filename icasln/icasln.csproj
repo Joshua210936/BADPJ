@@ -110,6 +110,7 @@
     <Content Include="App_Data\CompanibotDB_log.ldf">
       <DependentUpon>CompanibotDB.mdf</DependentUpon>
     </Content>
+    <Content Include="CartBtn.jpg" />
     <Content Include="Chatbot.aspx" />
     <Content Include="chatbot.css" />
     <Content Include="Chatbot.js" />
@@ -130,6 +131,9 @@
     <Content Include="PaymentSuccess.aspx" />
     <Content Include="Premium.aspx" />
     <Content Include="Premium.css" />
+    <Content Include="ProductDetails.aspx" />
+    <Content Include="ProductInsert.aspx" />
+    <Content Include="ProductView.aspx" />
     <Content Include="Registration_Form.aspx" />
     <Content Include="QuestionsInsert.aspx" />
     <Content Include="QuestionsView.aspx" />
@@ -144,6 +148,8 @@
     <Content Include="ThankYou_Form.aspx" />
     <Content Include="threemnth.png" />
     <Content Include="unlimtedtext.png" />
+    <Content Include="view.css" />
+    <Content Include="ViewCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="year.png" />
   </ItemGroup>
@@ -212,6 +218,29 @@
     <Compile Include="Premium.aspx.designer.cs">
       <DependentUpon>Premium.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInsert.aspx.cs">
+      <DependentUpon>ProductInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInsert.aspx.designer.cs">
+      <DependentUpon>ProductInsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductView.aspx.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductView.aspx.designer.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProperShoppingCart.cs" />
     <Compile Include="Questions.cs" />
     <Compile Include="Registration_Form.aspx.cs">
       <DependentUpon>Registration_Form.aspx</DependentUpon>
@@ -235,6 +264,8 @@
       <DependentUpon>QuestionsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart.cs" />
+    <Compile Include="ShoppingCartItem.cs" />
     <Compile Include="SignUpaspx.aspx.cs">
       <DependentUpon>SignUpaspx.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -293,6 +324,13 @@
     </Compile>
     <Compile Include="usermaster.Master.designer.cs">
       <DependentUpon>usermaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCart.aspx.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCart.aspx.designer.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
