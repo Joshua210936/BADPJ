@@ -46,3 +46,20 @@ function applyClass(elementUniqueId, className) {
         element.classList.add(className);
     }
 }
+
+// Function to store scroll position
+function storeScrollPosition(containerId) {
+    var container = document.getElementById(containerId);
+    sessionStorage.setItem(containerId + '_scrollPosition', container.scrollTop);
+}
+
+// Function to restore scroll position
+function restoreScrollPosition(containerId) {
+    var container = document.getElementById(containerId);
+    var scrollPosition = sessionStorage.getItem(containerId + '_scrollPosition');
+    if (scrollPosition !== null) {
+        container.scrollTop = scrollPosition;
+        sessionStorage.removeItem(containerId + '_scrollPosition');
+    }
+}
+
