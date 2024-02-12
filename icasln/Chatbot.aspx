@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="Chatbot.aspx.cs" Inherits="icasln.Chatbot" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="chatbot.css">
     <script type="text/javascript">
         var username = '<%= Username %>'; // Inject Username variable into JavaScript

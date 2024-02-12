@@ -137,7 +137,6 @@
     <Content Include="PaymentSuccess.aspx" />
     <Content Include="Premium.aspx" />
     <Content Include="Premium.css" />
-    <Content Include="PremiumChatbotCustomisation.aspx" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductInsert.aspx" />
     <Content Include="ProductView.aspx" />
@@ -269,13 +268,6 @@
     </Compile>
     <Compile Include="Premium.aspx.designer.cs">
       <DependentUpon>Premium.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PremiumChatbotCustomisation.aspx.cs">
-      <DependentUpon>PremiumChatbotCustomisation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PremiumChatbotCustomisation.aspx.designer.cs">
-      <DependentUpon>PremiumChatbotCustomisation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductDetails.aspx.cs">
