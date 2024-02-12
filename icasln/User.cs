@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Cryptography;
@@ -13,14 +9,15 @@ namespace icasln
 {
     public class User
     {
-        string _connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
+        private string _connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
         private string _userId;
         private string _firstName;
         private string _lastName;
         private string _email;
         private string _phoneNumber;
         private string _gender;
-        private string _password;  
+        private string _password;
+        private bool _isAdmin;
 
         public User()
         {
@@ -79,6 +76,12 @@ namespace icasln
             set { _password = value; }
         }
 
+        public bool IsAdmin
+        {
+            get { return _isAdmin; }
+            set { _isAdmin = value; }
+        }
+
         public int GenerateNewUserId()
         {
             int newUserId = 0;
@@ -133,8 +136,8 @@ namespace icasln
             // Hash the password before inserting into the database
             string hashedPassword = HashPassword(_password);
 
-            string query = "INSERT INTO UserAccount (UserId, FirstName, LastName, Email, PhoneNumber, Gender, Password)" +
-                           "VALUES (@UserId, @FirstName, @LastName, @Email, @PhoneNumber, @Gender, @Password)";
+            string query = "INSERT INTO UserAccount (UserId, FirstName, LastName, Email, PhoneNumber, Gender, Password, IsAdmin)" +
+                           "VALUES (@UserId, @FirstName, @LastName, @Email, @PhoneNumber, @Gender, @Password, @IsAdmin)";
 
             using (SqlConnection connection = new SqlConnection(_connStr))
             {
@@ -147,6 +150,7 @@ namespace icasln
                 cmd.Parameters.AddWithValue("@PhoneNumber", _phoneNumber);
                 cmd.Parameters.AddWithValue("@Gender", _gender);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);  // Use hashed password
+                cmd.Parameters.AddWithValue("@IsAdmin", 0);  // Set IsAdmin to 0 for regular users
 
                 connection.Open();
                 result = cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
@@ -156,32 +160,20 @@ namespace icasln
             return result;
         }
 
-        // Method to retrieve user data from the database based on session ID
-        public static User GetUserDataById(string userId)
+        public static User GetUserDataByEmail(string email)
         {
             User userData = null;
 
-            // Connection string from configuration
             string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
+            string query = "SELECT UserId, FirstName, LastName, Email, PhoneNumber, Gender, IsAdmin FROM UserAccount WHERE Email = @Email";
 
-            // Query to retrieve user data from the database based on user ID
-            string query = "SELECT UserId, FirstName, LastName, Email, PhoneNumber, Gender FROM UserAccount WHERE UserId = @UserId";
-
-            // Using SqlConnection and SqlCommand for database interaction
             using (SqlConnection connection = new SqlConnection(connStr))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    // Parameterized query to prevent SQL injection
-                    command.Parameters.AddWithValue("@UserId", userId);
-
-                    // Opening the database connection
+                    command.Parameters.AddWithValue("@Email", email);
                     connection.Open();
-
-                    // Executing the query
                     SqlDataReader reader = command.ExecuteReader();
-
-                    // If data is found, populate the User object
                     if (reader.Read())
                     {
                         userData = new User
@@ -191,7 +183,8 @@ namespace icasln
                             LastName = reader["LastName"].ToString(),
                             Email = reader["Email"].ToString(),
                             PhoneNumber = reader["PhoneNumber"].ToString(),
-                            Gender = reader["Gender"].ToString()
+                            Gender = reader["Gender"].ToString(),
+                            IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
                         };
                     }
                 }
@@ -199,8 +192,6 @@ namespace icasln
 
             return userData;
         }
-
-
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
@@ -235,9 +226,11 @@ namespace icasln
 
             return users;
         }
-        public void UpdateUserData(string userId, string newFirstName /*, add other parameters as needed */)
+        public void UpdateUserData(string userId, string newFirstName, string newlastName, string newemail, string newphoneNumber, string newgender/*, add other parameters as needed */)
         {
-            string query = "UPDATE UserAccount SET FirstName = @FirstName WHERE UserId = @UserId";
+
+            string query = "UPDATE UserAccount SET FirstName = @FirstName, LastName = @LastName, Email = @Email, " +
+                           "PhoneNumber = @PhoneNumber, Gender = @Gender WHERE UserId = @UserId";
 
             using (SqlConnection connection = new SqlConnection(_connStr))
             {
@@ -245,12 +238,18 @@ namespace icasln
                 {
                     cmd.Parameters.AddWithValue("@UserId", userId);
                     cmd.Parameters.AddWithValue("@FirstName", newFirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newlastName);
+                    cmd.Parameters.AddWithValue("@Email", newemail);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", newphoneNumber);
+                    cmd.Parameters.AddWithValue("@Gender", newgender);
+                    
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
         }
+
 
         // Method to delete user from the database
         public void DeleteUser(string userId)
@@ -268,6 +267,6 @@ namespace icasln
                 }
             }
         }
+
     }
 }
-        

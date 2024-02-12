@@ -37,10 +37,17 @@ namespace icasln
             GridViewRow row = gvCustomer.Rows[e.RowIndex];
             string userId = gvCustomer.DataKeys[e.RowIndex].Value.ToString();
             string newFirstName = (row.FindControl("txtFirstName") as TextBox).Text;
-            // Extract other updated fields in a similar way
+            string newLastName = (row.FindControl("txtLastName") as TextBox).Text;
+            string newEmail = (row.FindControl("txtEmail") as TextBox).Text;
+            string newPhoneNumber = (row.FindControl("txtPhoneNumber") as TextBox).Text;
+
+            // Determine the selected gender from the RadioButtonList
+            RadioButtonList rblGenderEdit = (RadioButtonList)row.FindControl("rblGenderEdit");
+            string newGender = rblGenderEdit.SelectedValue;
+
 
             // Update user data in the database
-            customer.UpdateUserData(userId, newFirstName /*, add other parameters as needed */);
+            customer.UpdateUserData(userId, newFirstName , newLastName, newEmail, newPhoneNumber, newGender);
 
             gvCustomer.EditIndex = -1;
             Bind();

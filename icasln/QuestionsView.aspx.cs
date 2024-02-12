@@ -1,4 +1,5 @@
-﻿using icalsn;
+﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace icasln
 
 
             List<Questions> prodList = new List<Questions>();
-            prodList = aProd.getProductAll();
+            prodList = aProd.getQuestionAll();
             gvProduct.DataSource = prodList;
             gvProduct.DataBind();
 
@@ -39,7 +40,7 @@ namespace icasln
 
         protected void btn_AddProduct_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ProductInsert.aspx");
+            Response.Redirect("QuestionsInsert.aspx");
         }
 
         protected void gvProduct_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -47,7 +48,7 @@ namespace icasln
             int result = 0;
             Questions prod = new Questions();
             string categoryID = gvProduct.DataKeys[e.RowIndex].Value.ToString();
-            result = prod.ProductDelete(categoryID);
+            result = prod.QuestionDelete(categoryID);
 
             if (result > 0)
             {
@@ -58,7 +59,7 @@ namespace icasln
                 Response.Write("<script>alert('Product Removal NOT successfully');</script>");
             }
 
-            Response.Redirect("ProductView.aspx");
+            Response.Redirect("QuestionsView.aspx");
 
         }
 
@@ -79,7 +80,7 @@ namespace icasln
             string Email = ((TextBox)row.Cells[2].Controls[0]).Text;
             string Message = ((TextBox)row.Cells[3].Controls[0]).Text;
 
-            result = prod.ProductUpdate(FirstName, LastName, Email, Message);
+            result = prod.QuestionUpdate(FirstName, LastName, Email, Message);
             if (result > 0)
             {
                 Response.Write("<script>alert('Product updated successfully');</script>");

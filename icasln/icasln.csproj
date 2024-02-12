@@ -106,6 +106,7 @@
   <ItemGroup>
     <Content Include="AccountDetails.aspx" />
     <Content Include="AccountManagement.aspx" />
+    <Content Include="AccountUpdate.aspx" />
     <Content Include="App_Data\CompanibotDB.mdf" />
     <Content Include="App_Data\CompanibotDB_log.ldf">
       <DependentUpon>CompanibotDB.mdf</DependentUpon>
@@ -114,6 +115,7 @@
     <Content Include="chatbot.css" />
     <Content Include="Chatbot.js" />
     <Content Include="ChatbotCustomisation.aspx" />
+    <Content Include="ChatbotLanding.aspx" />
     <Content Include="chathistory.png" />
     <Content Include="Checkboxx.png" />
     <Content Include="companibot.jpeg" />
@@ -128,6 +130,7 @@
     <Content Include="Home.aspx" />
     <Content Include="Home.css" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="office.jpg" />
     <Content Include="PaymentSuccess.aspx" />
     <Content Include="Premium.aspx" />
@@ -142,9 +145,11 @@
     <Content Include="subscriptionInsertt.aspx" />
     <Content Include="Subscriptions.aspx" />
     <Content Include="ThankYou.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />
     <Content Include="threemnth.png" />
     <Content Include="unlimtedtext.png" />
+    <Content Include="UpdatePassword.aspx" />
     <Content Include="Web.config" />
     <Content Include="year.png" />
   </ItemGroup>
@@ -163,6 +168,20 @@
     <Compile Include="AccountManagement.aspx.designer.cs">
       <DependentUpon>AccountManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminmaster.Master.cs">
+      <DependentUpon>adminmaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminmaster.Master.designer.cs">
+      <DependentUpon>adminmaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AccountUpdate.aspx.cs">
+      <DependentUpon>AccountUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountUpdate.aspx.designer.cs">
+      <DependentUpon>AccountUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Chatbot.aspx.cs">
       <DependentUpon>Chatbot.aspx</DependentUpon>
@@ -177,6 +196,13 @@
     </Compile>
     <Compile Include="ChatbotCustomisation.aspx.designer.cs">
       <DependentUpon>ChatbotCustomisation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChatbotLanding.aspx.cs">
+      <DependentUpon>ChatbotLanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatbotLanding.aspx.designer.cs">
+      <DependentUpon>ChatbotLanding.aspx</DependentUpon>
     </Compile>
     <Compile Include="Chatbot_Info.cs" />
     <Compile Include="Chat_Info.cs" />
@@ -205,6 +231,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaymentSuccess.aspx.cs">
       <DependentUpon>PaymentSuccess.aspx</DependentUpon>
@@ -280,12 +313,26 @@
     <Compile Include="ThankYou.aspx.designer.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThankYou_Form.aspx.cs">
       <DependentUpon>ThankYou_Form.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ThankYou_Form.aspx.designer.cs">
       <DependentUpon>ThankYou_Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePassword.aspx.cs">
+      <DependentUpon>UpdatePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdatePassword.aspx.designer.cs">
+      <DependentUpon>UpdatePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="usermaster.Master.cs">
@@ -297,6 +344,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminmaster.Master" />
     <None Include="packages.config" />
     <Content Include="usermaster.Master" />
     <None Include="Web.Debug.config">

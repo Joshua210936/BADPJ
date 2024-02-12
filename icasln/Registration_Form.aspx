@@ -6,110 +6,144 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <style type="text/css">
         .header {
-            text-align: center;
-            background: rgba(0, 0, 34, 1);
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-        }
+        text-align: center;
+        background: rgba(0, 0, 34, 1);
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+    }
 
-        .section-text {
-            font-size: 18px;
-            margin-bottom: 10px;
-            /* Adjust as needed */
-        }
+    .section-text {
+        font-size: 18px;
+        margin-bottom: 10px;
+        /* Adjust as needed */
+    }
 
-        .blue-section {
-            padding: 20px;
-            text-align: center;
-            background-color: rgba(0, 0, 34, 1);
-            color: white;
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .blue-section {
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(0, 0, 34, 1);
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .contact-section {
-            text-align: center;
-        }
+    .contact-section {
+        text-align: center;
+    }
 
-        #contactButton {
-            margin-top: 10px;
-            /* Adjust as needed */
-        }
+    #contactButton {
+        margin-top: 10px;
+        /* Adjust as needed */
+    }
 
-        .blue-section a {
-            color: white;
-        }
+    .blue-section a {
+        color: white;
+    }
 
+    .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        position: relative;
+        flex: 1; /* Takes up remaining space in the flex container */
+        margin-right: 10px; /* Adjust as needed */
+    }
+
+    #ddlAutocomplete {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: calc(100% - 2px); /* Adjust for borders */
+        z-index: 1;
+        display: none; /* Initially hide the dropdown */
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        max-height: 150px; /* Adjust as needed */
+        overflow-y: auto;
+    }
+
+    #searchInput:focus + #ddlAutocomplete {
+        display: block; /* Show the dropdown when the input is focused */
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        background-color: white;
+        color: #007bff;
+        border: 1px solid #007bff;
+        cursor: pointer;
+    }
+
+    .faq-bars {
+        margin-top: 2rem;
+    }
+
+    .faq-bars .col-md-4 {
+        margin-bottom: 20px;
+    }
+
+    .faq-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #map {
+        height: 400px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .contact-section {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .contact-section p {
+        margin-bottom: 10px;
+    }
+
+    .contact-section a {
+        background-color: #007bff;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+    .showroom-section {
+        margin-top: 40px;
+    }
+
+    .showroom-details {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Adjustments for smaller screens */
+    @media (max-width: 768px) {
         .search-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            margin-bottom: 20px;
+            flex-direction: column;
+            align-items: stretch;
         }
 
-        #searchInput {
-            padding: 10px;
-        }
-
-        .btn-primary {
-            padding: 10px 20px;
-            background-color: white;
-            color: #007bff;
-            border: 1px solid #007bff;
-        }
-
-        .faq-bars {
-            margin-top: 2rem;
-        }
-
-        .faq-bars .col-md-4 {
-            margin-bottom: 20px;
-        }
-
-        .faq-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #map {
-            height: 400px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .contact-section {
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .contact-section p {
+        .search-input {
+            margin-right: 0;
             margin-bottom: 10px;
         }
-
-        .contact-section a {
-            background-color: #007bff;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-
-        .showroom-section {
-            margin-top: 40px;
-        }
-
-        .showroom-details {
-            font-size: 16px;
-            line-height: 1.6;
-        }
+    }
     </style>
 </head>
 
@@ -120,11 +154,16 @@
         </div>
         <br /> <br />
         <div class="container">
-            <div class="search-bar">
-                <input type="text" class="form-control form-control-lg" placeholder="Search..." id="searchInput">
-                <asp:DropDownList ID="ddlAutocomplete" runat="server" CssClass="autocomplete"></asp:DropDownList>
-                <button class="btn btn-primary">Search</button>
-            </div>
+           <div class="search-bar">
+    <div class="search-input">
+        <input type="text" class="form-control form-control-lg" placeholder="Search..." id="searchInput" runat="server">
+
+        <asp:DropDownList ID="ddlAutocomplete" runat="server" CssClass="autocomplete"></asp:DropDownList>
+    </div>
+    
+     <asp:Button ID="btn_Search" runat="server" Text="Search" OnClick="btn_Search_Click" />
+</div>
+
 
             <div class="faq-bars row">
                 <div class="col-md-4" id="faq1">
@@ -185,17 +224,17 @@
 
 
             $(document).ready(function () {
-                $("#searchInput").on("input", function () {
+                $("#<%= searchInput.ClientID %>").on("input", function () {
                     // Fetch autocomplete suggestions
                     $.ajax({
                         type: "POST",
                         url: "<%= ResolveUrl("~/Registration_Form.aspx/GetAutocompleteSuggestions") %>",
-                        data: '{prefix: "' + $("#searchInput").val() + '" }',
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: function (data) {
-                            // Populate dropdown with suggestions
-                            var ddlAutocomplete = $("#<%= ddlAutocomplete.ClientID %>");
+                      data: '{prefix: "' + $("#<%= searchInput.ClientID %>").val() + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                // Populate dropdown with suggestions
+                var ddlAutocomplete = $("#<%= ddlAutocomplete.ClientID %>");
                 ddlAutocomplete.empty();
                 $.each(data.d, function (key, value) {
                     ddlAutocomplete.append($("<option></option>").val(value).html(value));
@@ -207,7 +246,8 @@
             }
         });
     });
-           });
+          });
+
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -216,7 +256,7 @@
 
                 searchButton.addEventListener('click', function () {
                     // Your search logic here
-                    alert('Search button clicked!');
+                    Response.Redirect("SearchResults.aspx");
                 });
 
                 var map;
@@ -250,5 +290,8 @@
 </body>
 </html>
 </asp:Content>
+
+
+
 
 
