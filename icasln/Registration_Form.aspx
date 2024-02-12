@@ -37,9 +37,15 @@
             }
 
             #contactButton {
-                margin-top: 10px;
-                /* Adjust as needed */
-            }
+    margin-top: 10px;
+   color:black;
+    background-color: #CDEEFF; /* New background color */
+    padding: 15px 30px; /* Adjust padding */
+    font-size: 18px; /* Adjust font size */
+    text-decoration: none; /* Remove underline for anchor tag */
+    border-radius: 5px; /* Add border radius */
+}
+
 
             .blue-section a {
                 color: white;
@@ -78,7 +84,7 @@
 
             .btn-primary {
                 padding: 10px 20px;
-                background-color: white;
+                background-color: #CDEEFF;
                 color: #007bff;
                 border: 1px solid #007bff;
                 cursor: pointer;
@@ -98,6 +104,7 @@
                 border-radius: 8px;
                 margin-bottom: 30px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                background-color:#CDEEFF; 
             }
 
             #map {
