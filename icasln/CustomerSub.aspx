@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="CustomerSub.aspx.cs" Inherits="icasln.CustomerSub" %>
+﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="CustomerSub.aspx.cs" Inherits="icasln.CustomerSub" MasterPageFile="~/adminmaster.Master" %>
 
-    <html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -86,9 +86,8 @@
 
         } 
 </style>
-
-
-
+ </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <h1 class="title" >Customer Subscriptions</h1>
        <div class="scrollable-table">
@@ -106,4 +105,4 @@
   
 
     </form>
-
+ </asp:Content>
