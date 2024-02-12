@@ -57,7 +57,7 @@
                 <tr>
                     <td>Gender</td>
                     <td>
-                        <asp:RadioButtonList ID="rbl_Gender" runat="server" RepeatDirection="Horizontal">
+                        <asp:RadioButtonList ID="rbl_Gender" runat="server" RepeatDirection="Horizontal" Width="147px">
                             <asp:ListItem Value="Female"></asp:ListItem>
                             <asp:ListItem Value="Male"></asp:ListItem>
                         </asp:RadioButtonList>
