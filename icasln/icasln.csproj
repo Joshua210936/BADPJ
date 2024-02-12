@@ -127,6 +127,7 @@
     <Content Include="CustomerSub.aspx" />
     <Content Include="customisable.png" />
     <Content Include="footer.css" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Home.css" />
@@ -143,11 +144,14 @@
     <Content Include="QuestionsInsert.aspx" />
     <Content Include="QuestionsView.aspx" />
     <Content Include="script-no-ajax.js" />
+    <Content Include="AboutUs.aspx" />
     <Content Include="SignUpaspx.aspx" />
     <Content Include="sixmnth.png" />
     <Content Include="SubscriptionDetails.aspx" />
     <Content Include="subscriptionInsertt.aspx" />
+    <Content Include="SubscriptionInsertt.css" />
     <Content Include="Subscriptions.aspx" />
+    <Content Include="Subscriptions.css" />
     <Content Include="ThankYou.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />
@@ -221,6 +225,13 @@
     </Compile>
     <Compile Include="CustomerSub.aspx.designer.cs">
       <DependentUpon>CustomerSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -306,6 +317,13 @@
       <DependentUpon>QuestionsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartItem.cs" />
     <Compile Include="SignUpaspx.aspx.cs">

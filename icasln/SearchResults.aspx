@@ -15,6 +15,10 @@
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
+
+            .highlight {
+                background-color: yellow;
+            }
         </style>
     </head>
     <body>
@@ -22,15 +26,17 @@
             <div>
                 <h1>Commonly Asked Questions </h1>
                 <div class="search-results">
-                    <asp:Repeater ID="QuestionsRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="question">
-                                <h3><%# Eval("QuestionText") %></h3>
-                                <p><%# Eval("AnswerText") %></p>
-                                
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                   <asp:Repeater ID="QuestionsRepeater" runat="server" OnItemDataBound="QuestionsRepeater_ItemDataBound">
+    <ItemTemplate>
+        <div class="question">
+            <h3>
+                <asp:Label ID="lblQuestion" runat="server" Text='<%# Bind("QuestionText") %>'></asp:Label>
+            </h3>
+            <p><%# Eval("AnswerText") %></p>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
+
                 </div>
             </div>
         </form>
