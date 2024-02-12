@@ -27,7 +27,7 @@ namespace icasln
             Product prod = new Product(tb_ProductID.Text, tb_ProductName.Text, tb_ProductDesc.Text,
                 decimal.Parse(tb_UnitPrice.Text), FileUpload1.FileName, int.Parse(tb_StockLevel.Text));
             result = prod.ProductInsert();
-
+            
             if (result > 0)
             {
                 string saveimg = Server.MapPath(" ") + "\\" + image;
@@ -37,9 +37,11 @@ namespace icasln
                 //loadProduct();
                 //clear1();
                 Response.Write("<script>alert('Insert successful');</script>");
+                Response.Redirect("ProductView.aspx");
             }
             else { Response.Write("<script>alert('Insert NOT successful');</script>"); }
 
+            
         }
 
         protected void btn_ProductView_Click(object sender, EventArgs e)
