@@ -40,7 +40,7 @@
 
 
     .faq-card h3 {
-        color: deepskyblue;
+        color: rgba(0, 0, 34, 1);
     }
 
     .faq-card {
@@ -50,6 +50,7 @@
         margin-bottom: 30px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         height: 200px;
+        background-color:#CDEEFF;
     }
 
     .flex-container {

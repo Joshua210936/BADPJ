@@ -144,6 +144,7 @@
     <Content Include="QuestionsInsert.aspx" />
     <Content Include="QuestionsView.aspx" />
     <Content Include="script-no-ajax.js" />
+    <Content Include="AboutUs.aspx" />
     <Content Include="SignUpaspx.aspx" />
     <Content Include="sixmnth.png" />
     <Content Include="SubscriptionDetails.aspx" />
@@ -313,6 +314,13 @@
       <DependentUpon>QuestionsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartItem.cs" />
     <Compile Include="SignUpaspx.aspx.cs">
