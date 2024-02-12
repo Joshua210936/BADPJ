@@ -10,35 +10,39 @@ namespace icasln
     public partial class Subscriptions : System.Web.UI.Page
     {
         Subscription aSub = new Subscription();
-       
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                subscriptionStatus.Value = "All"; // Default view
                 bind();
             }
+            else
+            {
+                bind(); // This ensures the bind method is called again after postback
+            }
         }
+
         protected void bind()
         {
             List<Subscription> subList = new List<Subscription>();
             subList = aSub.getSubscriptionAll();
+
+            string filter = subscriptionStatus.Value;
+
+            if (filter == "Active")
+            {
+                subList = subList.Where(sub => sub.Sub_Status == "Active").ToList();
+            }
+            else if (filter == "Inactive")
+            {
+                subList = subList.Where(sub => sub.Sub_Status == "Inactive").ToList();
+            }
+
             GVsubscirption.DataSource = subList;
             GVsubscirption.DataBind();
-        }
-
-        protected void GVsubscirption_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = GVsubscirption.SelectedRow;
-
-            // Get Product ID from the selected row, which is the 
-            // first row, i.e. index 0.
-            string subID = row.Cells[0].Text;
-
-            // Redirect to next page, with the Product Id added to the URL,
-            // e.g. ProductDetails.aspx?ProdID=1
-            Response.Redirect("SubscriptionDetails.aspx?SubID=" + subID);
-
         }
 
 

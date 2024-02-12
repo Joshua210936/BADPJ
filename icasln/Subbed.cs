@@ -25,7 +25,7 @@ namespace icasln
         {
             Subbed subDetail = null;
 
-            string queryStr = "SELECT UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscription WHERE UserSub_ID = @UserSubID";
+            string queryStr = "SELECT UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscriptionn WHERE UserSub_ID = @UserSubID";
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand cmd = new SqlCommand(queryStr, conn))
             {
@@ -55,7 +55,7 @@ namespace icasln
         {
             List<Subbed> subList = new List<Subbed>();
 
-            string queryStr = "SELECT UserSub_ID, UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscription ORDER BY UserSubDate DESC";
+            string queryStr = "SELECT UserSub_ID, UserID, UserName, Sub_Duration, UserSubDate FROM UserSubscriptionn ORDER BY UserSubDate DESC";
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand cmd = new SqlCommand(queryStr, conn))
             {
@@ -84,7 +84,7 @@ namespace icasln
         public int SubbedInsert(string userID, string userName, string subDuration, string userSubDate)
         {
             int result = 0;
-            string queryStr = "INSERT INTO UserSubscription (UserID, UserName, Sub_Duration, UserSubDate)" +
+            string queryStr = "INSERT INTO UserSubscriptionn (UserID, UserName, Sub_Duration, UserSubDate)" +
                               "VALUES (@UserID, @UserName, @Sub_Duration, @UserSubDate)";
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand cmd = new SqlCommand(queryStr, conn))

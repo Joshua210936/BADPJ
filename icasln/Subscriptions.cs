@@ -168,7 +168,7 @@ namespace icasln
 
         public int SubscriptionDeactivate(string ID)
         {
-            string queryStr = "UPDATE Subscriptions SET Sub_Status = 'inactive' WHERE Sub_ID = @ID";
+            string queryStr = "UPDATE Subscriptions SET Sub_Status = 'Inactive' WHERE Sub_ID = @ID";
             using (SqlConnection conn = new SqlConnection(_connStr))
             {
                 SqlCommand cmd = new SqlCommand(queryStr, conn);

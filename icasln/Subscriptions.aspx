@@ -19,11 +19,32 @@
     <title></title>
     <style>
         *{
-        font-family: 'Kdam Thmor Pro', sans-serif;
+            font-family: 'Kdam Thmor Pro', sans-serif;
         }
         body {
             background-color: #080636; /* Adjust body background to match MainLedger */
             color: floralwhite; /* Adjust text color to match MainLedger */
+        }
+        .tabs {
+            text-align: center;
+            margin: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .tablinks {
+            background-color: #fffaf0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: 0.3s;
+            font-size: 16px;
+            margin: 0 4px; /* Adjust as needed */
+        }
+
+        .tablinks:hover {
+            background-color: #ddd;
+            box-shadow: 1px 1px 20px 5px #CDEEFF;/* Lighter effect on hover */
         }
 
         .scrollable-table {
@@ -128,11 +149,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
           <h1 class="title" >View subscriptions</h1>
+            <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+        <asp:HiddenField ID="subscriptionStatus" runat="server" />
+        <div class="tabs">
+            <button type="button" class="tablinks" onclick="filterSubscriptions('All')">All Subscriptions</button>
+            <button type="button" class="tablinks" onclick="filterSubscriptions('Active')">Active Subscriptions</button>
+            <button type="button" class="tablinks" onclick="filterSubscriptions('Inactive')">Inactive Subscriptions</button>
+        </div>
         <div class="scrollable-table">
              <h2 style="padding-top: 25px; padding-bottom:0px; font-size:2rem; color:black;text-align:center;">All subscriptions</h2>
             <span id="message" style="font-size: 1.5rem; padding-bottom: 60px;"></span> <hr/>
-            <asp:GridView ID="GVsubscirption" runat="server" AutoGenerateColumns="False" CssClass="table" OnSelectedIndexChanged="GVsubscirption_SelectedIndexChanged" DataKeyNames="Sub_ID" OnRowCancelingEdit="GVsubscirption_RowCancelingEdit" OnRowDeleting="GVsubscirption_RowDeleting" OnRowEditing="GVsubscirption_RowEditing" OnRowUpdating="GVsubscirption_RowUpdating">
+            <asp:GridView ID="GVsubscirption" runat="server" AutoGenerateColumns="False" CssClass="table"  DataKeyNames="Sub_ID" OnRowCancelingEdit="GVsubscirption_RowCancelingEdit" OnRowDeleting="GVsubscirption_RowDeleting" OnRowEditing="GVsubscirption_RowEditing" OnRowUpdating="GVsubscirption_RowUpdating">
                 <Columns>
                     <asp:BoundField DataField="Sub_ID" HeaderText="Subscription ID" ReadOnly="True" />
                     <asp:BoundField DataField="Sub_Type" HeaderText="Subscription Type" />
@@ -146,9 +175,16 @@
                     </asp:CommandField>
                 </Columns>
             </asp:GridView>
-            
         </div>
         <asp:Button ID="btn_AddSubscription" runat="server" Text="Add New Subscription" OnClick="btn_AddSubscription_Click" CssClass="gridvieww-button"  />
     </form>
+    <script type="text/javascript">
+        function filterSubscriptions(status) {
+            // Set a hidden field value based on the status and then submit the form
+            document.getElementById('subscriptionStatus').value = status;
+            __doPostBack('UpdatePanel1', '');
+        }
+    </script>
+
 </body>
 </html>
