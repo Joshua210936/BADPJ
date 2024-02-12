@@ -5,6 +5,14 @@
             width: 258px;
         }
     </style>
+    <script>
+    function allowOnlyDigits(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false); // Prevent non-numeric input
+        }
+    }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -49,7 +57,7 @@
                 <tr>
                     <td>Gender</td>
                     <td>
-                        <asp:RadioButtonList ID="rbl_Gender" runat="server">
+                        <asp:RadioButtonList ID="rbl_Gender" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem Value="Female"></asp:ListItem>
                             <asp:ListItem Value="Male"></asp:ListItem>
                         </asp:RadioButtonList>
@@ -61,7 +69,7 @@
                 <tr>
                     <td>Phone Number</td>
                     <td>
-                        <asp:TextBox ID="tb_PhoneNumber" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tb_PhoneNumber" runat="server" onkeypress="allowOnlyDigits(event)"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
                         <asp:RequiredFieldValidator ID="Rfv_PhoneNumber" runat="server" ControlToValidate="tb_PhoneNumber" ErrorMessage="Enter a Phone Number" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -79,6 +87,16 @@
                        </td>
                 </tr>
                 <tr>
+                    <td>Confirm Password</td>
+                    <td>
+                        <asp:TextBox ID="tb_ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:RequiredFieldValidator ID="Rfv_ConfirmPassword" runat="server" ControlToValidate="tb_ConfirmPassword" ErrorMessage="Confirm Password is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="Cmpv_PasswordsMatch" runat="server" ControlToValidate="tb_ConfirmPassword" ControlToCompare="tb_Password" ErrorMessage="Passwords do not match" ForeColor="Red"></asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
                     <td>&nbsp;</td>
                     <td>
                         <asp:Button ID="btn_Insert" runat="server" Text="Create Account" OnClick="btn_Insert_Click" />
@@ -89,3 +107,4 @@
             </table>
     </form>
 </asp:Content>
+

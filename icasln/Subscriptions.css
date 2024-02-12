@@ -5,7 +5,9 @@
 body {
     background-color: #080636; /* Adjust body background to match MainLedger */
     color: floralwhite;
-    height: 120vh; /* Adjust text color to match MainLedger */
+    height: 120vh;
+    justify-content: center;
+    align-items: center; /* Adjust text color to match MainLedger */
 }
 
 .tabs {
@@ -14,7 +16,7 @@ body {
     margin-bottom: 30px;
 }
 
-.tablinks {
+.tabb {
     background-color: #fffaf0;
     border: none;
     outline: none;
@@ -25,7 +27,7 @@ body {
     margin: 0 4px; /* Adjust as needed */
 }
 
-    .tablinks:hover {
+    .tabb:hover {
         background-color: #ddd;
         box-shadow: 1px 1px 20px 5px #CDEEFF; /* Lighter effect on hover */
     }
