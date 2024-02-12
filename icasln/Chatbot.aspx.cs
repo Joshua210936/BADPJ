@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
@@ -26,6 +26,7 @@ namespace icasln
         SqlConnection con;
         private string userCustomisation = string.Empty;
         private string UserID = string.Empty;
+        protected string Username = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,6 +39,24 @@ namespace icasln
             {
                 UserID = null;
             }
+
+            con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sql = "SELECT FirstName FROM UserAccount WHERE UserID = @UserID";
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                Username = cmd.ExecuteScalar()?.ToString();
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+
+            name.InnerText = Username;
 
             con = new SqlConnection(connectionString);
             con.Open();
@@ -85,6 +104,23 @@ namespace icasln
             if (!IsPostBack)
             {
               
+            }
+        }
+
+        protected string GetFormattedMessage(string role, string content)
+        {
+            if (role == "user")
+            {
+                return Username + ": " + content;
+            }
+            else if (role == "chatbot")
+            {
+                return "Chatbot: " + content;
+            }
+            else
+            {
+                // Handle other roles if needed
+                return content;
             }
         }
 

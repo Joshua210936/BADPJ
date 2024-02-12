@@ -34,29 +34,79 @@ namespace icasln
             Response.Redirect("Chatbot.aspx");
         }
 
-        protected void CustomiseInformationButton_Click(object sender, EventArgs e)
+        protected void SelectPersonalityButton_Click(object sender, EventArgs e)
         {
-            int result = 0;
-            string userCustomisation = CustomiseInformationTextbox.Text;
-            string chatbotName = ChatbotNameTextbox.Text;
-            Session["userCustomisation"] = userCustomisation;
-
-            Chatbot_Info info = new Chatbot_Info(null, chatbotName, userCustomisation, UserID);
+            if(ChatbotList.SelectedValue == "Chef")
             {
-                result = info.ChatbotInfoInsert();
+                int result = 0;
+                string ChefPrompt = "Imagine youre a culinary expert sharing secret recipes and culinary wisdom with aspiring chefs.";
+                string ChefName = "Chef";
+
+                Chatbot_Info info = new Chatbot_Info(null, ChefName, ChefPrompt, UserID);
+                {
+                    result = info.ChatbotInfoInsert();
+                }
+            }
+
+            if (ChatbotList.SelectedValue == "BoonKeng")
+            {
+                int result = 0;
+                string BoonKengPrompt = "Speak in Singlish. Imagine you are speaking to a good friend.";
+                string BoonKengName = "Boon Keng";
+
+                Chatbot_Info info = new Chatbot_Info(null, BoonKengName, BoonKengPrompt, UserID);
+                {
+                    result = info.ChatbotInfoInsert();
+                }
+            }
+            if (ChatbotList.SelectedValue == "OldMan")
+                {
+                    int result = 0;
+                    string OldManPrompt = "Imagine youre an old man. Keep talking about how good the past was. Start each memory with: Back in my day,";
+                    string OldManName = "Old Man";
+
+                    Chatbot_Info info = new Chatbot_Info(null, OldManName, OldManPrompt, UserID);
+                    {
+                        result = info.ChatbotInfoInsert();
+                    }
+                }
+        }
+
+        protected void SelectNewPersonalityButton_Click(object sender, EventArgs e)
+        {
+            if (ChatbotList.SelectedValue == "Chef")
+            {
+                int result = 0;
+                string ChefPrompt2 = "Imagine youre a culinary expert sharing secret recipes and culinary wisdom with aspiring chefs.";
+                string ChefName2 = "Chef";
+
+                Chatbot_Info info2 = new Chatbot_Info(null, ChefName2, ChefPrompt2, UserID);
+                // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
+                result = info2.ChatbotInfoUpdate(ChefName2, ChefPrompt2, UserID);
+            }
+
+            if (ChatbotList.SelectedValue == "BoonKeng")
+            {
+                int result = 0;
+                string BoonKengPrompt2 = "Speak in Singlish. Imagine you are speaking to a good friend.";
+                string BoonKengName2 = "Boon Keng";
+
+                Chatbot_Info info2 = new Chatbot_Info(null, BoonKengName2, BoonKengPrompt2, UserID);
+                // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
+                result = info2.ChatbotInfoUpdate(BoonKengName2, BoonKengPrompt2, UserID);
+            }
+            if (ChatbotList.SelectedValue == "OldMan")
+            {
+                int result = 0;
+                string OldManPrompt2 = "Imagine youre an old man. Keep talking about how good the past was. Start each memory with: Back in my day,";
+                string OldManName2 = "Old Man";
+
+                Chatbot_Info info2 = new Chatbot_Info(null, OldManName2, OldManPrompt2, UserID);
+                // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
+                result = info2.ChatbotInfoUpdate(OldManName2, OldManPrompt2, UserID);
             }
         }
-        protected void UpdateInformationButton_Click(object sender, EventArgs e)
-        {
-            int result = 0;
-            string updatedPrompt = UpdatePromptTextbox.Text;
-            string updatedName = UpdateNameTextbox.Text;
-
-            Chatbot_Info info2 = new Chatbot_Info(null, updatedName, updatedPrompt, UserID);
-            // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
-            result = info2.ChatbotInfoUpdate(updatedName, updatedPrompt, UserID);
 
 
-        }
     }
 }

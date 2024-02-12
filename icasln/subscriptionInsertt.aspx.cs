@@ -20,24 +20,38 @@ namespace icasln
             int result = 0;
             string image = "";
 
+            // Function to set error message with red color
+            Action<string> setError = (message) =>
+            {
+                lbl_Result.ForeColor = System.Drawing.Color.Red;
+                lbl_Result.Text = message;
+            };
+
+            // Function to set success message with green color
+            Action<string> setSuccess = (message) =>
+            {
+                lbl_Result.ForeColor = System.Drawing.Color.Green;
+                lbl_Result.Text = message;
+            };
+
             // Check if Subscription Name is filled
             if (string.IsNullOrWhiteSpace(tb_Sub_Type.Text))
             {
-                lbl_Result.Text = "Subscription Name is required.";
+                setError("Subscription Name is required.");
                 return;
             }
 
             // Check if Subscription Description is filled
             if (string.IsNullOrWhiteSpace(tb_Sub_Desc.Text))
             {
-                lbl_Result.Text = "Subscription Description is required.";
+                setError("Subscription Description is required.");
                 return;
             }
 
             // Check if an image is uploaded
             if (!FileUpload1.HasFile)
             {
-                lbl_Result.Text = "Subscription Image is required.";
+                setError("Subscription Image is required.");
                 return;
             }
             else
@@ -48,12 +62,12 @@ namespace icasln
             // Validate Subscription Price
             if (string.IsNullOrWhiteSpace(tb_Sub_Price.Text) || !decimal.TryParse(tb_Sub_Price.Text, out decimal price))
             {
-                lbl_Result.Text = "Subscription Price is required and must be a valid number.";
+                setError("Subscription Price is required and must be a valid number.");
                 return;
             }
             else if (price < 0 || (decimal.Remainder(price * 100, 1) > 0))
             {
-                lbl_Result.Text = "Subscription Price must be a positive number with up to two decimal places.";
+                setError("Subscription Price must be a positive number with up to two decimal places.");
                 return;
             }
 
@@ -72,12 +86,12 @@ namespace icasln
             {
                 string saveimg = Server.MapPath(" ") + "\\" + image;
                 FileUpload1.SaveAs(saveimg);
-                lbl_Result.Text = "Insert successful. File saved at: " + saveimg;
+                setSuccess("Insert successful. File saved at: " + saveimg);
                 // Additional code...
             }
             else
             {
-                lbl_Result.Text = "Insert NOT successful.";
+                setError("Insert NOT successful.");
             }
         }
 

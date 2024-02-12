@@ -1,0 +1,153 @@
+﻿
+* {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+.main-container {
+    margin-left: 100px;
+    height:80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.vision-section h2 {
+    color: #555;
+}
+
+.vision-section h1 {
+    color: #000;
+    font-size: 2.5em;
+}
+
+.vision-section p {
+    color: #666;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    width:500px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+    .features-list li {
+        color: #4CAF50;
+        margin: 10px 0;
+    }
+
+.learn-more-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+    .learn-more-btn:hover {
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+    }
+
+.companion-image img {
+    width: 400px; /* Adjust as needed */
+    height: 400px;
+    margin-right: 80px ;
+
+}
+
+/* styles.css */
+.features-container {
+    background-color: #080636;
+    text-align: center;
+    height:120vh;
+    color:white;
+   width:100% ;
+}
+
+.feature {
+    display: inline-block;
+    margin: 60px;
+    text-align: center;
+}
+
+
+
+.title {
+    font-size: 3rem;
+    border-bottom: 3px solid #CDEEFF;
+    margin: 0px 15% 40px;
+    padding-bottom: 25px;
+    padding-top: 80px;
+    margin-bottom: 70px;
+    text-align: center;
+} 
+
+    .feature h3 {
+        margin-top: 10px;
+        margin-bottom:15px
+    }
+
+.feature p {
+    color: #666;
+    font-size: 15px;
+    color: white;
+    width: 250px;
+    margin-bottom: 15px
+}
+.feature img {
+    width: 200px; /* Width and height are equal to make a circle */
+    height: 200px; /* Width and height are equal to make a circle */
+    background-color: #ffffff; /* This is your circle background */
+    border-radius: 50%; /* This makes the circle */ /* Adjust padding as needed to fit the image inside the circle */
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    margin-bottom: 15px /* Optional: adds a shadow for depth */
+}
+/* Style for the FAQ page */
+
+.faq-section {
+    display: block;
+    justify-content: center;
+    margin: 20px;
+    margin-bottom:0px;
+    padding: 20px;
+    background-color: white;
+ /* Example background color */
+}
+
+.faq-category {
+    width: 300px;
+    display: flex;
+    /* Example width */
+    margin-bottom: 0px;
+    height: 200px;
+    background: #080636;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    color: white;
+    text-align: center;
+}
+
+    .faq-category h2 {
+        color: #333;
+        margin-bottom: 15px;
+        color: white ;
+    }
+
+    .faq-category p{
+        list-style: none;
+        padding: 0;
+        margin:0;
+    }
+
+
+
+/* You can add more specific styles such as colors, fonts, etc. as needed. */
+

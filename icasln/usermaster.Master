@@ -26,7 +26,7 @@
     
     <!-- please change the href when you create the website thank you -->
     
-        <div>
+        <% if (Session["UserId"] != null) { %> <%--logged in--%>
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
   <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/>      CompaniBots</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,13 +35,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav ml-auto">
       <li class="nav-item px-3">
+        <a class="nav-link" href="ProductView.aspx">Merchandise</a>
+      </li>
+      <li class="nav-item px-3">
         <a class="nav-link" href="Premium.aspx">Premium</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link" href="#">Support</a>
+        <a class="nav-link" href="Registration_Form.aspx">Support</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="#">Merchandise</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="ChatbotLanding.aspx">Chatbot</a>
       </li>
       <li class="nav-item px-3 dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,12 +61,49 @@
           <a class="dropdown-item" href="AccountManagement.aspx">Account Management</a>
             <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="AccountDetails.aspx">Account Details</a>
+         <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Logout.aspx">Log out</a>
         </div>
       </li>
     </ul>
   </div>
 </nav>   
-            
+            <% } %>
+    <% else { %> <%--non logged in--%>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
+  <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/>      CompaniBots</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">Merchandise</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="Premium.aspx">Premium</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="Registration_Form.aspx">Support</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">Merchandise</a>
+      </li>
+      <li class="nav-item px-3 dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="SignUpaspx.aspx">Create Account</a>
+           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Login.aspx">Login</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>   
+    <% } %>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
             </asp:ContentPlaceHolder>

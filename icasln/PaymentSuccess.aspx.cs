@@ -24,34 +24,45 @@ namespace icasln
                 var lastName = Session["LastName"]?.ToString();
                 var userName = $"{firstName} {lastName}";
 
-                if (!string.IsNullOrEmpty(userId))
+                // Extract the subscription type from the query string
+                var subType = Request.QueryString["subType"];
+                if (!string.IsNullOrEmpty(subType))
                 {
-                    var subbed = new Subbed();
-                    // Assuming you determine the subscription duration and start date in another way
-                    string subDuration = "6 Month"; // Example duration
-                    string userSubDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    // URL decode the subType in case it was URL encoded
+                    string subDuration = HttpUtility.UrlDecode(subType);
 
-                    // Insert the subscription record without SubId
-                    int result = subbed.SubbedInsert(userId, userName, subDuration, userSubDate);
-
-                    if (result > 0)
+                    if (!string.IsNullOrEmpty(userId))
                     {
-                        // Successful insertion
-                        Response.Redirect("ThankYou.aspx");
+                        var subbed = new Subbed();
+                        string userSubDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                        // Use the subType as the subscription duration
+                        int result = subbed.SubbedInsert(userId, userName, subDuration, userSubDate);
+
+                        if (result > 0)
+                        {
+                            // Successful insertion
+                            Response.Redirect("ThankYou.aspx");
+                        }
+                        else
+                        {
+                            // Handle insertion failure
+                            Response.Write("Error in subscription process.");
+                        }
                     }
                     else
                     {
-                        // Handle insertion failure
-                        Response.Write("Error in subscription process.");
+                        // Invalid user ID
+                        Response.Redirect("SignUpaspx.aspx");
                     }
                 }
                 else
                 {
-                    // Invalid user ID
-
-                    Response.Redirect("SignUpaspx.aspx");
+                    // Handle case where subType is missing
+                    Response.Write("Error: Subscription type is missing.");
                 }
             }
         }
+
     }
 }
