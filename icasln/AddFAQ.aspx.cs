@@ -33,12 +33,13 @@ namespace icasln
                 }
             }
 
-            // Show a pop-up message using JavaScript
-            string script = "alert('Data inserted successfully.');";
-            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script, true);
+            tb_Question.Text = "";
+            tb_Answer.Text = "";
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "alert('Your Questions and Answers has been submitted!!!');", true);
 
             // Optionally, redirect to another page after adding the FAQ
-            Response.Redirect("Home.aspx");
+
         }
     }
 }

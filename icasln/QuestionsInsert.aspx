@@ -300,6 +300,6 @@
 
         <br />
         <asp:Button ID="btn_Submit" runat="server" Text="Submit" OnClick="btn_Submit_Click" />
-        <asp:Button ID="btn_CheckAll" runat="server" Text="Check All Queries" OnClick="btn_CheckAll_Click" />
+       
     </form>
 </asp:Content>

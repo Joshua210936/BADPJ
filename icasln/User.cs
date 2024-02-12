@@ -34,6 +34,11 @@ namespace icasln
             _password = password;
         }
 
+        internal object GetUserDataById(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public string UserId
         {
             get { return _userId; }
