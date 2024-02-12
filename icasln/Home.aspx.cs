@@ -22,11 +22,13 @@ namespace icasln
         }
         protected void btnGoToAboutUs_Click(object sender, EventArgs e)
         {
-            // Any server-side logic here
+            // Add a debug statement
+            System.Diagnostics.Debug.WriteLine("Button clicked - Redirecting to AboutUs.aspx");
 
-            // Redirect to Premium.aspx
+            // Redirect to AboutUs.aspx
             Response.Redirect("AboutUs.aspx");
         }
+
 
     }
 }

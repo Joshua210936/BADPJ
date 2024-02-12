@@ -171,7 +171,7 @@
                                 <p class="title">Art Director</p>
                                 <p>I am the arts director and I am pleased to help you.</p>
                                 <p>justinooi@gmail.com</p>
-                                <p><button class="button">Contact</button></p>
+                                <p><button class="https://mail.google.com/mail/u/0/?hl=en#inbox?compose=new">Contact</button></p>
                             </div>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                                 <p class="title">Designer</p>
                                 <p>I am the designer and hope you all like my design</p>
                                 <p>rayne123@gmail.com</p>
-                                <p><button class="button">Contact</button></p>
+                                <p><button class="https://mail.google.com/mail/u/0/?hl=en#inbox?compose=new">Contact</button></p>
                             </div>
                         </div>
                     </div>

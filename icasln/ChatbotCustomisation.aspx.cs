@@ -20,6 +20,7 @@ namespace icasln
         private string UserID = string.Empty;
         string premiumUserID = string.Empty;
         protected bool isPremiumUser;
+        protected bool chatbotCreated;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,26 @@ namespace icasln
             {
                 UserID = null;
             }
+
+            con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sqlCheckChatbot = "SELECT COUNT(*) FROM ChatbotInfo WHERE UserID = @UserID";
+                cmd = new SqlCommand(sqlCheckChatbot, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                int chatbotCount = (int)cmd.ExecuteScalar();
+                cmd.Dispose();
+                con.Close();
+
+                isPremiumUser = !string.IsNullOrEmpty(premiumUserID);
+                chatbotCreated = chatbotCount > 0;
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+
             con = new SqlConnection(connectionString);
             con.Open();
             try
@@ -120,7 +141,7 @@ namespace icasln
 
         protected void SelectNewPersonalityButton_Click(object sender, EventArgs e)
         {
-            if (ChatbotList.SelectedValue == "Chef")
+            if (ChatbotUpdateList.SelectedValue == "Chef")
             {
                 int result = 0;
                 string ChefPrompt2 = "Imagine youre a culinary expert sharing secret recipes and culinary wisdom with aspiring chefs.";
@@ -131,7 +152,7 @@ namespace icasln
                 result = info2.ChatbotInfoUpdate(ChefName2, ChefPrompt2, UserID);
             }
 
-            if (ChatbotList.SelectedValue == "BoonKeng")
+            if (ChatbotUpdateList.SelectedValue == "BoonKeng")
             {
                 int result = 0;
                 string BoonKengPrompt2 = "Speak in Singlish. Imagine you are speaking to a good friend.";
@@ -141,7 +162,7 @@ namespace icasln
                 // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
                 result = info2.ChatbotInfoUpdate(BoonKengName2, BoonKengPrompt2, UserID);
             }
-            if (ChatbotList.SelectedValue == "OldMan")
+            if (ChatbotUpdateList.SelectedValue == "OldMan")
             {
                 int result = 0;
                 string OldManPrompt2 = "Imagine youre an old man. Keep talking about how good the past was. Start each memory with: Back in my day,";

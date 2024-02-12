@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="chatbot.css">
     <script type="text/javascript">
         var username = '<%= Username %>'; // Inject Username variable into JavaScript
+        var chatbotname = '<%= ChatbotName %>';
     </script>
     <script src="Chatbot.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,42 +26,52 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server" class="background">
-    <h1 style="text-align:center;">Chat</h1>
+        <h1 style="text-align:center;">Chat</h1>
         <div class="title-container">
-            <img src="customisable.png" width="50" height = "50" /> <span id="name" runat="server"></span><span class="title-chatbot">Chatbot <img src="companibot.jpeg" width="50" height = "50" /></span>
+            <img src="customisable.png" width="50" height="50" /> <span id="name" runat="server"></span>
+            <span class="title-chatbot"><%= ChatbotName %> <img src="companibot.jpeg" width="50" height="50" /></span>
+        </div>
+        <div class="chat-container">
+            <div class="split left">
+                <div>
+                    <asp:Button type="button" runat="server" Text="Chatbot" class="selectChatbotButton"/>
+                </div>
             </div>
-            <div class="chat-container">
-                <div class="split left">
-                    <div>
-                        <asp:Button type="button" runat="server" Text="Chatbot" class="selectChatbotButton"/>
-                    </div>
+            <div class="split right">
+                <div id="messages" class="overflow-scroll messages" onscroll="storeScrollPosition('messages')">
+                    <asp:ScriptManager runat="server" />
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="overflow-scroll messages">
+                                <asp:Repeater ID="rptMyRepeater" runat="server">
+                                    <HeaderTemplate>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <div class='<%# Eval("Message_Role").ToString() == "user" ? "question" : "response" %>'>
+                                            <%# GetFormattedMessage(Eval("Message_Role").ToString(), Eval("Message_Content").ToString()) %>
+                                        </div>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
-                <div class="split right">
-                    <div id="messages" class="overflow-scroll messages">
-                        <asp:Repeater ID="rptMyRepeater" runat="server">
-                            <HeaderTemplate>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <div class='<%# Eval("Message_Role").ToString() == "user" ? "question" : "response" %>'>
-                                    <%# GetFormattedMessage(Eval("Message_Role").ToString(), Eval("Message_Content").ToString()) %>
-                                </div>
-                            </ItemTemplate>
-                            <FooterTemplate>
-
-                            </FooterTemplate>
-                        </asp:Repeater>
-                     </div>
-                </div>
-                </div>
-                <div class="input-container">
-                    <div class="textMessage input-group mb-3 d-flex justify-content-center">
-                        <asp:TextBox ID="UserInputTextBox" runat="server" class="form-control" placeholder="Say Hello!" ValidationGroup="SendMessage"/>
-                        <asp:Button type="button" ID="SubmitButton" runat="server" Text="Send" OnClick="SubmitButton_Click" class="btn btn-outline-secondary button-background"/>
-                    </div>
-                    <asp:Button type="button" ID="Button1" runat="server" Text="Customise" OnClick="CustomiseButton_Click" ValidationGroup="Customize" />
-                </div>
-            <br />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="textMessage input-group mb-3 d-flex justify-content-center">
+                <asp:TextBox ID="UserInputTextBox" runat="server" class="form-control" placeholder="Say Hello!" ValidationGroup="SendMessage"/>
+                <asp:Button type="button" ID="SubmitButton" runat="server" Text="Send" OnClick="SubmitButton_Click" class="btn btn-outline-secondary button-background"/>
+            </div>
+        </div>
         <br />
-
-        </form>
+        <br />
+    </form>
+    <script>
+        $(document).ready(function () {
+            // Call restoreScrollPosition after page reload
+            restoreScrollPosition('messages');
+    </script>
 </asp:Content>

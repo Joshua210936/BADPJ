@@ -163,10 +163,6 @@ namespace icasln
             smtp.Send(from, recipientEmail, "Separate Confirmation Email", mailMessage);
         }
 
-        protected void btn_CheckAll_Click(object sender, EventArgs e)
-        {
-            // Redirect page to “ProductView.aspx”
-            Response.Redirect("QuestionsView.aspx");
-        }
+       
     }
 }
