@@ -116,8 +116,11 @@
     <Content Include="chatbot.css" />
     <Content Include="Chatbot.js" />
     <Content Include="ChatbotCustomisation.aspx" />
+    <Content Include="chatbotcustomisation.css" />
     <Content Include="ChatbotLanding.aspx" />
+    <Content Include="chatbotlanding.css" />
     <Content Include="chathistory.png" />
+    <Content Include="chatting.png" />
     <Content Include="Checkboxx.png" />
     <Content Include="companibot.jpeg" />
     <Content Include="Controllers\Images\chathistory.png" />
@@ -128,6 +131,7 @@
     <Content Include="customisable.png" />
     <Content Include="footer.css" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="friendchange.png" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Home.css" />

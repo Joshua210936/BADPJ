@@ -34,7 +34,7 @@
     
        <div>
        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
-           <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/> CompaniBots</a>
+           <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/> CompaniBot</a>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
            </button>
@@ -84,7 +84,7 @@
         <div class="footer-contact">
             <img src="companibot.jpeg" alt="CompaniBots Logo" class="footer-logo">
             <p>+65 14131413</p>
-            <p>CompaniBots@gmail.com</p>
+            <p>CompaniBot@gmail.com</p>
         </div>
         <div class="footer-links">
             <h4>Quick Links</h4>
@@ -115,7 +115,7 @@
                 <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             </div>
                 <p>A product of <img src="companibot.jpeg" alt="CompaniBots Mini Logo" class="mini-logo"></p>
-                <p>© 2023 CompaniBots. All rights reserved</p>
+                <p>© 2023 CompaniBot. All rights reserved</p>
         </div>
     </footer> 
  

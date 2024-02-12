@@ -1,0 +1,56 @@
+﻿.Premium{
+    text-align:center;
+}
+
+.Non-Premium {
+    text-align: center;
+}
+
+input[type="text"], textarea {
+    background-color: #F2F2F2; /* Light grey background */
+    color: #333333; /* Dark text color for contrast */
+    border: 2px solid #000022; /* Border color similar to the button */
+    padding: 10px; /* Comfortable padding */
+    border-radius: 15px; /* Rounded corners */
+    font-size: 16px; /* Readable text size */
+    width: 100%; /* Full width */
+    margin-bottom:20px;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none; /* Removes default focus outline */
+    border-color: #A4D4EF; /* Slightly darker border color on focus */
+    box-shadow: 0 0 5px #A4D4EF; /* Subtle shadow to highlight focus */
+}
+
+.form-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #000022;
+    color: #CDEEFF;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.form-button:hover {
+    box-shadow: 1px 1px 20px 5px #000022;
+}
+
+.form-button:focus {
+    border: 2px solid #2c2c54;
+}
+
+.background {
+    background-color: #CDEEFF;
+    margin-bottom:80px;
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
+    padding:20px;
+}
