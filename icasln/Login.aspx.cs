@@ -35,12 +35,26 @@ namespace icasln
                     // Check if the hashed input password matches the hashed password fetched from the database
                     if (hashedPassword == hashedInputPassword)
                     {
-                        // Successful login, create a session using the user id
-                        string userId = GetUserIdByEmail(email);
-                        Session["UserId"] = userId;
+                        // Successful login, retrieve user id and IsAdmin from the database
+                        Tuple<string, bool> userData = GetUserIdAndIsAdminByEmail(email);
+                        string userId = userData.Item1;
+                        bool isAdmin = userData.Item2;
 
-                        // Redirect to the dashboard or any other page
-                        Response.Redirect("AccountManagement.aspx");
+                        // Create sessions for UserId and IsAdmin
+                        Session["UserId"] = userId;
+                        Session["IsAdmin"] = isAdmin;
+
+                        // Redirect to the appropriate page based on user type
+                        if (isAdmin)
+                        {
+                            // Redirect admin to admin dashboard
+                            Response.Redirect("AccountMangement.aspx");
+                        }
+                        else
+                        {
+                            // Redirect user to user dashboard
+                            Response.Redirect("AccountDetails.aspx");
+                        }
                     }
                     else
                     {
@@ -90,12 +104,14 @@ namespace icasln
             return hashedPassword;
         }
 
-        // Method to fetch user id from the database based on email
-        private string GetUserIdByEmail(string email)
+        // Method to fetch user id and IsAdmin from the database based on email
+        private Tuple<string, bool> GetUserIdAndIsAdminByEmail(string email)
         {
             string userId = null;
+            bool isAdmin = false;
+
             string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
-            string query = "SELECT UserId FROM UserAccount WHERE Email = @Email";
+            string query = "SELECT UserId, IsAdmin FROM UserAccount WHERE Email = @Email";
 
             using (SqlConnection connection = new SqlConnection(connStr))
             {
@@ -103,16 +119,18 @@ namespace icasln
                 {
                     command.Parameters.AddWithValue("@Email", email);
                     connection.Open();
-                    object result = command.ExecuteScalar();
-                    if (result != null)
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
                     {
-                        userId = Convert.ToString(result);
+                        userId = reader["UserId"].ToString();
+                        isAdmin = Convert.ToBoolean(reader["IsAdmin"]);
                     }
                 }
             }
 
-            return userId;
+            return Tuple.Create(userId, isAdmin);
         }
+
 
         // Method to hash password using SHA256
         private string HashPassword(string password)
