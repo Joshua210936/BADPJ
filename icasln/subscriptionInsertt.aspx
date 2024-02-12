@@ -19,10 +19,10 @@
         <h1 class="title" >Add New Subscriptions</h1>
         <div class="form-container">
             <div class="form-section">
-                <h2 style="color: #CDEEFF; margin-bottom: 20px;">Add Subscription</h2>
+                <h2 style="color: #CDEEFF; margin-bottom: 20px; margin-top:20px;">Add Subscription</h2>
                 <div class="input-group">
                     <label for="tb_Sub_Type">Subscription Name</label>
-                    <asp:TextBox ID="tb_Sub_Type" runat="server" CssClass="form-textbox"></asp:TextBox>
+                    <asp:TextBox ID="tb_Sub_Type" runat="server" CssClass="form-textbox" ></asp:TextBox>
                 </div>
                 <div class="input-group">
                     <label for="tb_Sub_Desc">Subscription Description</label>
