@@ -100,5 +100,22 @@ namespace icasln
 
             return result;
         }
+        // Inside Subbed.cs
+
+        public bool CheckUserPremiumSubscription(string userID)
+        {
+            bool hasPremium = false;
+            string queryStr = "SELECT COUNT(1) FROM UserSubscriptionn WHERE UserID = @UserID";
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            using (SqlCommand cmd = new SqlCommand(queryStr, conn))
+            {
+                cmd.Parameters.AddWithValue("@UserID", userID);
+                conn.Open();
+                hasPremium = (int)cmd.ExecuteScalar() > 0;
+            }
+
+            return hasPremium;
+        }
+
     }
 }

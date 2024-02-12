@@ -31,33 +31,45 @@ namespace icasln
             SubscriptionsRepeater.DataBind();
         }
 
+        // Inside Premium.aspx.cs
         protected void SubscriptionsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Checkout")
             {
-                // Check if the UserId session variable exists and is not null or empty
                 var userId = Session["UserId"]?.ToString();
                 if (string.IsNullOrEmpty(userId))
                 {
-                    // User ID is not valid, so prompt the user to sign up or log in
-                    // This script will show an alert and then redirect the user to the login/sign-up page
                     string script = "alert('Please log in or sign up to continue.'); window.location = 'SignUpaspx.aspx';";
                     ClientScript.RegisterStartupScript(this.GetType(), "loginAlert", script, true);
                 }
                 else
                 {
-                    // Proceed with fetching subscription details and creating the checkout session
-                    var subId = e.CommandArgument.ToString();
-                    var selectedSub = aSub.getSubscription(subId); // Fetch subscription details
+                    // Create an instance of Subbed to use the new method
+                    Subbed subbed = new Subbed();
 
-                    if (selectedSub != null)
+                    // Check if the user already has a premium subscription
+                    if (subbed.CheckUserPremiumSubscription(userId))
                     {
-                        var priceInCents = Convert.ToInt32(Convert.ToDecimal(selectedSub.Sub_Price) * 100);
-                        CreateCheckoutSession(priceInCents, selectedSub.Sub_Type);
+                        // User already has a premium subscription
+                        string script = "alert('You already have a premium subscription.');";
+                        ClientScript.RegisterStartupScript(this.GetType(), "alreadyPremium", script, true);
+                    }
+                    else
+                    {
+                        // User does not have a premium subscription, proceed with checkout
+                        var subId = e.CommandArgument.ToString();
+                        var selectedSub = aSub.getSubscription(subId); // Fetch subscription details
+
+                        if (selectedSub != null)
+                        {
+                            var priceInCents = Convert.ToInt32(Convert.ToDecimal(selectedSub.Sub_Price) * 100);
+                            CreateCheckoutSession(priceInCents, selectedSub.Sub_Type);
+                        }
                     }
                 }
             }
         }
+
 
 
         private void CreateCheckoutSession(int priceInCents, string productName)
