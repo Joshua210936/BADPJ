@@ -48,7 +48,7 @@ namespace icasln
                         if (isAdmin)
                         {
                             // Redirect admin to admin dashboard
-                            Response.Redirect("AccountMangement.aspx");
+                            Response.Redirect("AccountManagement.aspx");
                         }
                         else
                         {

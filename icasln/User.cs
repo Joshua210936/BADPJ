@@ -226,9 +226,11 @@ namespace icasln
 
             return users;
         }
-        public void UpdateUserData(string userId, string newFirstName /*, add other parameters as needed */)
+        public void UpdateUserData(string userId, string newFirstName, string newlastName, string newemail, string newphoneNumber, string newgender/*, add other parameters as needed */)
         {
-            string query = "UPDATE UserAccount SET FirstName = @FirstName WHERE UserId = @UserId";
+
+            string query = "UPDATE UserAccount SET FirstName = @FirstName, LastName = @LastName, Email = @Email, " +
+                           "PhoneNumber = @PhoneNumber, Gender = @Gender WHERE UserId = @UserId";
 
             using (SqlConnection connection = new SqlConnection(_connStr))
             {
@@ -236,6 +238,11 @@ namespace icasln
                 {
                     cmd.Parameters.AddWithValue("@UserId", userId);
                     cmd.Parameters.AddWithValue("@FirstName", newFirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newlastName);
+                    cmd.Parameters.AddWithValue("@Email", newemail);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", newphoneNumber);
+                    cmd.Parameters.AddWithValue("@Gender", newgender);
+                    
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
