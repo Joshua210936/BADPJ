@@ -31,7 +31,7 @@
             <div class="chat-container">
                 <div class="split left">
                     <div>
-                        <asp:Button type="button" ID="SelectChatbot" runat="server" Text="Chatbot" class="selectChatbotButton"/>
+                        <asp:Button type="button" runat="server" Text="Chatbot" class="selectChatbotButton"/>
                     </div>
                 </div>
                 <div class="split right">

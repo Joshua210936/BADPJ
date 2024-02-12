@@ -33,15 +33,6 @@ namespace icasln
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl name;
 
         /// <summary>
-        /// SelectChatbot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SelectChatbot;
-
-        /// <summary>
         /// rptMyRepeater control.
         /// </summary>
         /// <remarks>

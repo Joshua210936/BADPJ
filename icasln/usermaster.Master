@@ -44,7 +44,7 @@
         <a class="nav-link" href="#">Merchandise</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link" href="Chatbot.aspx">Chatbot</a>
+        <a class="nav-link" href="ChatbotLanding.aspx">Chatbot</a>
       </li>
       <li class="nav-item px-3 dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
