@@ -16,7 +16,7 @@ namespace icasln
 {
     public partial class Chatbot : System.Web.UI.Page
     {
-        static string apiKey = "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";
+        static string apiKey = "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";
         static string apiUrl = "https://api.openai.com/v1/chat/completions";
         public List<Dictionary<string, string>> conversationHistory = new List<Dictionary<string, string>>();
         SqlCommand cmd;
@@ -27,6 +27,7 @@ namespace icasln
         private string userCustomisation = string.Empty;
         private string UserID = string.Empty;
         protected string Username = "";
+        protected string ChatbotName = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,6 +42,31 @@ namespace icasln
             }
 
             con = new SqlConnection(connectionString);
+            con.Open();
+            try
+            {
+                string sql = "SELECT ChatbotName FROM ChatbotInfo WHERE UserID = @UserID";
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+                ChatbotName = cmd.ExecuteScalar()?.ToString();
+                
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            if (ChatbotName != null)
+            {
+                
+            }
+            else
+            {
+                ChatbotName = "Chatbot";
+            }
+
+            con = new SqlConnection(connectionString); //pull username
             con.Open();
             try
             {
@@ -62,7 +88,7 @@ namespace icasln
             con.Open();
             try
             {
-                string sql = "SELECT ChatbotPrompt FROM ChatbotInfo WHERE UserID = @UserID";
+                string sql = "SELECT ChatbotPrompt FROM ChatbotInfo WHERE UserID = @UserID"; //pull chatbotprompt
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@UserID", UserID);
                 string userCustomisationFromDB = cmd.ExecuteScalar()?.ToString();
@@ -83,7 +109,7 @@ namespace icasln
             con.Open();
             try
             {
-                string sql = "SELECT Message_Content, Message_Role FROM Message_Information WHERE UserID = @UserID ORDER BY Message_ID";
+                string sql = "SELECT Message_Content, Message_Role FROM Message_Information WHERE UserID = @UserID ORDER BY Message_ID"; //pull chat history
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@UserID", UserID);
                 da = new SqlDataAdapter(cmd);
@@ -115,7 +141,7 @@ namespace icasln
             }
             else if (role == "chatbot")
             {
-                return "Chatbot: " + content;
+                return ChatbotName + ": " + content;
             }
             else
             {

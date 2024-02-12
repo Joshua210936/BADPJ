@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="chatbot.css">
     <script type="text/javascript">
         var username = '<%= Username %>'; // Inject Username variable into JavaScript
+        var chatbotname = '<%= ChatbotName %>';
     </script>
     <script src="Chatbot.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -27,7 +28,8 @@
     <form id="form1" runat="server" class="background">
     <h1 style="text-align:center;">Chat</h1>
         <div class="title-container">
-            <img src="customisable.png" width="50" height = "50" /> <span id="name" runat="server"></span><span class="title-chatbot">Chatbot <img src="companibot.jpeg" width="50" height = "50" /></span>
+            <img src="customisable.png" width="50" height = "50" /> <span id="name" runat="server"></span>
+            <span class="title-chatbot"><%= ChatbotName %> <img src="companibot.jpeg" width="50" height = "50" /></span>
             </div>
             <div class="chat-container">
                 <div class="split left">
