@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="nonusermaster.master.cs" Inherits="icasln.nonusermaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="footer.css">
+    <!-- below is bootstrap css -->
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+    <!-- script is bootstrap javascript-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- please change the href when you create the website thank you -->
+    
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
+  <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/>      CompaniBots</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item px-3">
+        <a class="nav-link" href="Premium.aspx">Premium</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="Registration_Form.aspx">Support</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">Merchandise</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="ChatbotLanding.aspx">Chatbot</a>
+      </li>
+      <li class="nav-item px-3 dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="SignUpaspx.aspx">Create Account</a>
+           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Login.aspx">Login</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="AccountManagement.aspx">Account Management</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="AccountDetails.aspx">Account Details</a>
+         <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Logout.aspx">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>   
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+            
+            <footer class="footer">
+        <div class="footer-contact">
+            <img src="companibot.jpeg" alt="CompaniBots Logo" class="footer-logo">
+            <p>+65 14131413</p>
+            <p>CompaniBots@gmail.com</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <div class="links-grid">
+                <a href="#">Premium</a>
+                <a href="#">About Us</a>
+                <a href="#">Support</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-subscribe">
+            <h4>Subscribe</h4>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Email address">
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div style="width: 100%;
+	                border-top: 1px solid #ddd;
+	                padding-top: 10px;
+	                display: flex;
+	                justify-content: space-between;
+	                align-items: center;">
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+                <p>A product of <img src="companibot.jpeg" alt="CompaniBots Mini Logo" class="mini-logo"></p>
+                <p>© 2023 CompaniBots. All rights reserved</p>
+        </div>
+    </footer> 
+ 
+   
+</body>
+</html>
+
