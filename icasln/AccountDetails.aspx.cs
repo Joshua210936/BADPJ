@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace icasln
 {
@@ -101,8 +103,47 @@ namespace icasln
 
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
+            string userId = Session["UserId"].ToString();
+            string randomString = GenerateRandomString(16); // Adjust the length as needed
+            string uniquelink = randomString;
+            int isChangePassword = 1;
 
+            string connStr = ConfigurationManager.ConnectionStrings["CompanibotDBContext"].ConnectionString;
+            string query = "UPDATE UserAccount SET UniqueLink = @UniqueLink, IsChangePassword = @IsChangePassword  WHERE UserId = @UserId";
+                using (SqlConnection connection = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserId", userId);
+                        cmd.Parameters.AddWithValue("@UniqueLink", uniquelink);
+                        cmd.Parameters.AddWithValue("@IsChangePassword", isChangePassword);
+
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            
+            LabelLink.Text = "https://localhost:44365/UpdatePassword.aspx?userid="+ userId+ "&UniqueLink=" + uniquelink;
+        
         }
+
+
+        
+        // Method to generate a random string of a given length
+        public static string GenerateRandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            for (int i = 0; i < length; i++)
+            {
+                builder.Append(chars[random.Next(chars.Length)]);
+            }
+            return builder.ToString();
+        }
+
+        
+        
     }
 }
 

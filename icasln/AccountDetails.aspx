@@ -18,6 +18,7 @@
             </p>
             <asp:Label ID="lblErrorMessage" runat="server" Visible="false" ForeColor="Red" />
             <asp:Label ID="lblUpdateMessage" runat="server" Visible="false" ForeColor="Red" />
+            <asp:Label ID="LabelLink" runat="server" Visible="true" ForeColor="Red" />
             <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
             <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
             <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
