@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Premium.aspx.cs" Inherits="icasln.WebForm1" MasterPageFile="~/usermaster.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Premium.aspx.cs" Inherits="icasln.Premium" MasterPageFile="~/usermaster.Master" %>
 
 <asp:Content ID ="Content1" ContentPlaceHolderID="head" runat="server">
 

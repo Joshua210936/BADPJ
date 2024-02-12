@@ -12,7 +12,7 @@
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #092646; /* Light blue background */
+    background: #080636; /* Light blue background */
     display: flex;
     justify-content: center;
     align-items: center;

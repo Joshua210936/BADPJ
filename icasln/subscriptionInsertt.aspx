@@ -156,7 +156,7 @@
             </div>
             <div class="image-section">
                 <!-- Update the src attribute to the path of your image -->
-                <img src="threemnth.png" alt="Subscription Image">
+                <img src="subscriptions.jpg" alt="Subscription Image">
             </div>
         </div>
     </form>
