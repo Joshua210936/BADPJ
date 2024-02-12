@@ -35,7 +35,7 @@ function updateChatbotMessageDiv(response) {
     const { div } = messages[messages.length - 1];
 
     const newMessageDiv = document.createElement("div");
-    newMessageDiv.textContent = "Chatbot: " + response;
+    newMessageDiv.textContent = chatbotname + ": " + response;
 
     div.appendChild(newMessageDiv);
 }

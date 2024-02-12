@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="ProductInsert.aspx.cs" Inherits="icasln.ProductInsert" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <link href="insert.css" rel="stylesheet" type="text/css" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
+        
     <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
 
-    <div style ="background-color: #cdeeff; padding: 20px; border-radius: 10px;">
+    <div style ="background-color: rgba(0, 0, 34, 1); color: white; padding: 20px; border-radius: 10px;">
 
     <table class="auto-style2">
         <tr>
@@ -76,8 +78,8 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:Button ID="btn_Insert" runat="server" Text="Insert" OnClick="btn_Insert_Click" />
-                <asp:Button ID="btn_ProductView" runat="server" Text="View Product List" OnClick="btn_ProductView_Click" CausesValidation="False" />
+                <asp:Button ID="btn_Insert" CssClass="form-button" runat="server" Text="Insert" OnClick="btn_Insert_Click" />
+                <asp:Button ID="btn_ProductView" CssClass="form-button" runat="server" Text="View Product List" OnClick="btn_ProductView_Click" CausesValidation="False" />
             </td>
             <td class="auto-style1">
                 &nbsp;</td>
