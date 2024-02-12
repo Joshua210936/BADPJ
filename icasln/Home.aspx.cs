@@ -13,5 +13,20 @@ namespace icasln
         {
 
         }
+        protected void btnGoToPremium_Click(object sender, EventArgs e)
+        {
+            // Any server-side logic here
+
+            // Redirect to Premium.aspx
+            Response.Redirect("Premium.aspx");
+        }
+        protected void btnGoToAboutUs_Click(object sender, EventArgs e)
+        {
+            // Any server-side logic here
+
+            // Redirect to Premium.aspx
+            Response.Redirect("AboutUs.aspx");
+        }
+
     }
 }

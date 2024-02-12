@@ -16,7 +16,7 @@ namespace icasln
 
         protected void backHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Premium.aspx");
+            Response.Redirect("Home.aspx");
         }
         protected void startChatting_Click(object sender, EventArgs e)
         {
