@@ -7,6 +7,12 @@
     <title></title>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Kdam Thmor Pro', sans-serif;
+          }
+    </style>
     <!-- below is bootstrap css -->
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
