@@ -23,5 +23,10 @@ namespace icasln
         {
             Response.Redirect("ChatbotCustomisation.aspx");
         }
+
+        protected void GoToPremiumCustomisation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PremiumChatbotCustomisation.aspx");
+        }
     }
 }
