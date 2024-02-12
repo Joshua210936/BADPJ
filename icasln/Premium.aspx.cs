@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace icasln
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Premium : System.Web.UI.Page
     {
         private Subscription aSub = new Subscription();
 

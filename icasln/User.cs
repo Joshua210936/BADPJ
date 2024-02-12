@@ -128,6 +128,32 @@ namespace icasln
             }
         }
 
+        public void UpdatePassword(string userId, string newPassword)
+        {
+            // Hash the new password (assuming you have a method to hash passwords)
+            string hashedPassword = HashPassword(newPassword);
+
+            // Define the SQL query to update the password
+            string query = "UPDATE UserAccount SET Password = @Password, IsChangePassword = 'False' WHERE UserId = @UserId";
+
+            // Create and open a connection to the database
+            using (SqlConnection connection = new SqlConnection(_connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    // Set parameters for the SQL query
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
+
+                    // Open the connection
+                    connection.Open();
+
+                    // Execute the SQL command
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         // Method to insert a new user into the database
         public int InsertUser()
         {
@@ -160,7 +186,7 @@ namespace icasln
             return result;
         }
 
-        public static User GetUserDataByEmail(string email)
+        public User GetUserDataByEmail(string email)
         {
             User userData = null;
 
@@ -242,7 +268,7 @@ namespace icasln
                     cmd.Parameters.AddWithValue("@Email", newemail);
                     cmd.Parameters.AddWithValue("@PhoneNumber", newphoneNumber);
                     cmd.Parameters.AddWithValue("@Gender", newgender);
-                    
+
 
                     connection.Open();
                     cmd.ExecuteNonQuery();

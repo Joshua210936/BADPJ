@@ -11,7 +11,7 @@ namespace icasln
 {
 
 
-    public partial class WebForm1
+    public partial class Premium
     {
 
         /// <summary>
