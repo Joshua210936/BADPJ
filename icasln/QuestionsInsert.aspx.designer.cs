@@ -42,6 +42,15 @@ namespace icasln
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_FirstName;
 
         /// <summary>
+        /// rev_FirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_FirstName;
+
+        /// <summary>
         /// tb_LastName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace icasln
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_LastName;
+
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
         /// tb_Email control.
