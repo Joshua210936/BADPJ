@@ -54,9 +54,9 @@ namespace icasln
                             reader.Close();
                         }
                     }
-
+                    lblProfile.Text = $"Your Profile: {firstName} {lastName}";
                     // Display user data in the textboxes and radio button list
-                    lblUserId.Text = userId;
+
                     txtFirstName.Text = firstName;
                     txtLastName.Text = lastName;
                     txtEmail.Text = email;
@@ -90,6 +90,7 @@ namespace icasln
 
             // Display a success message or perform any additional actions
             lblUpdateMessage.Text = "Account details updated successfully.";
+            lblUpdateMessage.Visible = true; // Set the label to visible after updating
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
