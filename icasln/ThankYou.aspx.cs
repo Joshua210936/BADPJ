@@ -20,7 +20,7 @@ namespace icasln
         }
         protected void startChatting_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Chatbot.aspx");
+            Response.Redirect("ChatbotLanding.aspx");
         }
     }
 }

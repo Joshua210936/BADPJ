@@ -103,11 +103,11 @@ namespace icasln
             result = sub.SubscriptionUpdate(tid , ttype, decimal.Parse(tprice) ,timage , tdesc);
             if (result > 0)
             {
-                Response.Write("<script>alert('Product updated successfully');</script>");
+                Response.Write("<script>alert('Subscription updated successfully');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Product NOT updated');</script>");
+                Response.Write("<script>alert('Subscription NOT updated');</script>");
             }
             GVsubscirption.EditIndex = -1;
             BindSubscriptions("All");

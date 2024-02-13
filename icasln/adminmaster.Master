@@ -41,9 +41,6 @@
            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                <ul class="navbar-nav ml-auto">
                    <li class="nav-item px-3">
-                       <a class="nav-link" href="#">Premium Details</a>
-                   </li>
-                   <li class="nav-item px-3">
                        <a class="nav-link" href="Subscriptions.aspx">View Subscriptions</a>
                    </li>
                    <li class="nav-item px-3">
@@ -77,44 +74,7 @@
                 
             </asp:ContentPlaceHolder>
             
-            <footer class="footer">
-        <div class="footer-contact">
-            <img src="companibot.jpeg" alt="CompaniBots Logo" class="footer-logo">
-            <p>+65 14131413</p>
-            <p>CompaniBots@gmail.com</p>
-        </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <div class="links-grid">
-                <a href="#">Premium</a>
-                <a href="#">About Us</a>
-                <a href="#">Support</a>
-                <a href="#">Contact Us</a>
-            </div>
-        </div>
-        <div class="footer-subscribe">
-            <h4>Subscribe</h4>
-            <div class="subscribe-form">
-                <input type="email" placeholder="Email address">
-                <button type="submit"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
 
-        <div style="width: 100%;
-	                border-top: 1px solid #ddd;
-	                padding-top: 10px;
-	                display: flex;
-	                justify-content: space-between;
-	                align-items: center;">
-            <div class="footer-social">
-                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            </div>
-                <p>A product of <img src="companibot.jpeg" alt="CompaniBots Mini Logo" class="mini-logo"></p>
-                <p>© 2023 CompaniBots. All rights reserved</p>
-        </div>
-    </footer> 
  
    
 </body>
