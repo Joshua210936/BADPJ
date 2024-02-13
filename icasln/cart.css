@@ -1,0 +1,97 @@
+﻿.form-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+    .form-button:hover {
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+    }
+
+    .form-button:focus {
+        border: 2px solid #2c2c54;
+    }
+
+
+.CheckoutButton {
+    float: right; /* Aligns the button to the right */
+    margin-right: 150px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+.CheckoutButton:hover {
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+}
+
+.CheckoutButton:focus {
+    border: 2px solid #2c2c54;
+}
+
+.container1 {
+    background-color: #080636;
+    padding: 100px;
+    padding-left: 200px;
+
+}
+
+    .container1:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+.gridViewStyle {
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    border-collapse: collapse;
+    width: 90%;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+    .gridViewStyle th, .gridViewStyle td {
+        border: 1px solid #ddd;
+        padding: 20px;
+    }
+
+    .gridViewStyle th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #CDEEFF;
+        color: black;
+    }
+
+input[type="text"], textarea {
+    background-color: #F2F2F2; /* Light grey background */
+    color: #333333; /* Dark text color for contrast */
+    border: 2px solid #CDEEFF; /* Border color similar to the button */
+    padding: 10px; /* Comfortable padding */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    font-size: 16px; /* Readable text size */
+    width: 50%; /* Full width */
+}
+
+    input[type="text"]:focus, textarea:focus {
+        outline: none; /* Removes default focus outline */
+        border-color: #A4D4EF; /* Slightly darker border color on focus */
+        box-shadow: 0 0 5px #A4D4EF; /* Subtle shadow to highlight focus */
+    }
+
+.totalPrice {
+    color: white;
+}

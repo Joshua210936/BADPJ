@@ -111,6 +111,7 @@
     <Content Include="App_Data\CompanibotDB_log.ldf">
       <DependentUpon>CompanibotDB.mdf</DependentUpon>
     </Content>
+    <Content Include="cart.css" />
     <Content Include="CartBtn.jpg" />
     <Content Include="Chatbot.aspx" />
     <Content Include="chatbot.css" />
@@ -122,6 +123,8 @@
     <Content Include="chathistory.png" />
     <Content Include="chatting.png" />
     <Content Include="Checkboxx.png" />
+    <Content Include="Checkout.aspx" />
+    <Content Include="checkout.css" />
     <Content Include="companibot.jpeg" />
     <Content Include="Controllers\Images\chathistory.png" />
     <Content Include="Controllers\Images\Checkboxx.png" />
@@ -129,6 +132,8 @@
     <Content Include="Controllers\Images\customisable.png" />
     <Content Include="CustomerSub.aspx" />
     <Content Include="customisable.png" />
+    <Content Include="details.css" />
+    <Content Include="display.css" />
     <Content Include="footer.css" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="friendchange.png" />
@@ -143,6 +148,7 @@
     <Content Include="Premium.css" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductInsert.aspx" />
+    <Content Include="Display.aspx" />
     <Content Include="ProductView.aspx" />
     <Content Include="Registration_Form.aspx" />
     <Content Include="QuestionsInsert.aspx" />
@@ -157,6 +163,7 @@
     <Content Include="Subscriptions.aspx" />
     <Content Include="Subscriptions.css" />
     <Content Include="AddFAQ.aspx" />
+    <Content Include="SuccessPayment.aspx" />
     <Content Include="ThankYou.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="ThankYou_Form.aspx" />
@@ -165,7 +172,6 @@
     <Content Include="insert.css" />
     <Content Include="view.css" />
     <Content Include="ViewCart.aspx" />
-    <Content Include="UpdatePassword.aspx" />
     <Content Include="Web.config" />
     <Content Include="year.png" />
   </ItemGroup>
@@ -199,6 +205,7 @@
       <DependentUpon>AccountUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Cart.cs" />
     <Compile Include="Chatbot.aspx.cs">
       <DependentUpon>Chatbot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,6 +229,13 @@
     </Compile>
     <Compile Include="Chatbot_Info.cs" />
     <Compile Include="Chat_Info.cs" />
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerSub.aspx.cs">
@@ -290,6 +304,13 @@
     </Compile>
     <Compile Include="ProductInsert.aspx.designer.cs">
       <DependentUpon>ProductInsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Display.aspx.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Display.aspx.designer.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductView.aspx.cs">
       <DependentUpon>ProductView.aspx</DependentUpon>
@@ -367,6 +388,13 @@
     </Compile>
     <Compile Include="AddFAQ.aspx.designer.cs">
       <DependentUpon>AddFAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuccessPayment.aspx.cs">
+      <DependentUpon>SuccessPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuccessPayment.aspx.designer.cs">
+      <DependentUpon>SuccessPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThankYou.aspx.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>

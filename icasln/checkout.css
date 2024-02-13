@@ -1,12 +1,33 @@
-﻿/* Style for the TextBoxes */
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #080636;
+    color: white;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 100px;
+}
+
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+}
+
 input[type="text"], textarea {
     background-color: #F2F2F2; /* Light grey background */
     color: #333333; /* Dark text color for contrast */
     border: 2px solid #CDEEFF; /* Border color similar to the button */
     padding: 10px; /* Comfortable padding */
     border-radius: 15px; /* Rounded corners */
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
     font-size: 16px; /* Readable text size */
-    width: 100%; /* Full width */
+    width: 50%; /* Full width */
 }
 
     input[type="text"]:focus, textarea:focus {
@@ -15,15 +36,6 @@ input[type="text"], textarea {
         box-shadow: 0 0 5px #A4D4EF; /* Subtle shadow to highlight focus */
     }
 
-/* Style for table rows and cells containing textboxes */
-table.auto-style2 tr {
-    margin-bottom: 10px; /* Adds space between rows */
-}
-
-table.auto-style2 td {
-    padding: 5px; /* Adds padding within each cell */
-}
-/* Style for the Form Buttons */
 .form-button {
     padding: 10px 25px;
     border: none;
@@ -36,7 +48,6 @@ table.auto-style2 td {
     transition: background-color 0.3s;
 }
 
-
     .form-button:hover {
         box-shadow: 1px 1px 20px 5px #CDEEFF;
     }
@@ -45,34 +56,13 @@ table.auto-style2 td {
         border: 2px solid #2c2c54;
     }
 
-
-.file-label {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 1em;
-    color: #333;
+.error {
+    color: red;
+    font-size: 14px;
 }
 
-/* Centering and Padding for content-container */
-.content-container {
-    color: white;
-    padding: 50px 100%;
-    background: #080636;
-}
-
-/* Additional Styling */
-.auto-style2 {
-    height: 82vh;
-    padding: 5%;
-    background: #080636;
-    box-shadow: 1px 1px 20px 5px #CDEEFF;
-    border-radius: 8px;
-    color: white;
-    display: flex;
-    align-items: start;
-    width: 100vh;
-}
-
-* {
-    font-family: 'Kdam Thmor Pro', sans-serif;
+.container1 {
+    background-color: #080636;
+    padding: 100px;
+    padding-left: 200px;
 }
