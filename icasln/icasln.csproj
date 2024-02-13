@@ -170,6 +170,7 @@
     <Content Include="threemnth.png" />
     <Content Include="unlimtedtext.png" />
     <Content Include="insert.css" />
+    <Content Include="UpdatePassword.aspx" />
     <Content Include="view.css" />
     <Content Include="ViewCart.aspx" />
     <Content Include="Web.config" />
