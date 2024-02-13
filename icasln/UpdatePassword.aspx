@@ -19,7 +19,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <section class="vh-100 fade-in-bg" style="background-image: url('https://static.vecteezy.com/system/resources/previews/002/099/717/non_2x/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg'); background-size: cover; background-position: center;">
+<section class="vh-100 fade-in-bg" style="background-image: url('https://static.vecteezy.com/system/resources/previews/002/099/717/non_2x/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg'); background-size: cover; background-position: center;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -27,7 +27,7 @@
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
               <img src="https://wallpapercave.com/wp/wp3247657.jpg"
-                alt="" class="img-fluid image-fade-in" style="border-radius: 1rem 0 0 1rem;" />
+                alt="login form" class="img-fluid image-fade-in" style="border-radius: 1rem 0 0 1rem;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
@@ -43,19 +43,17 @@
                   <div class="form-outline mb-4">
                       <asp:Label ID="lblNewPassword" runat="server" Text="New Password:" AssociatedControlID="txtNewPassword"></asp:Label>
                     <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+
                   </div>
                     <div class="form-outline mb-4">
-                        <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password:" AssociatedControlID="txtConfirmPassword"></asp:Label>
+                      <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password:" AssociatedControlID="txtConfirmPassword"></asp:Label>
                     <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                        </div>
+
+                  </div>
 
                   <div class="pt-1 mb-4">
-                      
-                    
-                <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" CssClass="btn btn-light" OnClick="btnUpdatePassword_Click"/>
-                      <asp:Label ID="Label1" runat="server" Visible="false" ForeColor="Red"></asp:Label>
-
-     
+                <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" CssClass="btn btn-light" OnClick="btnUpdatePassword_Click" />
+                      <asp:Label ID="lblMessage" runat="server" Visible="false" ForeColor="Red"></asp:Label>  
 
                   </div>
                 </form>
@@ -68,6 +66,4 @@
     </div>
   </div>
 </section>
-
 </asp:Content>
-
