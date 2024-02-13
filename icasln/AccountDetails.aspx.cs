@@ -54,9 +54,9 @@ namespace icasln
                             reader.Close();
                         }
                     }
-
+                    lblProfile.Text = $"{firstName} {lastName}";
                     // Display user data in the textboxes and radio button list
-                    lblUserId.Text = userId;
+
                     txtFirstName.Text = firstName;
                     txtLastName.Text = lastName;
                     txtEmail.Text = email;
@@ -90,6 +90,8 @@ namespace icasln
 
             // Display a success message or perform any additional actions
             lblUpdateMessage.Text = "Account details updated successfully.";
+            lblUpdateMessage.Visible = true; // Set the label to visible after updating
+            lblProfile.Text = $"{firstName} {lastName}";
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -98,7 +100,7 @@ namespace icasln
             Session.Clear();
 
             // Redirect the user to the login page
-            Response.Redirect("~/Login.aspx");
+            Response.Redirect("~/Home.aspx");
         }
 
         protected void btnChangePassword_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="ProductInsert.aspx.cs" Inherits="icasln.ProductInsert" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminmaster.Master" AutoEventWireup="true" CodeBehind="ProductInsert.aspx.cs" Inherits="icasln.ProductInsert" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="insert.css" rel="stylesheet" type="text/css" />
     
@@ -6,9 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
         
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="d-flex justify-content-center align-items-center">
 
-    <div style ="background-color: rgba(0, 0, 34, 1); color: white; padding: 20px; border-radius: 10px;">
+    <div class="content-container">
 
     <table class="auto-style2">
         <tr>

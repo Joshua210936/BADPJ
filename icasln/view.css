@@ -1,29 +1,27 @@
 ﻿.gridViewStyle {
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
-.gridViewStyle th, .gridViewStyle td {
-    border: 1px solid #ddd;
-    padding: 20px;
-}
-
-.gridViewStyle tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+    .gridViewStyle th, .gridViewStyle td {
+        border: 1px solid #ddd;
+        padding: 20px;
+    }
 
     .gridViewStyle th {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: #080636;
-        color: white;
+        background-color: #CDEEFF;
+        color: black;
     }
 
 
-
-.gridViewStyle .button {
+    .gridViewStyle .button {
         /* General button styles */
         padding: 10px 25px;
         border: none;
@@ -36,9 +34,9 @@
         transition: background-color 0.3s;
     }
 
-    .gridViewStyle .button:hover {
-        box-shadow: 1px 1px 10px 5px #CDEEFF;
-    }
+        .gridViewStyle .button:hover {
+            box-shadow: 1px 1px 10px 5px #CDEEFF;
+        }
 
     .gridViewStyle:focus {
         border: 2px solid #2c2c54;
@@ -67,6 +65,16 @@
 
 * {
     font-family: 'Kdam Thmor Pro', sans-serif;
-
 }
 
+.container1 {
+    background-color: #080636;
+    padding: 100px;
+    padding-left: 200px;
+}
+
+    .container1:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
