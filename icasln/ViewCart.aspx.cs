@@ -40,6 +40,7 @@ namespace icasln
                 total = total + item.TotalPrice;
             }
             lbl_TotalPrice.Text = total.ToString();
+
         }
 
 
@@ -67,7 +68,7 @@ namespace icasln
 
         protected void btn_Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect(icasln.Constants.PAGE_URL_PRODUCT_VIEW);
+            Response.Redirect("Display.aspx");
         }
 
         protected void btn_Clear_Click(object sender, EventArgs e)
@@ -87,9 +88,12 @@ namespace icasln
 
         protected void btn_Update_Click(object sender, EventArgs e)
         {
-
             #region True Session Cart
             var myShoppingCart = ProperShoppingCart.GetSessionCart();
+            if (myShoppingCart == null)
+            {
+                myShoppingCart = new ProperShoppingCart(); // Instantiate if null
+            }
             #endregion
 
             foreach (GridViewRow row in gv_CartView.Rows)
@@ -99,7 +103,6 @@ namespace icasln
                     try
                     {
                         string productId = gv_CartView.DataKeys[row.RowIndex].Value.ToString();
-                        //row.Cells[2] means that the quantity textbox must be in column 3.
                         int quantity = int.Parse(((TextBox)row.Cells[2].FindControl("tb_Quantity")).Text);
                         ShoppingCart.Instance.SetItemQuantity(productId, quantity);
 
@@ -115,5 +118,11 @@ namespace icasln
             }
             LoadCart();
         }
+
+        protected void bth_Checkout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Checkout.aspx");
+        }
+
     }
 }

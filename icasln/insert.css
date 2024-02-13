@@ -55,15 +55,22 @@ table.auto-style2 td {
 
 /* Centering and Padding for content-container */
 .content-container {
-    margin: 0 auto; /* Centers the div horizontally */
-    padding: 100px; /* Adds padding inside the div */
-    max-width: 960px; /* Optional: Sets a maximum width for the div */
+    color: white;
+    padding: 50px 100%;
+    background: #080636;
 }
 
 /* Additional Styling */
 .auto-style2 {
-    width: 100%; /* Ensures the table takes the full width of the div */
-    margin: 0 auto; /* Centers the table within the div */
+    height: 82vh;
+    padding: 5%;
+    background: #080636;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    align-items: start;
+    width: 100vh;
 }
 
 * {
