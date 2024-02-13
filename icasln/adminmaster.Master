@@ -53,7 +53,7 @@
                        <a class="nav-link" href="CustomerSub.aspx">Customer Subscriptions</a>
                    </li>
                    <li class="nav-item px-3">
-                       <a class="nav-link" href="AccountManagement.aspx">User Details</a>
+                       <a class="nav-link" href="AccountManagement.aspx">Account Management</a>
                    </li>
                     <li class="nav-item px-3">
     <a class="nav-link" href="AddFAQ.aspx">Add FAQ</a>

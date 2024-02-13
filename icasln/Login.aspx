@@ -36,7 +36,6 @@
               <div class="card-body p-4 p-lg-5 text-black">
 
                 <form id="form1" runat="server">
-
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <img src="companibot.jpeg" alt="small logo" class="me-3" style="height: 3em;" />
                     <span class="h1 fw-bold mb-0">Companibot</span>

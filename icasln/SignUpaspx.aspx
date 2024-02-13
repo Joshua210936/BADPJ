@@ -21,7 +21,7 @@
             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
                 evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false); // Prevent non-numeric input
             }
-        }
+        }    
     </script>
 </asp:Content>
 
