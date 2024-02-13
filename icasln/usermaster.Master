@@ -44,16 +44,13 @@
         <a class="nav-link" href="Home.aspx">Home</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link" href="ProductView.aspx">Merchandise</a>
-      </li>
-      <li class="nav-item px-3">
         <a class="nav-link" href="Premium.aspx">Premium</a>
+      </li>
+       <li class="nav-item px-3">
+        <a class="nav-link" href="Display.aspx">Merchandise</a>
       </li>
       <li class="nav-item px-3">
         <a class="nav-link" href="Registration_Form.aspx">Support</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Merchandise</a>
       </li>
       <li class="nav-item px-3">
         <a class="nav-link" href="ChatbotLanding.aspx">Chatbot</a>
