@@ -48,7 +48,7 @@ namespace icasln
                     if (result > 0)
                     {
                         // Additional logic for successful insert
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "setTimeout(function() { alert('Account created successfully'); window.location.href = 'Login.aspx'; }, 3000);", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "setTimeout(function() { alert('Account created successfully'); window.location.href = 'Login.aspx'; }, 1);", true);
 
                     }
                     else

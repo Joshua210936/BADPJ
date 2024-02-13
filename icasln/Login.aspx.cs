@@ -48,12 +48,14 @@ namespace icasln
                         if (isAdmin)
                         {
                             // Redirect admin to admin dashboard
-                            Response.Redirect("AccountManagement.aspx");
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "setTimeout(function() { alert('Logged Into Admin Account'); window.location.href = 'AccountManagement.aspx'; }, 1);", true);
+                            
                         }
                         else
                         {
                             // Redirect user to user dashboard
-                            Response.Redirect("AccountDetails.aspx");
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "setTimeout(function() { alert('Successfully Logged In'); window.location.href = 'AccountDetails.aspx'; }, 1);", true);
+                           
                         }
                     }
                     else
