@@ -117,8 +117,11 @@
     <Content Include="chatbot.css" />
     <Content Include="Chatbot.js" />
     <Content Include="ChatbotCustomisation.aspx" />
+    <Content Include="chatbotcustomisation.css" />
     <Content Include="ChatbotLanding.aspx" />
+    <Content Include="chatbotlanding.css" />
     <Content Include="chathistory.png" />
+    <Content Include="chatting.png" />
     <Content Include="Checkboxx.png" />
     <Content Include="Checkout.aspx" />
     <Content Include="checkout.css" />
@@ -133,6 +136,7 @@
     <Content Include="display.css" />
     <Content Include="footer.css" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="friendchange.png" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Home.css" />
@@ -158,6 +162,7 @@
     <Content Include="SubscriptionInsertt.css" />
     <Content Include="Subscriptions.aspx" />
     <Content Include="Subscriptions.css" />
+    <Content Include="AddFAQ.aspx" />
     <Content Include="SuccessPayment.aspx" />
     <Content Include="ThankYou.aspx" />
     <Content Include="SearchResults.aspx" />
@@ -165,7 +170,6 @@
     <Content Include="threemnth.png" />
     <Content Include="unlimtedtext.png" />
     <Content Include="insert.css" />
-    <Content Include="UpdatePassword.aspx" />
     <Content Include="view.css" />
     <Content Include="ViewCart.aspx" />
     <Content Include="Web.config" />
@@ -378,6 +382,13 @@
       <DependentUpon>Subscriptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Subscriptions.cs" />
+    <Compile Include="AddFAQ.aspx.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddFAQ.aspx.designer.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SuccessPayment.aspx.cs">
       <DependentUpon>SuccessPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

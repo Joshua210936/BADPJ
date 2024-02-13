@@ -7,6 +7,12 @@
     <title></title>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Kdam Thmor Pro', sans-serif;
+          }
+    </style>
     <!-- below is bootstrap css -->
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,56 +32,90 @@
     
     <!-- please change the href when you create the website thank you -->
     
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
-  <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/>      CompaniBots</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">User Details</a>
-      </li>
-        <li class="nav-item px-3">
-        <a class="nav-link" href="ProductView.aspx">Add Products</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Premium Details</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="Subscriptions.aspx">View Subscriptions</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="SubscriptionInsertt.aspx">New Subscription</a>
-      </li>
-       <li class="nav-item px-3">
-        <a class="nav-link" href="CustomerSub.aspx">Customer Subscriptions</a>
-      </li>
-      <li class="nav-item px-3 dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="SignUpaspx.aspx">Create Account</a>
-           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="Login.aspx">Login</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="AccountManagement.aspx">Account Management</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="AccountDetails.aspx">Account Details</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>   
-            
+       <div>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid;">
+           <a class="navbar-brand px-3" href="#"><img src="companibot.jpeg" style="height:50px;width:50px;"/> CompaniBot</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+               <ul class="navbar-nav ml-auto">
+                   <li class="nav-item px-3">
+                       <a class="nav-link" href="#">Premium Details</a>
+                   </li>
+                   <li class="nav-item px-3">
+                       <a class="nav-link" href="Subscriptions.aspx">View Subscriptions</a>
+                   </li>
+                   <li class="nav-item px-3">
+                       <a class="nav-link" href="SubscriptionInsertt.aspx">New Subscription</a>
+                   </li>
+                   <li class="nav-item px-3">
+                       <a class="nav-link" href="CustomerSub.aspx">Customer Subscriptions</a>
+                   </li>
+                   <li class="nav-item px-3">
+                       <a class="nav-link" href="AccountManagement.aspx">Account Management</a>
+                   </li>
+                    <li class="nav-item px-3">
+    <a class="nav-link" href="AddFAQ.aspx">Add FAQ</a>
+</li>
+                                       <li class="nav-item px-3">
+    <a class="nav-link" href="QuestionsView.aspx">View all Questions</a>
+</li>
+                   <li class="nav-item px-3 dropdown">
+                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Profile
+                       </a>
+                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <a class="dropdown-item" href="Logout.aspx">Log out</a>
+                       </div>
+                   </li>
+               </ul>
+           </div>
+       </nav>   
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
             </asp:ContentPlaceHolder>
             
+            <footer class="footer">
+        <div class="footer-contact">
+            <img src="companibot.jpeg" alt="CompaniBots Logo" class="footer-logo">
+            <p>+65 14131413</p>
+            <p>CompaniBot@gmail.com</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <div class="links-grid">
+                <a href="#">Premium</a>
+                <a href="#">About Us</a>
+                <a href="#">Support</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-subscribe">
+            <h4>Subscribe</h4>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Email address">
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div style="width: 100%;
+	                border-top: 1px solid #ddd;
+	                padding-top: 10px;
+	                display: flex;
+	                justify-content: space-between;
+	                align-items: center;">
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+                <p>A product of <img src="companibot.jpeg" alt="CompaniBots Mini Logo" class="mini-logo"></p>
+                <p>© 2023 CompaniBot. All rights reserved</p>
+        </div>
+    </footer> 
  
    
 </body>
 </html>
-

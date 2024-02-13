@@ -134,7 +134,9 @@
                 <li>✔ Always Online</li>
                 <li>✔ Your Friend</li>
             </ul>
-            <button class="learn-more-btn" data-aos="fade-right" data-aos-delay="500" OnClick="btnGoAboutUs_Click">Learn More</button>
+     <asp:Button ID="Button1" runat="server" CssClass="learn-more-btnn" Text="Learn More" OnClick="btnGoToAboutUs_Click" />
+
+
         </div>
         <div class="companion-image"data-aos="fade-down" data-aos-delay="100">
             <!-- Image of the AI companion -->

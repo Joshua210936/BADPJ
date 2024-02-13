@@ -16,33 +16,37 @@ namespace icasln
         {
             if (!IsPostBack)
             {
-                subscriptionStatus.Value = "All"; // Default view
-                bind();
-            }
-            else
-            {
-                bind(); // This ensures the bind method is called again after postback
+                BindSubscriptions("All");
+                // Default view shows all subscriptions
             }
         }
 
-        protected void bind()
+        private void BindSubscriptions(string filter)
         {
-            List<Subscription> subList = new List<Subscription>();
-            subList = aSub.getSubscriptionAll();
+            List<Subscription> allSubscriptions = aSub.getSubscriptionAll();
+            List<Subscription> filteredSubscriptions;
 
-            string filter = subscriptionStatus.Value;
-
-            if (filter == "Active")
+            switch (filter)
             {
-                subList = subList.Where(sub => sub.Sub_Status == "Active").ToList();
-            }
-            else if (filter == "Inactive")
-            {
-                subList = subList.Where(sub => sub.Sub_Status == "Inactive").ToList();
+                case "Active":
+                    filteredSubscriptions = allSubscriptions.Where(sub => sub.Sub_Status == "Active").ToList();
+                    break;
+                case "Inactive":
+                    filteredSubscriptions = allSubscriptions.Where(sub => sub.Sub_Status == "Inactive").ToList();
+                    break;
+                default:
+                    filteredSubscriptions = allSubscriptions; // All subscriptions
+                    break;
             }
 
-            GVsubscirption.DataSource = subList;
+            GVsubscirption.DataSource = filteredSubscriptions;
             GVsubscirption.DataBind();
+        }
+        protected void FilterSubscriptions_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            string filter = btn.CommandArgument;
+            BindSubscriptions(filter);
         }
 
 
@@ -66,21 +70,21 @@ namespace icasln
                 Response.Write("<script>alert('Unable to update subscription status');</script>");
             }
 
-            bind(); // Rebind the GridView to reflect changes
+            BindSubscriptions("All"); // Rebind the GridView to reflect changes
         }
 
 
         protected void GVsubscirption_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GVsubscirption.EditIndex = e.NewEditIndex;
-            bind();
+            BindSubscriptions("All");
 
         }
 
         protected void GVsubscirption_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GVsubscirption.EditIndex = -1;
-            bind();
+            BindSubscriptions("All");
 
         }
 
@@ -106,7 +110,7 @@ namespace icasln
                 Response.Write("<script>alert('Product NOT updated');</script>");
             }
             GVsubscirption.EditIndex = -1;
-            bind();
+            BindSubscriptions("All");
 
         }
 

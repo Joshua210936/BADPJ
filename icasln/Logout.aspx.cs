@@ -12,6 +12,11 @@ namespace icasln
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            // Clear the session
+            Session.Clear();
+
+            // Redirect the user to the home page
+            Response.Redirect("~/Home.aspx");
         }
     }
 }
