@@ -10,8 +10,10 @@
         </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section style="background-color: #eee;">
-        <h2>Account Details</h2>
+    <section style="background-color: #eee; padding-bottom: 70px;">
+        <h2 class="text-center">Account Details</h2>
+        <br>
+        <br>
         <form id="form1" runat="server">
             <div class="container">
                 <div class="row">
@@ -21,7 +23,6 @@
                                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="avatar"
                                     class="rounded-circle img-fluid" style="width: 150px;">
                                 <h5 class="my-3"><asp:Label ID="lblProfile" runat="server" Text="" /></h5>
-                                <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
                                 <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
                             </div>
                         </div>
