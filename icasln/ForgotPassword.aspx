@@ -9,9 +9,9 @@
         <div class="form-group">
             <asp:Label ID="lblEmail" runat="server" Text="Email:" AssociatedControlID="txtEmail"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-           <asp:Label ID="LabelLink" runat="server" Visible="true" ForeColor="Red" />
-        <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
+        </div>    
+        <asp:Button ID="btnChangePassword" runat="server" Text="Send Email" OnClick="btnChangePassword_Click" />
+            <asp:Label ID="LabelLink" runat="server" Visible="true" ForeColor="Red" />
         </div>
         </form>
 </asp:Content>

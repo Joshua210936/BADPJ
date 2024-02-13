@@ -51,15 +51,6 @@ namespace icasln
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// LabelLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelLink;
-
-        /// <summary>
         /// btnChangePassword control.
         /// </summary>
         /// <remarks>
@@ -67,5 +58,14 @@ namespace icasln
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnChangePassword;
+
+        /// <summary>
+        /// LabelLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLink;
     }
 }
