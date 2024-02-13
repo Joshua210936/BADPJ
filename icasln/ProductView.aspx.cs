@@ -102,10 +102,7 @@ namespace icasln
             bind();
         }
 
-        protected void IB_Cart_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("ViewCart.aspx");
-        }
+ 
 
     }
 }

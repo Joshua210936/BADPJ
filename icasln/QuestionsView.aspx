@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.QuestionsView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminmaster.Master" AutoEventWireup="true" CodeBehind="QuestionsView.aspx.cs" Inherits="icasln.QuestionsView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="server">
     <style type="text/css">
@@ -65,6 +65,6 @@
         </asp:GridView>
         <br />
         <br />
-        <asp:Button ID="btn_AddProduct" runat="server" Text="Add New Product" OnClick="btn_AddProduct_Click" />
+       
     </form>
 </asp:Content>

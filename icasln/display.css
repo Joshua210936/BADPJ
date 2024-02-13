@@ -1,0 +1,100 @@
+﻿.gridViewStyle {
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+    border-collapse: collapse;
+    width: 90%;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+    .gridViewStyle th, .gridViewStyle td {
+        border: 1px solid #ddd;
+        padding: 20px;
+    }
+
+    .gridViewStyle th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #CDEEFF;
+        color: black;
+    }
+
+
+    .gridViewStyle .button {
+        /* General button styles */
+        padding: 10px 25px;
+        border: none;
+        border-radius: 20px;
+        background-color: #CDEEFF;
+        color: black;
+        cursor: pointer;
+        font-size: 1em;
+        outline: none;
+        transition: background-color 0.3s;
+    }
+
+        .gridViewStyle .button:hover {
+            box-shadow: 1px 1px 10px 5px #CDEEFF;
+        }
+
+    .gridViewStyle:focus {
+        border: 2px solid #2c2c54;
+    }
+
+
+.form-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+    .form-button:hover {
+        box-shadow: 1px 1px 20px 5px #CDEEFF;
+    }
+
+    .form-button:focus {
+        border: 2px solid #2c2c54;
+    }
+
+* {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+.container1 {
+    background-color: #080636;
+    padding: 100px;
+    padding-left: 200px;
+}
+
+    .container1:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+.viewCart {
+    float: right; /* Aligns the button to the right */
+    margin-right: 160px;
+    margin-bottom:20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #CDEEFF;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    transition: background-color 0.3s;
+}
+.viewCart:hover {
+    box-shadow: 1px 1px 20px 5px #CDEEFF;
+}
+
+.viewCart:focus {
+    border: 2px solid #2c2c54;
+}

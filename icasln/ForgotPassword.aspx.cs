@@ -87,6 +87,7 @@ namespace icasln
                     client.Send(message);
                 }
             }
+            LabelLink.Text = "Password Reset Email Sent";
         }
 
     }

@@ -21,7 +21,7 @@
             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
                 evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false); // Prevent non-numeric input
             }
-        }
+        }    
     </script>
 </asp:Content>
 
@@ -82,7 +82,7 @@
                 <tr>
                     <td>Phone Number</td>
                     <td>
-                        <asp:TextBox ID="tb_PhoneNumber" runat="server" onkeypress="allowOnlyDigits(event)"></asp:TextBox>
+                        <asp:TextBox ID="tb_PhoneNumber" runat="server" onkeypress="allowOnlyDigits(event)" MaxLength="8"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
                         <asp:RequiredFieldValidator ID="Rfv_PhoneNumber" runat="server" ControlToValidate="tb_PhoneNumber" ErrorMessage="Enter a Phone Number" ForeColor="Red"></asp:RequiredFieldValidator>

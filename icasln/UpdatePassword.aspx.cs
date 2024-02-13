@@ -29,7 +29,7 @@ namespace icasln
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Home.aspx");
             }
 
         }

@@ -73,10 +73,7 @@ namespace icasln
 
         }
 
-        protected void BackButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Chatbot.aspx");
-        }
+        
         protected void CustomiseInformationButton_Click(object sender, EventArgs e)
         {
             int result = 0;
@@ -88,6 +85,7 @@ namespace icasln
             {
                 result = info.ChatbotInfoInsert();
             }
+            Response.Redirect("ChatbotLanding.aspx");
         }
         protected void UpdateInformationButton_Click(object sender, EventArgs e)
         {
@@ -98,7 +96,7 @@ namespace icasln
             Chatbot_Info info2 = new Chatbot_Info(null, updatedName, updatedPrompt, UserID);
             // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
             result = info2.ChatbotInfoUpdate(updatedName, updatedPrompt, UserID);
-
+            Response.Redirect("ChatbotLanding.aspx");
 
         }
         protected void SelectPersonalityButton_Click(object sender, EventArgs e)
@@ -137,6 +135,7 @@ namespace icasln
                         result = info.ChatbotInfoInsert();
                     }
                 }
+            Response.Redirect("ChatbotLanding.aspx");
         }
 
         protected void SelectNewPersonalityButton_Click(object sender, EventArgs e)
@@ -172,6 +171,7 @@ namespace icasln
                 // Call the ChatbotInfoUpdate method passing updatedName, updatedPrompt, and userID
                 result = info2.ChatbotInfoUpdate(OldManName2, OldManPrompt2, UserID);
             }
+            Response.Redirect("ChatbotLanding.aspx");
         }
 
 

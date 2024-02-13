@@ -252,7 +252,7 @@
         </div>
     </div>
 </div>
-
+    <br /><br />
     <h1>Your Queries Our Answers </h1>
     <form id="form1" runat="server">
 
@@ -265,6 +265,9 @@
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_FirstName" runat="server" ControlToValidate="tb_FirstName" ErrorMessage="Please enter First Name" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
+                    <asp:RegularExpressionValidator ID="rev_FirstName" runat="server" ControlToValidate="tb_FirstName"
+            ErrorMessage="Only letters are allowed" ForeColor="Red"
+            ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -274,6 +277,9 @@
                 <td>
                     <asp:RequiredFieldValidator ID="rfv_LastName" runat="server" ControlToValidate="tb_LastName" ErrorMessage="Please enter Last Name" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tb_LastName"
+ErrorMessage="Only letters are allowed" ForeColor="Red"
+ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
             </tr>
             <tr>
                 <td>Email </td>
