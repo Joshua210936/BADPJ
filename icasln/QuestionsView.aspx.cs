@@ -38,11 +38,7 @@ namespace icasln
 
 
 
-        protected void btn_AddProduct_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("QuestionsInsert.aspx");
-        }
-
+       
         protected void gvProduct_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int result = 0;

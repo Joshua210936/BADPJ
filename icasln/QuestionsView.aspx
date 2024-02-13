@@ -65,6 +65,6 @@
         </asp:GridView>
         <br />
         <br />
-        <asp:Button ID="btn_AddProduct" runat="server" Text="Add New Product" OnClick="btn_AddProduct_Click" />
+       
     </form>
 </asp:Content>
