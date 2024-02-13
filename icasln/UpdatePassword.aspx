@@ -42,12 +42,12 @@
 
                   <div class="form-outline mb-4">
                       <asp:Label ID="lblNewPassword" runat="server" Text="New Password:" AssociatedControlID="txtNewPassword"></asp:Label>
-                    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" class="form-control form-control-lg"></asp:TextBox>
 
                   </div>
                     <div class="form-outline mb-4">
                       <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password:" AssociatedControlID="txtConfirmPassword"></asp:Label>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" class="form-control form-control-lg"></asp:TextBox>
 
                   </div>
 
