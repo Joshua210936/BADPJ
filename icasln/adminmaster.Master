@@ -44,6 +44,9 @@
                        <a class="nav-link" href="#">Premium Details</a>
                    </li>
                    <li class="nav-item px-3">
+                       <a class="nav-link" href="ProductView.aspx">Add Products</a>
+                   </li>
+                   <li class="nav-item px-3">
                        <a class="nav-link" href="Subscriptions.aspx">View Subscriptions</a>
                    </li>
                    <li class="nav-item px-3">
