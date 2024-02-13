@@ -1,5 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/usermaster.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="icasln.ForgotPassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+             @keyframes fade-in {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+        .image-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+                .fade-in-bg {
+          transition: background-image 1s ease-in-out;
+        }
+
+        .fade-in-bg.fade-in {
+          opacity: 1;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <section class="vh-100 fade-in-bg" style="background-image: url('https://static.vecteezy.com/system/resources/previews/002/099/717/non_2x/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg'); background-size: cover; background-position: center;">
